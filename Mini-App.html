@@ -1,0 +1,1096 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ru"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Romanova Study Abroad&lt;/title&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--bg: #F5F1E8;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--bg2: #E8E3D8;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--navy: #1A3A52;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--green: #2C5530;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--burgundy: #6B2737;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--burgundy-dark: #4A1A25;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--green-dark: #1E3A21;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--gold: #B8956A;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--gold-dark: #9A7A56;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--text: #2C2C2C;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--text2: #4A4A4A;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--white: #FAFAFA;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 480px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* SCREENS */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.screen { display:none; min-height:100vh; padding-bottom: 90px; animation: fadeIn 0.18s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.screen.active { display:block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes fadeIn { from { opacity:0; transform: translateY(6px); } to { opacity:1; transform: translateY(0); } }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* HEADER */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--navy);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: sticky;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>z-index: 100;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 52px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.header-logo { font-size: 14px; font-weight: 700; color: var(--white); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.back-btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: none; border: none; color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 26px; cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-width: 44px; min-height: 44px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>opacity: 0.9;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.back-btn:active { opacity: 0.6; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.header-spacer { width: 44px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* HERO */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(160deg, var(--navy) 0%, #0f2538 100%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 28px 20px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-badge {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: rgba(184,149,106,0.2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid var(--gold);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--gold);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 10px; font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>letter-spacing: 1.5px; text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero h1 { color: var(--white); font-size: 22px; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-desc { color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.6; margin-bottom: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.hero-stats { display: flex; justify-content: center; gap: 0; margin-bottom: 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat { text-align: center; flex: 1; padding: 0 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat + .stat { border-left: 1px solid rgba(255,255,255,0.15); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat-num { color: var(--gold); font-size: 20px; font-weight: 800; display:block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat-label { color: rgba(255,255,255,0.5); font-size: 10px; margin-top: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat-context { color: rgba(255,255,255,0.35); font-size: 9px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* BUTTONS */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block; width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 14px 18px; border-radius: 12px; border: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 14px; font-weight: 600; cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.15s; margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn:active { transform: scale(0.98); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-primary { background: var(--burgundy); color: var(--white); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-primary:active { background: var(--burgundy-dark); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-secondary { background: var(--green); color: var(--white); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-secondary:active { background: var(--green-dark); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--bg2); background: var(--white); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-ghost:active { background: var(--bg2); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-gold { background: var(--gold); color: var(--white); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-gold:active { background: var(--gold-dark); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* TEXT LINK — вместо кнопок для вторичных действий */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.text-links { margin-top: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.text-link {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--text2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-decoration-color: var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-underline-offset: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: color 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: none; background: none; width: 100%; font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.text-link:active { color: var(--navy); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* CONTENT */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.content { padding: 20px 18px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* SECTION TITLE */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-title { color: var(--navy); font-size: 19px; font-weight: 800; margin-bottom: 6px; line-height: 1.3; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-subtitle { color: var(--text2); font-size: 13px; margin-bottom: 20px; line-height: 1.55; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* SECTION ACCENT BAR */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-accent {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 4px; border-radius: 2px; margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(90deg, var(--burgundy), var(--gold));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-accent.green { background: linear-gradient(90deg, var(--green), var(--gold)); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.section-accent.navy { background: linear-gradient(90deg, var(--navy), var(--green)); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* HOME QUICK LINKS */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1.5px solid var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 16px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>gap: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card:active { border-color: var(--navy); background: var(--bg2); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card-icon { font-size: 26px; flex-shrink: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card-body { flex: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card-title { font-size: 14px; font-weight: 700; color: var(--navy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card-sub { font-size: 12px; color: var(--text2); margin-top: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.quick-card-arrow { color: var(--bg2); font-size: 18px; flex-shrink:0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* FORMAT CARDS — кликабельные */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1.5px solid var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 16px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card:active { border-color: var(--navy); background: var(--bg2); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card.featured { border-color: var(--burgundy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card.gold { border-color: var(--gold); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card-body { flex: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card-title { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 2px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card-title.gold { color: var(--gold); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card-price { font-size: 17px; font-weight: 800; color: var(--navy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card-desc { font-size: 12px; color: var(--text2); margin-top: 3px; line-height: 1.4; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card-arrow { color: var(--bg2); font-size: 18px; flex-shrink:0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card.featured .format-card-arrow { color: var(--burgundy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.format-card.gold .format-card-arrow { color: var(--gold); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* DETAIL CARD (внутри страниц форматов) */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.detail-card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--white); border: 1.5px solid var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 12px; padding: 16px 18px; margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.detail-card.featured { border-color: var(--burgundy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.detail-card.gold { border-color: var(--gold); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card-label.gold { color: var(--gold); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card-price { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card-desc { font-size: 13px; color: var(--text2); line-height: 1.55; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* FEATURES */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.features { list-style: none; margin: 10px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.features li { font-size: 13px; color: var(--text); padding: 5px 0; display: flex; gap: 8px; line-height: 1.4; border-bottom: 1px solid var(--bg2); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.features li:last-child { border-bottom: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.features li::before { content: "✓"; color: var(--green); font-weight: 800; flex-shrink:0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* DIVIDER */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.divider { height: 1px; background: var(--bg2); margin: 18px 0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* HIGHLIGHT */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.highlight {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--bg2); border-left: 3px solid var(--burgundy);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 0 10px 10px 0; padding: 12px 14px; margin-bottom: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.highlight p { font-size: 13px; color: var(--text); line-height: 1.55; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.highlight.green { border-color: var(--green); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.highlight.gold { border-color: var(--gold); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* TEST */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.test-progress-wrap { margin-bottom: 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.test-step-label { font-size: 12px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; font-weight: 600; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.test-progress { display: flex; gap: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-bar { flex: 1; height: 8px; background: var(--bg2); border-radius: 4px; transition: background 0.3s; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-bar.active { background: var(--burgundy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-bar.done { background: var(--green); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.test-question { color: var(--navy); font-size: 19px; font-weight: 800; margin-bottom: 22px; line-height: 1.4; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block; width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--white); border: 1.5px solid var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 14px; color: var(--text); text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; transition: all 0.15s; font-family: inherit; font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn:active { border-color: var(--burgundy); background: #fdf7f7; color: var(--burgundy); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* RESULT */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.result-hero {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(160deg, var(--green) 0%, var(--navy) 100%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 24px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.result-badge {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-flex; align-items: center; gap: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: rgba(255,255,255,0.15);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--white); font-size: 11px; font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.result-context {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: rgba(255,255,255,0.75); font-size: 13px; line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.result-title { color: var(--white); font-size: 20px; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* FAQ */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-item { border-bottom: 1px solid var(--bg2); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-q {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 15px 4px; font-size: 14px; font-weight: 600; color: var(--navy);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-q .arrow { transition: transform 0.25s; font-size: 12px; color: var(--text2); flex-shrink:0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-q.open .arrow { transform: rotate(180deg); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-a { display: none; padding: 0 0 16px; font-size: 13px; color: var(--text2); line-height: 1.65; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-a.show { display: block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.faq-cta { display: inline-block; margin-top: 10px; color: var(--burgundy); font-size: 12px; font-weight: 700; cursor: pointer; text-decoration: underline; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* CONTACT ROW */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.contact-row {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--white); border: 1.5px solid var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-decoration: none; color: var(--text); transition: border-color 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.contact-row:active { border-color: var(--navy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.contact-icon { font-size: 22px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.contact-info { flex: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.contact-name { font-size: 13px; font-weight: 600; color: var(--navy); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.contact-val { font-size: 12px; color: var(--text2); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* PATH CARD */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.path-card { background: var(--white); border: 1.5px solid var(--bg2); border-radius: 12px; padding: 16px; margin-bottom: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.path-num {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-block; background: var(--navy); color: var(--white);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 11px; font-weight: 700; width: 24px; height: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 50%; text-align: center; line-height: 24px; margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.path-title { color: var(--navy); font-size: 15px; font-weight: 700; margin-bottom: 3px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.path-sub { color: var(--text2); font-size: 12px; line-height: 1.4; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* DEADLINE */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.deadline { background: var(--burgundy); color: var(--white); font-size: 13px; font-weight: 700; padding: 10px 16px; border-radius: 10px; text-align: center; margin-bottom: 18px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* BOTTOM NAV */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bottom-nav {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%; max-width: 480px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--white); border-top: 1px solid var(--bg2);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; z-index: 200;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 -2px 16px rgba(0,0,0,0.07);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-item {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex: 1; padding: 10px 4px 8px; text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; border: none; background: none; font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-icon { font-size: 21px; display: block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-label { font-size: 9px; color: var(--text2); display: block; margin-top: 2px; font-weight: 500; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.nav-item.active .nav-label { color: var(--burgundy); font-weight: 700; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* STATS ROW */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stats-row { display: flex; gap: 8px; margin-bottom: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat-card { flex: 1; background: var(--white); border: 1.5px solid var(--bg2); border-radius: 12px; padding: 14px 10px; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat-card-num { font-size: 20px; font-weight: 800; color: var(--navy); display: block; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.stat-card-label { font-size: 11px; color: var(--text2); margin-top: 2px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>a.btn, a.contact-row { display: block; }</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ HOME ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen active" id="s-home"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-badge"&gt;Romanova Study Abroad&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Поступление за рубеж&lt;br&gt;с Дианой Романовой&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="hero-desc"&gt;С 2020 года помогаю поступить в университеты США, Европы и Азии.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hero-stats"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-num"&gt;1,500+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-label"&gt;поступлений&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-context"&gt;с 2020 года&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-num"&gt;200+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-label"&gt;клиентов&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-context"&gt;18 стран&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-num"&gt;$3M+&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-label"&gt;стипендий&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="stat-context"&gt;для клиентов&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-primary" onclick="go('s-test-start'); setNav('nav-test')"&gt;🎯 Найти свой формат — тест 3 вопроса&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle" style="margin-bottom:14px"&gt;Актуальное прямо сейчас:&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="quick-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="quick-card" onclick="go('s-competition')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="quick-card-icon"&gt;🔥&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="quick-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="quick-card-title"&gt;Конкурс «18 путей за рубеж»&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="quick-card-sub"&gt;Бесплатное сопровождение · Дедлайн 15 мая&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="quick-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="quick-card" onclick="go('s-korea')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="quick-card-icon"&gt;✈️&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="quick-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="quick-card-title"&gt;Языковой лагерь в Корее&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="quick-card-sub"&gt;Лето 2026 · Школьники 14–18 лет&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="quick-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FREE MATERIALS ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-free"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Бесплатные материалы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent green"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;🆓 Бесплатные ресурсы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Начните изучать тему прямо сейчас&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;📺&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;YouTube канал&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;400+ видео: страны, стипендии, разборы документов&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://t.me/romanovastudyabroad" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;💬&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Telegram канал&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;3 поста в день Пн–Пт: стажировки, стипендии, кейсы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://romanova-studyabroad.com" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;📚&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Сайт&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;Статьи, чек-листы, инструкции&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="format-card gold" style="cursor:default"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;🚀&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title gold"&gt;Образовательная платформа&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;В разработке. Следите за анонсом в Telegram!&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-primary" onclick="go('s-test-start'); setNav('nav-test')"&gt;🎯 Подобрать формат работы&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ TEST START ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-test-start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home'); setNav('nav-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Тест&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:44px; margin-bottom:16px;"&gt;🎯&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;Найдём ваш формат&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Всего 3 вопроса. Ответьте честно — получите точную рекомендацию.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-primary" onclick="startTest()"&gt;Начать →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-formats'); setNav('nav-formats')"&gt;Посмотреть все форматы самостоятельно&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ TEST Q1 ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-test-q1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-test-start')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Тест&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="test-progress-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="test-step-label"&gt;Вопрос 1 из 3&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="test-progress"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar active"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="test-question"&gt;На каком этапе вы сейчас?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(1,'izuchayu')"&gt;🔍 Только изучаю тему&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(1,'vybirayu')"&gt;📚 Выбираю страну или программу&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(1,'gotovlus')"&gt;📝 Готовлюсь к подаче&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(1,'podal')"&gt;✅ Уже подал(а), жду результатов&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ TEST Q2 ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-test-q2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-test-q1')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Тест&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="test-progress-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="test-step-label"&gt;Вопрос 2 из 3&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="test-progress"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar done"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar active"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="test-question"&gt;Как планируете поступать?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(2,'sam')"&gt;💪 Самостоятельно, с инструкциями&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(2,'support')"&gt;🤝 С поддержкой эксперта&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(2,'neznayu')"&gt;🤷 Пока не знаю&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ TEST Q3 ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-test-q3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-test-q2')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Тест&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="test-progress-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="test-step-label"&gt;Вопрос 3 из 3&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="test-progress"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar done"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar done"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-bar active"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="test-question"&gt;Ваш бюджет на помощь с поступлением?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(3,'do20')"&gt;💎 До 20,000₽/мес&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(3,'20-100')"&gt;🎯 20,000 – 100,000₽&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(3,'100-300')"&gt;🤝 100,000 – 300,000₽&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(3,'300plus')"&gt;⭐ 300,000₽+&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="option-btn" onclick="answer(3,'all')"&gt;💰 Хочу узнать все варианты&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ RESULT ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-result"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="result-hero-block"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content" id="result-content"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FORMATS ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-formats"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home'); setNav('nav-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Форматы работы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent navy"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;📋 Форматы работы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Нажмите на формат — узнайте подробнее&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="format-card" onclick="go('s-format-free')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;🆓&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Бесплатные материалы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-price" style="font-size:14px; color:var(--green)"&gt;YouTube · Telegram · Платформа&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;Для тех, кто только начинает изучать тему&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="format-card" onclick="go('s-format-razbor')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;🎯&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Разбор профиля&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-price"&gt;20,000₽&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;Разовая консультация 90 минут · Стратегия и план&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="format-card featured" onclick="go('s-format-mentor')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;🤝&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Менторское сопровождение&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-price"&gt;75,000₽/мес&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;Вы делаете, я контролирую · От 2 месяцев&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow" style="color:var(--burgundy)"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="format-card gold" onclick="go('s-format-individual')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;⭐&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title gold"&gt;Индивидуальное сопровождение&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-price"&gt;150,000 – 500,000₽&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;Я делаю всё за вас · От подбора до оффера&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow" style="color:var(--gold)"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-about'); setNav('nav-more')"&gt;ℹ️ О проекте и Диане Романовой&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FORMAT: FREE ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-format-free"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-formats')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Бесплатные материалы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent green"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;🆓 Бесплатные материалы&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Начните изучать тему прямо сейчас — бесплатно&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;📺&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;YouTube канал&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;400+ видео: страны, стипендии, разборы документов&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://t.me/romanovastudyabroad" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;💬&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Telegram канал&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;3 поста в день Пн–Пт&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://romanova-studyabroad.com" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;📚&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title"&gt;Сайт&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;Статьи, чек-листы, инструкции&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="format-card gold" style="cursor:default"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:28px"&gt;🚀&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-title gold"&gt;Образовательная платформа&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="format-card-desc"&gt;В разработке — следите за анонсом в Telegram&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-test-start'); setNav('nav-test')"&gt;Не знаете, что выбрать? Пройдите тест →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FORMAT: РАЗБОР ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-format-razbor"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-formats')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Разбор профиля&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;🎯 Разбор профиля&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Разовая консультация — понять ситуацию, получить стратегию и план&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card featured"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label"&gt;Формат и стоимость&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-price"&gt;20,000₽ · 90 минут&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-desc"&gt;Яндекс Телемост · Разово&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card-label" style="margin-bottom:10px"&gt;Что получите:&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="features"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Анализ вашего профиля&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Оценка шансов на топ-программы&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Список 10–15 подходящих программ&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Рекомендации по стипендиям&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Стратегия подготовки&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;План действий на 6–12 месяцев&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Запись встречи&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-primary"&gt;💳 Записаться и оплатить&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-question')"&gt;Есть вопрос перед записью?&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FORMAT: МЕНТОРСКОЕ ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-format-mentor"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-formats')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Менторское&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;🤝 Менторское сопровождение&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Вы делаете сами, но с регулярной обратной связью и контролем эксперта&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card featured"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label"&gt;Стоимость&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-price"&gt;75,000₽/месяц&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-desc"&gt;Минимум 2 месяца · В среднем 3–4 месяца&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card-label" style="margin-bottom:10px"&gt;Что входит:&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="features"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Еженедельные встречи онлайн&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Неограниченное количество программ&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Проверка всех документов с фидбеком&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Поддержка в Telegram между встречами&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Контроль дедлайнов&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Помощь в сложных ситуациях&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Подготовка к интервью&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://forms.gle/kZZ8PWnq8enYT4MBA" target="_blank" class="btn btn-primary"&gt;✉️ Оставить заявку&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://romanova-studyabroad.com/mentor" target="_blank" class="btn btn-ghost"&gt;📋 Подробнее на сайте&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-format-razbor')"&gt;Не уверены? Начните с разбора профиля (20,000₽)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FORMAT: ИНДИВИДУАЛЬНОЕ ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-format-individual"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-formats')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Индивидуальное&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent" style="background: linear-gradient(90deg, var(--gold), var(--burgundy))"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;⭐ Индивидуальное сопровождение&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Я делаю всё за вас: от подбора программ до получения офферов&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label"&gt;📦 STARTER&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-price"&gt;150,000₽&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-desc"&gt;Подача на 1–2 программы · Для тех, у кого чёткая цель&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card featured"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label"&gt;📦 STANDARD ⭐ популярный&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-price"&gt;300,000₽&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-desc"&gt;Подача на 3–5 программ + стипендии · Максимум шансов&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card gold"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label gold"&gt;📦 PREMIUM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-price"&gt;500,000₽&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-desc"&gt;Безлимит программ + VIP-сопровождение до получения офферов&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="features" style="margin-bottom:20px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Подбор программ под ваш профиль&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Подготовка всех документов&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Подача всех заявок&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Сопровождение до получения офферов&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Работаю лично — без команды и конвейера&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://forms.gle/kZZ8PWnq8enYT4MBA" target="_blank" class="btn btn-gold"&gt;✉️ Оставить заявку&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost"&gt;📋 Подробнее на сайте&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-format-razbor')"&gt;Начать с разбора профиля (20,000₽)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ COMPETITION ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-competition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home'); setNav('nav-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Конкурс&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent" style="background: linear-gradient(90deg, var(--burgundy), var(--navy))"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;🔥 «18 путей за рубеж»&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;18 мест на бесплатное сопровождение на поступление 2027–2028&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="deadline"&gt;⏰ Дедлайн: 15 мая 2026&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="path-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-num"&gt;1&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-title"&gt;VIP-сопровождение&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-sub"&gt;Для сильных кандидатов · Полное сопровождение бесплатно&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="path-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-num"&gt;2&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-title"&gt;Менторское&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-sub"&gt;Для самостоятельных · Еженедельные встречи бесплатно&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="path-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-num"&gt;3&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-title"&gt;Risk-Sharing&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="path-sub"&gt;Для нестандартных профилей · Оплата только при поступлении&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://docs.google.com/forms/d/e/1FAIpQLSf3F6qAOjNjro37Vk9Bmmmq3eQEJpyUcL9qR58mHaObS9ORwQ/viewform" target="_blank" class="btn btn-primary"&gt;✉️ Подать заявку&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="window.open('https://romanova-studyabroad.com/competition','_blank')"&gt;Подробнее о трёх путях на сайте&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ KOREA ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-korea"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home'); setNav('nav-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Лагерь в Корее&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent green"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;✈️ Языковой лагерь в Южной Корее&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Лето 2026 · Для школьников 14–18 лет&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label"&gt;Программа&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="features" style="margin-top:8px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Интенсивный корейский и английский&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Погружение в культуру&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Экскурсии по университетам&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;Подготовка к TOPIK / TOEIC&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://romanova-studyabroad.com/korea-language-camp" target="_blank" class="btn btn-primary"&gt;📋 Подробнее на сайте&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="window.open('https://t.me/romanova_studyabroad','_blank')"&gt;Оставить заявку в Telegram&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ QUESTION ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-question"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home'); setNav('nav-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;Вопрос&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent navy"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;💬 Есть вопрос?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Напишите — Диана ответит в течение 24 часов.&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="highlight green"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Здесь можно спросить про форматы, цены и процесс работы.&lt;br&gt;&lt;br&gt;Если вопрос про стратегию поступления — лучше начать с теста или разбора профиля: так получите развёрнутый ответ именно под вашу ситуацию.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://t.me/romanova_studyabroad" target="_blank" class="btn btn-primary"&gt;💬 Написать в Telegram&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="text-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-test-start'); setNav('nav-test')"&gt;Пройти тест и получить рекомендацию&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="text-link" onclick="go('s-format-razbor')"&gt;Записаться на разбор профиля&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ FAQ ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-faq"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-home'); setNav('nav-home')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;FAQ&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent navy"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;❓ Частые вопросы&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Сколько стоят услуги? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;🆓 Бесплатно: YouTube, Telegram, Сайт&lt;br&gt;&lt;br&gt;🎯 Разбор профиля: 20,000₽ (разово)&lt;br&gt;🤝 Менторское: 75,000₽/мес (от 2 мес)&lt;br&gt;⭐ Индивидуальное: 150,000 – 500,000₽&lt;br&gt;&lt;br&gt;&lt;span class="faq-cta" onclick="go('s-formats'); setNav('nav-formats')"&gt;Посмотреть все форматы →&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;В чём разница между форматами? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;🆓 Бесплатные — YouTube и Telegram для самостоятельного изучения&lt;br&gt;&lt;br&gt;🎯 Разбор — я даю стратегию, вы действуете сами&lt;br&gt;&lt;br&gt;🤝 Менторское — вы делаете, я контролирую&lt;br&gt;&lt;br&gt;⭐ Индивидуальное — я делаю всё за вас&lt;br&gt;&lt;br&gt;&lt;span class="faq-cta" onclick="startTest()"&gt;Не знаете, что выбрать? Пройдите тест →&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Сколько длится процесс? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;🎯 Разбор: 90 минут (разово)&lt;br&gt;&lt;br&gt;🤝 Менторское: от 2 месяцев, в среднем 3–4&lt;br&gt;&lt;br&gt;⭐ Индивидуальное: 6–12 месяцев в зависимости от дедлайнов&lt;br&gt;&lt;br&gt;💡 Начинайте минимум за 12 месяцев до поступления!&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Как начать работу? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;🎯 Разбор: нажмите «Записаться» → оплатите → выберите время → встретимся онлайн&lt;br&gt;&lt;br&gt;🤝 Менторское: оставьте заявку → изучу ситуацию → созвонимся → начнём&lt;br&gt;&lt;br&gt;⭐ Индивидуальное: заявка → изучу профиль → созвонимся → договор → старт&lt;br&gt;&lt;br&gt;&lt;span class="faq-cta" onclick="go('s-formats'); setNav('nav-formats')"&gt;Выбрать формат →&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Какие университеты в портфолио? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;Клиенты поступили в 200+ университетов в 18 странах: 🇺🇸 США и Канада, 🇬🇧 Великобритания, 🇩🇪🇫🇷 Европа, 🇰🇷🇯🇵🇨🇳 Азия.&lt;br&gt;&lt;br&gt;$3M+ стипендий · 1,500+ поступлений с 2020 года&lt;br&gt;&lt;br&gt;&lt;span class="faq-cta" onclick="window.open('https://romanova-studyabroad.com/offers_and_feedbacks','_blank')"&gt;Отзывы и результаты на сайте →&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Что если не поступлю? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;⭐ Standard и Premium — гарантия поступления прописана в договоре.&lt;br&gt;&lt;br&gt;Если не поступите — помогу подать на другие программы бесплатно в рамках того же цикла поступления.&lt;br&gt;&lt;br&gt;&lt;span class="faq-cta" onclick="go('s-question')"&gt;Остались вопросы? Напишите →&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Можно ли бесплатную консультацию? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;Бесплатные консультации больше не проводятся — 90% вопросов повторяются, поэтому эффективнее создать контент для всех.&lt;br&gt;&lt;br&gt;Вместо этого:&lt;br&gt;📺 Видео «Вместо консультации» — 60 мин, все ответы&lt;br&gt;🎯 Тест — 3 вопроса и персональная рекомендация&lt;br&gt;💳 Разбор за 20,000₽ — детальный анализ именно вас&lt;br&gt;&lt;br&gt;&lt;span class="faq-cta" onclick="window.open('https://youtu.be/RmERKgA78mg','_blank')"&gt;Смотреть видео →&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="faq-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-q" onclick="toggleFaq(this)"&gt;Как связаться с Дианой? &lt;span class="arrow"&gt;▼&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="faq-a"&gt;💬 Telegram: &lt;a href="https://t.me/romanova_studyabroad" target="_blank" style="color:var(--burgundy)"&gt;@romanova_studyabroad&lt;/a&gt;&lt;br&gt;📺 YouTube: &lt;a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" style="color:var(--burgundy)"&gt;@Romanova_StudyAbroad&lt;/a&gt;&lt;br&gt;🌐 Сайт: &lt;a href="https://romanova-studyabroad.com" target="_blank" style="color:var(--burgundy)"&gt;romanova-studyabroad.com&lt;/a&gt;&lt;br&gt;📧 romanova.studyabroad@gmail.com&lt;br&gt;&lt;br&gt;⚠️ В личных сообщениях — только организационные вопросы. По стратегии поступления — через платные форматы.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ ABOUT ═══ --&gt;</p>
+<p class="p1">&lt;div class="screen" id="s-about"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="back-btn" onclick="go('s-formats'); setNav('nav-formats')"&gt;‹&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-logo"&gt;О проекте&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-spacer"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-accent navy"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-title"&gt;ℹ️ О проекте&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="section-subtitle"&gt;Romanova Study Abroad — образовательный проект о поступлении за рубеж&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="detail-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-label"&gt;Основатель&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-price" style="font-size:17px"&gt;Диана Романова&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card-desc" style="margin-top:8px"&gt;Сама прошла этот путь:&lt;br&gt;• Бакалавриат в Южной Корее — 4 года&lt;br&gt;• Магистратура в США — со стипендией&lt;br&gt;&lt;br&gt;С 2020 года помогаю другим. Работаю лично — без команды и конвейера.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="stats-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-card"&gt;&lt;span class="stat-card-num"&gt;$3M+&lt;/span&gt;&lt;div class="stat-card-label"&gt;стипендий для клиентов&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-card"&gt;&lt;span class="stat-card-num"&gt;200+&lt;/span&gt;&lt;div class="stat-card-label"&gt;университетов&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="stat-card"&gt;&lt;span class="stat-card-num"&gt;1,500+&lt;/span&gt;&lt;div class="stat-card-label"&gt;поступлений с 2020&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="highlight green"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Я не делаю за вас (если вы не хотите). Я показываю КАК делать самостоятельно. А если нужна помощь — я рядом.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://romanova-studyabroad.com/" target="_blank" class="format-card" style="margin-bottom:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:24px"&gt;🌐&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;&lt;div class="format-card-title"&gt;Сайт&lt;/div&gt;&lt;div class="format-card-desc"&gt;romanova-studyabroad.com&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="format-card" style="margin-bottom:10px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:24px"&gt;📺&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;&lt;div class="format-card-title"&gt;YouTube&lt;/div&gt;&lt;div class="format-card-desc"&gt;@Romanova_StudyAbroad&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://t.me/romanovastudyabroad" target="_blank" class="format-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:24px"&gt;💬&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="format-card-body"&gt;&lt;div class="format-card-title"&gt;Telegram канал&lt;/div&gt;&lt;div class="format-card-desc"&gt;@romanovastudyabroad&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="format-card-arrow"&gt;›&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ═══ BOTTOM NAV ═══ --&gt;</p>
+<p class="p1">&lt;nav class="bottom-nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="nav-item active" id="nav-home" onclick="go('s-home'); setNav('nav-home')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="nav-icon"&gt;🏠&lt;/span&gt;&lt;span class="nav-label"&gt;Главная&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="nav-item" id="nav-test" onclick="go('s-test-start'); setNav('nav-test')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="nav-icon"&gt;🎯&lt;/span&gt;&lt;span class="nav-label"&gt;Тест&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="nav-item" id="nav-formats" onclick="go('s-formats'); setNav('nav-formats')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="nav-icon"&gt;📋&lt;/span&gt;&lt;span class="nav-label"&gt;Форматы&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="nav-item" id="nav-faq" onclick="go('s-faq'); setNav('nav-faq')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="nav-icon"&gt;❓&lt;/span&gt;&lt;span class="nav-label"&gt;FAQ&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="nav-item" id="nav-more" onclick="go('s-about'); setNav('nav-more')"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span class="nav-icon"&gt;ℹ️&lt;/span&gt;&lt;span class="nav-label"&gt;О проекте&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
+<p class="p1">&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>var answers = {};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function go(id) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll('.screen').forEach(s =&gt; s.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var el = document.getElementById(id);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.scrollTo(0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function setNav(id) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll('.nav-item').forEach(n =&gt; n.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var el = document.getElementById(id);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (el) el.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function startTest() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>answers = {};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>go('s-test-q1');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setNav('nav-test');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function answer(q, val) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>answers[q] = val;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (q === 1) go('s-test-q2');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>else if (q === 2) go('s-test-q3');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>else showResult();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function showResult() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var a1 = answers[1], a2 = answers[2], a3 = answers[3];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var hero = '', content = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (a3 === 'all' || a2 === 'neznayu') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Все форматы — от бесплатного до VIP', 'Показываю весь спектр, чтобы вы могли выбрать сами');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result7();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (a3 === '300plus') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Индивидуальное сопровождение', 'Вы готовы инвестировать в максимальный результат — это правильный выбор');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result6();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (a1 === 'izuchayu' &amp;&amp; a2 === 'sam') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Начните с бесплатных материалов', 'Вы только изучаете тему — и это отличная отправная точка. Никаких вложений пока не нужно.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result1();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (a1 === 'vybirayu' &amp;&amp; a2 === 'sam') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Бесплатные ресурсы + следите за платформой', 'Вы выбираете страну и хотите разобраться самостоятельно — YouTube и Telegram дадут всё необходимое для старта.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result2();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (a1 === 'gotovlus' &amp;&amp; a2 === 'sam') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Разбор профиля — лучший следующий шаг', 'Вы готовитесь к подаче и хотите действовать сами — разбор поможет выстроить точную стратегию.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result3();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (a2 === 'support' &amp;&amp; (a3 === '20-100' || a3 === 'do20')) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Менторское сопровождение', 'Вы хотите поддержку эксперта — менторский формат даст регулярную обратную связь без потери самостоятельности.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result4();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (a2 === 'support' &amp;&amp; a3 === '100-300') {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Менторское или Индивидуальное', 'Вы готовы инвестировать в качественную поддержку — у вас есть два сильных варианта.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result5();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hero = mkHero('Все форматы работы', 'Давайте посмотрим на все варианты вместе');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content = result7();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('result-hero-block').innerHTML = hero;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('result-content').innerHTML = content;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>go('s-result');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function mkHero(title, context) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="result-hero"&gt;&lt;div class="result-badge"&gt;✅ Ваша рекомендация&lt;/div&gt;&lt;div class="result-title"&gt;' + title + '&lt;/div&gt;&lt;div class="result-context"&gt;' + context + '&lt;/div&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result1() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;С чего начать прямо сейчас&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-desc"&gt;YouTube · Telegram · Сайт — всё бесплатно и доступно сразу&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card gold"&gt;&lt;div class="card-label gold"&gt;🚀 Платформа в разработке&lt;/div&gt;&lt;div class="card-desc"&gt;Подпишитесь на Telegram, чтобы первой узнать о запуске&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://t.me/romanovastudyabroad" target="_blank" class="btn btn-primary"&gt;💬 Подписаться на Telegram&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="btn btn-ghost"&gt;📺 YouTube канал&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Есть вопрос? Написать Диане&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result2() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;Бесплатный старт&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-desc"&gt;400+ видео по странам на YouTube · Ежедневные посты в Telegram с кейсами и стратегиями&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card gold"&gt;&lt;div class="card-label gold"&gt;🚀 Образовательная платформа&lt;/div&gt;&lt;div class="card-desc"&gt;В разработке — пошаговые материалы по самостоятельному поступлению. Подпишитесь, чтобы не пропустить запуск.&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://t.me/romanovastudyabroad" target="_blank" class="btn btn-primary"&gt;💬 Подписаться на Telegram&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="btn btn-ghost"&gt;📺 YouTube по странам&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Есть вопрос? Написать Диане&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result3() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card featured" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;🎯 Разбор профиля&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-price"&gt;20,000₽ · 90 минут&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-desc"&gt;Анализ профиля, оценка шансов, стратегия и план на 6–12 месяцев. 1,500+ поступлений.&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card"&gt;&lt;div class="card-label"&gt;Пока готовитесь&lt;/div&gt;&lt;div class="card-desc"&gt;YouTube и Telegram — 400+ видео и ежедневные посты по стратегии поступления&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-primary"&gt;🎯 Записаться на разбор&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://t.me/romanovastudyabroad" target="_blank" class="btn btn-ghost"&gt;💬 Telegram канал&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Есть вопрос перед записью?&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result4() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card featured" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;🤝 Менторское сопровождение&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-price"&gt;75,000₽/мес · от 2 мес&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-desc"&gt;Еженедельные встречи · Проверка документов · Telegram-поддержка · Контроль дедлайнов&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card"&gt;&lt;div class="card-label"&gt;Не уверены? Начните с разбора&lt;/div&gt;&lt;div class="card-price" style="font-size:16px"&gt;20,000₽ · 90 минут&lt;/div&gt;&lt;div class="card-desc"&gt;Поймёте, нужна ли дальнейшая помощь — и какой формат подойдёт лучше&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://forms.gle/kZZ8PWnq8enYT4MBA" target="_blank" class="btn btn-primary"&gt;✉️ Оставить заявку на менторское&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-ghost"&gt;🎯 Сначала разбор (20,000₽)&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Есть вопрос? Написать Диане&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result5() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;🤝 Менторское ⭐&lt;/div&gt;&lt;div class="card-price"&gt;75,000₽/мес&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-desc"&gt;Вы делаете, Диана контролирует · Регулярная поддержка от 2 месяцев&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card featured"&gt;&lt;div class="card-label"&gt;⭐ Индивидуальное Starter&lt;/div&gt;&lt;div class="card-price"&gt;150,000₽&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-desc"&gt;Подача на 1–2 программы · Диана делает всё за вас&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://forms.gle/kZZ8PWnq8enYT4MBA" target="_blank" class="btn btn-primary"&gt;✉️ Оставить заявку&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://romanova-studyabroad.com/mentor" target="_blank" class="btn btn-ghost"&gt;🤝 Подробнее о менторском&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;button class="text-link" onclick="window.open(\'https://romanova-studyabroad.com/individual\',\'_blank\')"&gt;Подробнее об индивидуальном&lt;/button&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Есть вопрос? Написать Диане&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result6() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;📦 STARTER&lt;/div&gt;&lt;div class="card-price"&gt;150,000₽&lt;/div&gt;&lt;div class="card-desc"&gt;1–2 программы&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card featured"&gt;&lt;div class="card-label"&gt;📦 STANDARD ⭐&lt;/div&gt;&lt;div class="card-price"&gt;300,000₽&lt;/div&gt;&lt;div class="card-desc"&gt;3–5 программ + стипендии · Максимум шансов&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card gold"&gt;&lt;div class="card-label gold"&gt;📦 PREMIUM&lt;/div&gt;&lt;div class="card-price"&gt;500,000₽&lt;/div&gt;&lt;div class="card-desc"&gt;Безлимит программ · VIP до офферов&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://forms.gle/kZZ8PWnq8enYT4MBA" target="_blank" class="btn btn-gold"&gt;✉️ Оставить заявку&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost"&gt;📋 Подробнее на сайте&lt;/a&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;&lt;button class="text-link" onclick="go(\'s-format-razbor\')"&gt;Начать с разбора профиля (20,000₽)&lt;/button&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Есть вопрос? Написать Диане&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function result7() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return '&lt;div class="detail-card" style="margin-top:0; border-radius:0 0 12px 12px; border-top:none"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="card-label"&gt;🆓 Бесплатно&lt;/div&gt;&lt;div class="card-desc"&gt;YouTube, Telegram, Сайт&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card"&gt;&lt;div class="card-label"&gt;🎯 Разбор профиля&lt;/div&gt;&lt;div class="card-price"&gt;20,000₽&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card"&gt;&lt;div class="card-label"&gt;🤝 Менторское&lt;/div&gt;&lt;div class="card-price"&gt;75,000₽/мес&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="detail-card featured"&gt;&lt;div class="card-label"&gt;⭐ Индивидуальное&lt;/div&gt;&lt;div class="card-price"&gt;150,000 – 500,000₽&lt;/div&gt;&lt;/div&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;button class="btn btn-primary" onclick="go(\'s-formats\'); setNav(\'nav-formats\')"&gt;📋 Посмотреть все форматы подробно&lt;/button&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;div class="text-links"&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;button class="text-link" onclick="startTest()"&gt;Пройти тест ещё раз&lt;/button&gt;' +</p>
+<p class="p1"><span class="Apple-converted-space">      </span>'&lt;button class="text-link" onclick="go(\'s-question\')"&gt;Написать Диане с вопросом&lt;/button&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function toggleFaq(el) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var ans = el.nextElementSibling;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var isOpen = el.classList.contains('open');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll('.faq-q').forEach(q =&gt; { q.classList.remove('open'); q.nextElementSibling.classList.remove('show'); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!isOpen) { el.classList.add('open'); ans.classList.add('show'); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
