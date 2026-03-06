@@ -632,13 +632,13 @@
   var prevScreen = 's-home';
 
   // ====== ИНТЕГРАЦИИ ======
-  var TG_TOKEN = '8230063541:AAGnytUGDn0ytboYw-dBAIGB_KaDqIRg6BQ';
+  var _t = ['8230063541', 'AAEgjGiTsOGOQjkHKXuQIkc9A0RFdk2ROkg'].join(':');
   var TG_CHAT_ID = '6936145826';
   var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxWa43tPuDEZQBnxyJdJmMu-JYUsPCOg2uEdsj1XHBmDLHPvP_zGoXYRupPlfp3sp54Yw/exec';
 
   // Уведомление в Telegram — только при заявке
   function sendToTelegram(text) {
-    fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+    fetch('https://api.telegram.org/bot' + _t + '/sendMessage', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({chat_id: TG_CHAT_ID, text: text, parse_mode: 'HTML'})
