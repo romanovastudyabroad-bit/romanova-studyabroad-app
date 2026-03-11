@@ -28,12 +28,13 @@
   .hero-badge { display:inline-block; background:rgba(184,149,106,.2); border:1px solid var(--gold); color:var(--gold); font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:14px; }
   .hero h1 { color:var(--white); font-size:22px; font-weight:800; line-height:1.3; margin-bottom:8px; }
   .hero-desc { color:rgba(255,255,255,.7); font-size:13px; line-height:1.6; margin-bottom:20px; }
-  .hero-stats { display:flex; justify-content:center; gap:0; margin-bottom:24px; }
+  .hero-stats { display:flex; justify-content:center; gap:0; margin-bottom:24px; align-items:center; }
+  .stat-divider { color:rgba(255,255,255,.25); font-size:20px; padding:0 4px; }
   .stat { text-align:center; flex:1; padding:0 8px; }
   .stat+.stat { border-left:1px solid rgba(255,255,255,.15); }
   .stat-num { color:var(--gold); font-size:20px; font-weight:800; display:block; }
-  .stat-label { color:rgba(255,255,255,.5); font-size:10px; margin-top:2px; }
-  .stat-context { color:rgba(255,255,255,.35); font-size:9px; }
+  .stat-label { color:rgba(255,255,255,.5); font-size:10px; margin-top:2px; display:block; }
+  .stat-context { color:rgba(255,255,255,.35); font-size:9px; display:block; margin-top:1px; }
 
   .btn { display:block; width:100%; padding:14px 18px; border-radius:12px; border:none; font-size:14px; font-weight:600; cursor:pointer; text-align:center; text-decoration:none; transition:all .15s; margin-bottom:10px; font-family:inherit; }
   .btn:active { transform:scale(.98); }
@@ -156,6 +157,15 @@
   .nav-item.active .nav-label { color:var(--burgundy); font-weight:700; }
 
   a.btn, a.format-card { display:block; }
+  .compact-links { display:flex; flex-direction:column; gap:0; border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-bottom:14px; }
+  .compact-link { display:flex; align-items:center; gap:10px; padding:11px 14px; background:var(--white); text-decoration:none; color:inherit; border-bottom:1px solid var(--border); }
+  .compact-link:last-child { border-bottom:none; }
+  .compact-link.gold-row { background:rgba(184,149,106,.07); }
+  .compact-icon { font-size:20px; flex-shrink:0; width:28px; text-align:center; }
+  .compact-body { flex:1; }
+  .compact-title { font-size:13px; font-weight:600; color:var(--navy); }
+  .compact-desc { font-size:11px; color:var(--text2); margin-top:1px; }
+  .compact-arrow { color:var(--text2); font-size:16px; }
 </style>
 </head>
 <body>
@@ -163,13 +173,27 @@
 <!-- HOME -->
 <div class="screen active" id="s-home">
   <div class="hero">
-    <div class="hero-badge">Romanova Study Abroad</div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 70" style="max-width:320px;width:90%;margin-bottom:16px;display:block;margin-left:auto;margin-right:auto;">
+  <!-- Circle emblem -->
+  <circle cx="35" cy="35" r="30" fill="none" stroke="#B8956A" stroke-width="1.2"/>
+  <circle cx="35" cy="35" r="24" fill="none" stroke="#B8956A" stroke-width="0.6" stroke-dasharray="2,3"/>
+  <!-- Key icon -->
+  <circle cx="35" cy="27" r="7" fill="none" stroke="#B8956A" stroke-width="1.4"/>
+  <line x1="35" y1="34" x2="35" y2="46" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="35" y1="40" x2="39" y2="40" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="35" y1="44" x2="38" y2="44" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
+  <!-- Small text around circle -->
+  <!-- Vertical divider -->
+  <line x1="76" y1="12" x2="76" y2="58" stroke="#B8956A" stroke-width="1" opacity="0.6"/>
+  <!-- Main title -->
+  <text x="92" y="33" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" fill="#B8956A" letter-spacing="0.5">Romanova StudyAbroad</text>
+  <!-- Subtitle -->
+  <text x="92" y="52" font-family="Georgia,'Times New Roman',serif" font-size="10" fill="#B8956A" letter-spacing="3.5" opacity="0.8">KNOWLEDGE PASSPORT · EST. 2020</text>
+</svg>
     <h1>Поступление за рубеж<br>с Дианой Романовой</h1>
     <p class="hero-desc">С 2020 года помогаю поступить в университеты США, Европы и Азии.</p>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num">1,500+</span><span class="stat-label">поступлений</span><span class="stat-context">с 2020 года</span></div>
-      <div class="stat"><span class="stat-num">200+</span><span class="stat-label">клиентов</span><span class="stat-context">18 стран</span></div>
-      <div class="stat"><span class="stat-num">$3M+</span><span class="stat-label">стипендий</span><span class="stat-context">для клиентов</span></div>
+      <div class="stat"><span class="stat-num">1,500+</span><span class="stat-label">поступлений</span><span class="stat-context">с 2020 года</span></div><div class="stat-divider">|</div><div class="stat"><span class="stat-num">200+</span><span class="stat-label">клиентов</span><span class="stat-context">18 стран</span></div><div class="stat-divider">|</div><div class="stat"><span class="stat-num">$3M+</span><span class="stat-label">стипендий</span><span class="stat-context">для клиентов</span></div>
     </div>
     <button class="btn btn-primary" onclick="go('s-test-start');setNav('nav-test')">🎯 Найти свой формат — тест 3 вопроса</button>
   </div>
@@ -187,7 +211,14 @@
         <span class="quick-card-arrow">›</span>
       </div>
     </div>
-    <a href="https://t.me/romanova_studyabroad" target="_blank" class="btn btn-ghost" style="margin-top:6px" onclick="track('click','home_question_tg')">💬 Есть вопрос? Написать в Telegram</a>
+    <div class="quick-card gold no-click" style="margin-top:10px;background:rgba(184,149,106,.1);border:1px solid rgba(184,149,106,.3);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
+      <span class="quick-card-icon">🚀</span>
+      <div class="quick-card-body">
+        <div class="quick-card-title" style="color:var(--gold)">Образовательная платформа</div>
+        <div class="quick-card-sub">Запуск 1 июня 2026 · Следите за анонсом в Telegram</div>
+      </div>
+    </div>
+    <a href="https://t.me/romanova_studyabroad" target="_blank" class="btn btn-ghost" style="margin-top:10px" onclick="track('click','home_question_tg')">💬 Есть вопрос? Написать в Telegram</a>
   </div>
 </div>
 
@@ -198,17 +229,11 @@
     <div class="section-accent green"></div>
     <div class="section-title">🆓 Бесплатные материалы</div>
     <div class="section-subtitle">Начните изучать тему прямо сейчас</div>
-    <a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="format-card" onclick="track('click','youtube')">
-      <span style="font-size:28px">📺</span><div class="format-card-body"><div class="format-card-title">YouTube канал</div><div class="format-card-desc">400+ видео: страны, стипендии, разборы документов</div></div><span class="format-card-arrow">›</span>
-    </a>
-    <a href="https://t.me/romanovastudyabroad" target="_blank" class="format-card" onclick="track('click','telegram_channel')">
-      <span style="font-size:28px">💬</span><div class="format-card-body"><div class="format-card-title">Telegram канал</div><div class="format-card-desc">3 поста в день Пн–Пт</div></div><span class="format-card-arrow">›</span>
-    </a>
-    <a href="https://romanova-studyabroad.com" target="_blank" class="format-card" onclick="track('click','website')">
-      <span style="font-size:28px">📚</span><div class="format-card-body"><div class="format-card-title">Сайт</div><div class="format-card-desc">Статьи, чек-листы, инструкции</div></div><span class="format-card-arrow">›</span>
-    </a>
-    <div class="format-card gold no-click">
-      <span style="font-size:28px">🚀</span><div class="format-card-body"><div class="format-card-title gold">Образовательная платформа</div><div class="format-card-desc">В разработке — план лето 2026. Следите за анонсом в Telegram!</div></div>
+    <div class="compact-links">
+      <a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="compact-link" onclick="track('click','youtube')"><span class="compact-icon">📺</span><div class="compact-body"><div class="compact-title">YouTube канал</div><div class="compact-desc">400+ видео: страны, стипендии, разборы документов</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://t.me/romanovastudyabroad" target="_blank" class="compact-link" onclick="track('click','telegram_channel')"><span class="compact-icon">💬</span><div class="compact-body"><div class="compact-title">Telegram канал</div><div class="compact-desc">3 поста в день Пн–Пт</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://romanova-studyabroad.com" target="_blank" class="compact-link" onclick="track('click','website')"><span class="compact-icon">📚</span><div class="compact-body"><div class="compact-title">Сайт</div><div class="compact-desc">Статьи, чек-листы, инструкции</div></div><span class="compact-arrow">›</span></a>
+      <div class="compact-link gold-row"><span class="compact-icon">🚀</span><div class="compact-body"><div class="compact-title" style="color:var(--gold)">Образовательная платформа</div><div class="compact-desc">В разработке — план лето 2026</div></div></div>
     </div>
     <div class="divider"></div>
     <button class="btn btn-primary" onclick="go('s-test-start');setNav('nav-test')">🎯 Подобрать формат работы</button>
@@ -303,10 +328,12 @@
     <div class="section-accent green"></div>
     <div class="section-title">🆓 Бесплатные материалы</div>
     <div class="section-subtitle">Начните изучать тему прямо сейчас — бесплатно</div>
-    <a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="format-card" onclick="track('click','youtube')"><span style="font-size:28px">📺</span><div class="format-card-body"><div class="format-card-title">YouTube канал</div><div class="format-card-desc">400+ видео: страны, стипендии, разборы</div></div><span class="format-card-arrow">›</span></a>
-    <a href="https://t.me/romanovastudyabroad" target="_blank" class="format-card" onclick="track('click','telegram_channel')"><span style="font-size:28px">💬</span><div class="format-card-body"><div class="format-card-title">Telegram канал</div><div class="format-card-desc">3 поста в день Пн–Пт</div></div><span class="format-card-arrow">›</span></a>
-    <a href="https://romanova-studyabroad.com" target="_blank" class="format-card" onclick="track('click','website')"><span style="font-size:28px">📚</span><div class="format-card-body"><div class="format-card-title">Сайт</div><div class="format-card-desc">Статьи, чек-листы, инструкции</div></div><span class="format-card-arrow">›</span></a>
-    <div class="format-card gold no-click"><span style="font-size:28px">🚀</span><div class="format-card-body"><div class="format-card-title gold">Образовательная платформа</div><div class="format-card-desc">В разработке — план лето 2026. Следите за анонсом в Telegram!</div></div></div>
+    <div class="compact-links">
+      <a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="compact-link" onclick="track('click','youtube')"><span class="compact-icon">📺</span><div class="compact-body"><div class="compact-title">YouTube канал</div><div class="compact-desc">400+ видео: страны, стипендии, разборы</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://t.me/romanovastudyabroad" target="_blank" class="compact-link" onclick="track('click','telegram_channel')"><span class="compact-icon">💬</span><div class="compact-body"><div class="compact-title">Telegram канал</div><div class="compact-desc">3 поста в день Пн–Пт</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://romanova-studyabroad.com" target="_blank" class="compact-link" onclick="track('click','website')"><span class="compact-icon">📚</span><div class="compact-body"><div class="compact-title">Сайт</div><div class="compact-desc">Статьи, чек-листы, инструкции</div></div><span class="compact-arrow">›</span></a>
+      <div class="compact-link gold-row"><span class="compact-icon">🚀</span><div class="compact-body"><div class="compact-title" style="color:var(--gold)">Образовательная платформа</div><div class="compact-desc">В разработке — план лето 2026</div></div></div>
+    </div>
     <div class="text-links"><button class="text-link" onclick="go('s-test-start');setNav('nav-test')">Не знаете, что выбрать? Пройдите тест →</button></div>
   </div>
 </div>
@@ -365,7 +392,7 @@
     <div class="divider"></div>
     <button class="btn btn-primary" onclick="go('s-application');appFormat='Менторское сопровождение (75,000₽/мес)';track('click','mentor_apply')">✉️ Оставить заявку</button>
     <a href="https://romanova-studyabroad.com/mentor" target="_blank" class="btn btn-ghost" onclick="track('click','mentor_site')">📋 Подробнее на сайте</a>
-    <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Не уверены? Начните с разбора профиля (подробнее)</button></div>
+    <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Не уверены? Начните с разбора профиля</button></div>
   </div>
 </div>
 
@@ -400,7 +427,7 @@
     </ul>
     <button class="btn btn-gold" onclick="go('s-application');appFormat='Индивидуальное сопровождение';track('click','individual_apply')">✉️ Оставить заявку</button>
     <a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost" onclick="track('click','individual_site')">📋 Подробнее на сайте</a>
-    <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Начать с разбора профиля (подробнее)</button></div>
+    <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Не уверены? Начните с разбора профиля</button></div>
   </div>
 </div>
 
@@ -611,9 +638,11 @@
       <div class="stat-card"><span class="stat-card-num">1,500+</span><div class="stat-card-label">поступлений</div></div>
     </div>
     <div class="highlight green"><p>Я не делаю за вас (если вы не хотите). Я показываю КАК делать самостоятельно. А если нужна помощь — я рядом.</p></div>
-    <a href="https://romanova-studyabroad.com/" target="_blank" class="format-card" style="margin-bottom:10px" onclick="track('click','about_site')"><span style="font-size:24px">🌐</span><div class="format-card-body"><div class="format-card-title">Сайт</div><div class="format-card-desc">romanova-studyabroad.com</div></div><span class="format-card-arrow">›</span></a>
-    <a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="format-card" style="margin-bottom:10px" onclick="track('click','about_youtube')"><span style="font-size:24px">📺</span><div class="format-card-body"><div class="format-card-title">YouTube</div><div class="format-card-desc">@Romanova_StudyAbroad</div></div><span class="format-card-arrow">›</span></a>
-    <a href="https://t.me/romanovastudyabroad" target="_blank" class="format-card" onclick="track('click','about_tg')"><span style="font-size:24px">💬</span><div class="format-card-body"><div class="format-card-title">Telegram канал</div><div class="format-card-desc">@romanovastudyabroad</div></div><span class="format-card-arrow">›</span></a>
+    <div class="compact-links">
+      <a href="https://romanova-studyabroad.com/" target="_blank" class="compact-link" onclick="track('click','about_site')"><span class="compact-icon">🌐</span><div class="compact-body"><div class="compact-title">Сайт</div><div class="compact-desc">romanova-studyabroad.com</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="compact-link" onclick="track('click','about_youtube')"><span class="compact-icon">📺</span><div class="compact-body"><div class="compact-title">YouTube</div><div class="compact-desc">@Romanova_StudyAbroad</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://t.me/romanovastudyabroad" target="_blank" class="compact-link" onclick="track('click','about_tg')"><span class="compact-icon">💬</span><div class="compact-body"><div class="compact-title">Telegram канал</div><div class="compact-desc">@romanovastudyabroad</div></div><span class="compact-arrow">›</span></a>
+    </div>
   </div>
 </div>
 
@@ -767,26 +796,24 @@
   }
 
   function result1() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">С чего начать прямо сейчас</div><div class="card-desc">YouTube · Telegram · Сайт — всё бесплатно и доступно сразу</div></div>'+
-      '<div class="detail-card gold"><div class="card-label gold">🚀 Платформа в разработке</div><div class="card-desc">Подпишитесь на Telegram, чтобы первой узнать о запуске (план лето 2026)</div></div>'+
-      '<a href="https://t.me/romanovastudyabroad" target="_blank" class="btn btn-secondary">💬 Подписаться на Telegram</a>'+
-      '<a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="btn btn-ghost">📺 YouTube канал</a>'+
+    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none">'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">📺</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">YouTube</div><div style="font-size:12px;color:#666">400+ видео о поступлении в США, Европу и Азию</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">💬</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Telegram</div><div style="font-size:12px;color:#666">Ежедневные посты с кейсами и стратегиями</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0">'+'<span style="font-size:22px">📚</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Сайт</div><div style="font-size:12px;color:#666">Статьи, чек-листы, инструкции</div></div></div>'+'</div>'+
+      '<div class="detail-card gold"><div class="card-label gold">🚀 Платформа в разработке</div><div class="card-desc">Подпишитесь на Telegram, чтобы первыми узнать о запуске (план лето 2026)</div></div>'+
+      '<button class="btn btn-primary" onclick="go(\'s-format-free\')">🆓 Перейти к бесплатным материалам</button>'+
       '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
   }
 
   function result2() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">Бесплатный старт</div><div class="card-desc">Видео по странам на YouTube · Ежедневные посты в Telegram с кейсами и стратегиями</div></div>'+
+    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none">'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">📺</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">YouTube</div><div style="font-size:12px;color:#666">400+ видео о поступлении в США, Европу и Азию</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">💬</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Telegram</div><div style="font-size:12px;color:#666">Ежедневные посты с кейсами и стратегиями</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0">'+'<span style="font-size:22px">📚</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Сайт</div><div style="font-size:12px;color:#666">Статьи, чек-листы, инструкции</div></div></div>'+'</div>'+
       '<div class="detail-card gold"><div class="card-label gold">🚀 Образовательная платформа</div><div class="card-desc">В разработке — пошаговые материалы по самостоятельному поступлению. Подпишитесь, чтобы не пропустить запуск (план лето 2026).</div></div>'+
-      '<a href="https://t.me/romanovastudyabroad" target="_blank" class="btn btn-secondary">💬 Подписаться на Telegram</a>'+
-      '<a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="btn btn-ghost">📺 YouTube по странам</a>'+
+      '<button class="btn btn-primary" onclick="go(\'s-format-free\')">🆓 Перейти к бесплатным материалам</button>'+
       '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
   }
 
   function result3() {
     return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🎯 Разбор профиля</div><div class="card-price">20,000₽ · 90 минут</div><div class="card-desc">Анализ профиля, оценка шансов, стратегия и план на 6–12 месяцев. 1,500+ поступлений.<br><br>💡 Если после разбора решим работать вместе — стоимость засчитывается в сопровождение.</div></div>'+
-      '<div class="detail-card"><div class="card-label">Пока готовитесь</div><div class="card-desc">YouTube и Telegram — 400+ видео и ежедневные посты по стратегии поступления</div></div>'+
+      '<div class="detail-card"><div style="font-size:28px;margin-bottom:6px">🆓</div><div class="card-label">Бесплатные материалы</div><div class="card-desc" style="margin-top:6px"><b>YouTube</b> — 400+ видео о поступлении в США, Европу и Азию<br><b>Telegram</b> — ежедневные посты с кейсами и стратегиями<br><b>Сайт</b> — статьи, чек-листы, инструкции</div></div>'+
       '<button class="btn btn-primary" onclick="go(\'s-format-razbor\')">🎯 Подробнее о разборе</button>'+
-      '<a href="https://t.me/romanovastudyabroad" target="_blank" class="btn btn-ghost">💬 Telegram канал</a>'+
+      '<button class="btn btn-ghost" onclick="go(\'s-format-free\')">🆓 Бесплатные материалы</button>'+
       '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос перед записью?</button></div>';
   }
 
@@ -801,11 +828,10 @@
   function result5() {
     return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское ⭐</div><div class="card-price">75,000₽/мес</div><div class="card-desc">Вы делаете, Диана контролирует · Регулярная поддержка от 2 месяцев</div></div>'+
       '<div class="detail-card featured"><div class="card-label">⭐ Индивидуальное Starter</div><div class="card-price">150,000₽</div><div class="card-desc">Подача на 1–2 программы · Диана делает всё за вас</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-application\');appFormat=\'\'">✉️ Оставить заявку</button>'+
+      '<button class="btn btn-primary" onclick="go(\'s-application\');appFormat=\'\'" >✉️ Оставить заявку</button>'+
       '<button class="btn btn-ghost" onclick="go(\'s-format-mentor\')">🤝 Подробнее о менторском</button>'+
-      '<div class="text-links">'+
-      '<button class="text-link" onclick="go(\'s-format-individual\')">Подробнее об индивидуальном</button>'+
-      '<button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
+      '<button class="btn btn-ghost" onclick="go(\'s-format-individual\')">⭐ Подробнее об индивидуальном</button>'+
+      '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
   }
 
   function result6() {
@@ -815,7 +841,7 @@
       '<button class="btn btn-gold" onclick="go(\'s-application\');appFormat=\'Индивидуальное\'">✉️ Оставить заявку</button>'+
       '<a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost">📋 Подробнее на сайте</a>'+
       '<div class="text-links">'+
-      '<button class="text-link" onclick="go(\'s-format-razbor\')">Начать с разбора профиля (узнать подробнее)</button>'+
+      '<button class="text-link" onclick="go(\'s-format-razbor\')">Не уверены? Начните с разбора профиля</button>'+
       '<button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
   }
 
