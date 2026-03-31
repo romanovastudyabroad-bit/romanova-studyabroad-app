@@ -182,7 +182,6 @@
   <line x1="35" y1="34" x2="35" y2="46" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
   <line x1="35" y1="40" x2="39" y2="40" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
   <line x1="35" y1="44" x2="38" y2="44" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
-  <!-- Small text around circle -->
   <!-- Vertical divider -->
   <line x1="76" y1="12" x2="76" y2="58" stroke="#B8956A" stroke-width="1" opacity="0.6"/>
   <!-- Main title -->
@@ -284,10 +283,10 @@
   <div class="content">
     <div class="test-progress-wrap"><div class="test-step-label">Вопрос 3 из 3</div><div class="test-progress"><div class="progress-bar done"></div><div class="progress-bar done"></div><div class="progress-bar active"></div></div></div>
     <div class="test-question">Ваш бюджет на помощь с поступлением?</div>
-    <button class="option-btn" onclick="answer(3,'do20')">💎 До 20,000₽/мес</button>
-    <button class="option-btn" onclick="answer(3,'20-100')">🎯 20,000 – 100,000₽</button>
-    <button class="option-btn" onclick="answer(3,'100-300')">🤝 100,000 – 300,000₽</button>
-    <button class="option-btn" onclick="answer(3,'300plus')">⭐ 300,000₽+</button>
+    <button class="option-btn" onclick="answer(3,'do24')">💎 До 24,000₽ (разбор профиля)</button>
+    <button class="option-btn" onclick="answer(3,'90-180')">🎯 90,000 – 180,000₽</button>
+    <button class="option-btn" onclick="answer(3,'180-360')">🤝 180,000 – 360,000₽</button>
+    <button class="option-btn" onclick="answer(3,'360plus')">⭐ 360,000₽+</button>
     <button class="option-btn" onclick="answer(3,'all')">💰 Хочу узнать все варианты</button>
   </div>
 </div>
@@ -309,13 +308,13 @@
       <span style="font-size:28px">🆓</span><div class="format-card-body"><div class="format-card-title">Бесплатные материалы</div><div class="format-card-price" style="font-size:14px;color:var(--green)">YouTube · Telegram · Платформа</div><div class="format-card-desc">Для тех, кто только начинает изучать тему</div></div><span class="format-card-arrow">›</span>
     </div>
     <div class="format-card" onclick="go('s-format-razbor');track('click','format_razbor')">
-      <span style="font-size:28px">🎯</span><div class="format-card-body"><div class="format-card-title">Разбор профиля</div><div class="format-card-price">20,000₽</div><div class="format-card-desc">Разовая консультация 90 минут · Стратегия и план</div></div><span class="format-card-arrow">›</span>
+      <span style="font-size:28px">🎯</span><div class="format-card-body"><div class="format-card-title">Разбор профиля</div><div class="format-card-price">24,000₽</div><div class="format-card-desc">Разбор профиля 90 минут · Стратегия и план</div></div><span class="format-card-arrow">›</span>
     </div>
     <div class="format-card featured" onclick="go('s-format-mentor');track('click','format_mentor')">
-      <span style="font-size:28px">🤝</span><div class="format-card-body"><div class="format-card-title">Менторское сопровождение</div><div class="format-card-price">75,000₽/мес</div><div class="format-card-desc">Вы делаете, я контролирую · От 2 месяцев</div></div><span class="format-card-arrow" style="color:var(--burgundy)">›</span>
+      <span style="font-size:28px">🤝</span><div class="format-card-body"><div class="format-card-title">Менторское сопровождение</div><div class="format-card-price">90,000₽/мес</div><div class="format-card-desc">Вы делаете, я контролирую · От 2 месяцев</div></div><span class="format-card-arrow" style="color:var(--burgundy)">›</span>
     </div>
     <div class="format-card gold" onclick="go('s-format-individual');track('click','format_individual')">
-      <span style="font-size:28px">⭐</span><div class="format-card-body"><div class="format-card-title gold">Индивидуальное сопровождение</div><div class="format-card-price">150,000 – 500,000₽</div><div class="format-card-desc">Я делаю всё за вас · От подбора до оффера</div></div><span class="format-card-arrow" style="color:var(--gold)">›</span>
+      <span style="font-size:28px">⭐</span><div class="format-card-body"><div class="format-card-title gold">Индивидуальное сопровождение</div><div class="format-card-price">180,000 – 600,000₽</div><div class="format-card-desc">Я делаю всё за вас · От подбора до оффера</div></div><span class="format-card-arrow" style="color:var(--gold)">›</span>
     </div>
     <div class="text-links"><button class="text-link" onclick="go('s-about');setNav('nav-more')">ℹ️ О проекте и Диане Романовой</button></div>
   </div>
@@ -344,10 +343,10 @@
   <div class="content">
     <div class="section-accent"></div>
     <div class="section-title">🎯 Разбор профиля</div>
-    <div class="section-subtitle">Разовая консультация — понять ситуацию, получить стратегию и план</div>
+    <div class="section-subtitle">Разбор профиля — понять ситуацию, получить стратегию и план</div>
     <div class="detail-card featured">
       <div class="card-label">Формат и стоимость</div>
-      <div class="card-price">20,000₽ · 90 минут</div>
+      <div class="card-price">24,000₽ · 90 минут</div>
       <div class="card-desc">Яндекс Телемост · Разово</div>
     </div>
     <div class="card-label" style="margin-bottom:10px">Что получите:</div>
@@ -360,7 +359,7 @@
       <li>План действий на 6–12 месяцев</li>
       <li>Запись встречи</li>
     </ul>
-    <div class="highlight green"><p>💡 Если после разбора мы решим работать вместе — стоимость разбора засчитывается в стоимость сопровождения.</p></div>
+    <div class="highlight green"><p>💡 Если после разбора профиля мы решим работать вместе — стоимость разбора засчитывается в стоимость сопровождения.</p></div>
     <div class="divider"></div>
     <a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-primary" onclick="track('click','razbor_book')">Выбрать время и записаться</a>
     <div class="text-links"><button class="text-link" onclick="go('s-question')">Есть вопрос перед записью?</button></div>
@@ -376,7 +375,7 @@
     <div class="section-subtitle">Вы делаете сами, но с регулярной обратной связью и контролем эксперта</div>
     <div class="detail-card featured">
       <div class="card-label">Стоимость</div>
-      <div class="card-price">75,000₽/месяц</div>
+      <div class="card-price">90,000₽/месяц</div>
       <div class="card-desc">Минимум 2 месяца · В среднем 3–4 месяца</div>
     </div>
     <div class="card-label" style="margin-bottom:10px">Что входит:</div>
@@ -390,7 +389,7 @@
       <li>Подготовка к интервью</li>
     </ul>
     <div class="divider"></div>
-    <button class="btn btn-primary" onclick="go('s-application');appFormat='Менторское сопровождение (75,000₽/мес)';track('click','mentor_apply')">✉️ Оставить заявку</button>
+    <button class="btn btn-primary" onclick="go('s-application');appFormat='Менторское сопровождение (90,000₽/мес)';track('click','mentor_apply')">✉️ Оставить заявку</button>
     <a href="https://romanova-studyabroad.com/mentor" target="_blank" class="btn btn-ghost" onclick="track('click','mentor_site')">📋 Подробнее на сайте</a>
     <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Не уверены? Начните с разбора профиля</button></div>
   </div>
@@ -405,18 +404,18 @@
     <div class="section-subtitle">Я делаю всё за вас: от подбора программ до получения офферов</div>
     <div class="detail-card">
       <div class="card-label">📦 STARTER</div>
-      <div class="card-price">150,000₽</div>
+      <div class="card-price">180,000₽</div>
       <div class="card-desc">Подача на 1–2 программы · Для тех, у кого чёткая цель</div>
     </div>
     <div class="detail-card featured">
       <div class="card-label">📦 STANDARD ⭐ популярный</div>
-      <div class="card-price">300,000₽</div>
+      <div class="card-price">360,000₽</div>
       <div class="card-desc">Подача на 3–5 программ + стипендии · Максимум шансов</div>
     </div>
     <div class="detail-card gold">
       <div class="card-label gold">📦 PREMIUM</div>
-      <div class="card-price">500,000₽</div>
-      <div class="card-desc">Безлимит программ + VIP-сопровождение до получения офферов</div>
+      <div class="card-price">600,000₽</div>
+      <div class="card-desc">5+ программ · VIP-сопровождение до получения офферов</div>
     </div>
     <ul class="features" style="margin-bottom:20px">
       <li>Подбор программ под ваш профиль</li>
@@ -467,10 +466,10 @@
       <label class="form-label">Формат работы <span>*</span></label>
       <select class="form-select" id="f-format">
         <option value="">— Выберите —</option>
-        <option>Менторское (75,000₽/мес)</option>
-        <option>Индивидуальное Starter (150,000₽)</option>
-        <option>Индивидуальное Standard (300,000₽)</option>
-        <option>Индивидуальное Premium (500,000₽)</option>
+        <option>Менторское (90,000₽/мес)</option>
+        <option>Индивидуальное Starter (180,000₽)</option>
+        <option>Индивидуальное Standard (360,000₽)</option>
+        <option>Индивидуальное Premium (600,000₽)</option>
         <option>Не уверен(а), хочу обсудить</option>
       </select>
     </div>
@@ -574,7 +573,7 @@
     <a href="https://t.me/romanova_studyabroad" target="_blank" class="btn btn-primary" onclick="track('click','question_tg')">💬 Написать в Telegram</a>
     <div class="text-links">
       <button class="text-link" onclick="go('s-test-start');setNav('nav-test')">Пройти тест и получить рекомендацию</button>
-      <button class="text-link" onclick="go('s-format-razbor')">Записаться на разбор профиля</button>
+      <button class="text-link" onclick="go('s-format-razbor')">Записаться на консультацию</button>
     </div>
   </div>
 </div>
@@ -587,19 +586,19 @@
     <div class="section-title">❓ Частые вопросы</div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Сколько стоят услуги? <span class="arrow">▼</span></div>
-      <div class="faq-a">🆓 Бесплатно: YouTube, Telegram, Сайт<br><br>🎯 Разбор профиля: 20,000₽ (разово)<br>🤝 Менторское: 75,000₽/мес (от 2 мес)<br>⭐ Индивидуальное: 150,000 – 500,000₽<br><br><button class="faq-cta" onclick="go('s-formats');setNav('nav-formats')">Посмотреть все форматы →</button></div>
+      <div class="faq-a">🆓 Бесплатно: YouTube, Telegram, Сайт<br><br>🎯 Разбор профиля: 24,000₽ (разово)<br>🤝 Менторское: 90,000₽/мес (от 2 мес)<br>⭐ Индивидуальное: 180,000 – 600,000₽<br><br><button class="faq-cta" onclick="go('s-formats');setNav('nav-formats')">Посмотреть все форматы →</button></div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">В чём разница между форматами? <span class="arrow">▼</span></div>
-      <div class="faq-a">🆓 Бесплатные — YouTube и Telegram для самостоятельного изучения<br><br>🎯 Разбор — я даю стратегию, вы действуете сами<br><br>🤝 Менторское — вы делаете, я контролирую<br><br>⭐ Индивидуальное — я делаю всё за вас<br><br><button class="faq-cta" onclick="startTest()">Не знаете, что выбрать? Пройдите тест →</button></div>
+      <div class="faq-a">🆓 Бесплатные — YouTube и Telegram для самостоятельного изучения<br><br>🎯 Консультация — я даю стратегию, вы действуете сами<br><br>🤝 Менторское — вы делаете, я контролирую<br><br>⭐ Индивидуальное — я делаю всё за вас<br><br><button class="faq-cta" onclick="startTest()">Не знаете, что выбрать? Пройдите тест →</button></div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Сколько длится процесс? <span class="arrow">▼</span></div>
-      <div class="faq-a">🎯 Разбор: 90 минут (разово)<br><br>🤝 Менторское: от 2 месяцев, в среднем 3–4<br><br>⭐ Индивидуальное: 6–12 месяцев в зависимости от дедлайнов<br><br>💡 Начинайте минимум за 12 месяцев до поступления!</div>
+      <div class="faq-a">🎯 Консультация: 90 минут (разово)<br><br>🤝 Менторское: от 2 месяцев, в среднем 3–4<br><br>⭐ Индивидуальное: 6–12 месяцев в зависимости от дедлайнов<br><br>💡 Начинайте минимум за 12 месяцев до поступления!</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Как начать работу? <span class="arrow">▼</span></div>
-      <div class="faq-a">🎯 Разбор: нажмите «Записаться» → оплатите → выберите время → встретимся онлайн<br><br>🤝 Менторское: оставьте заявку → изучу ситуацию → созвонимся → начнём<br><br>⭐ Индивидуальное: заявка → изучу профиль → созвонимся → договор → старт<br><br><button class="faq-cta" onclick="go('s-formats');setNav('nav-formats')">Выбрать формат →</button></div>
+      <div class="faq-a">🎯 Консультация: нажмите «Записаться» → оплатите → выберите время → встретимся онлайн<br><br>🤝 Менторское: оставьте заявку → изучу ситуацию → созвонимся → начнём<br><br>⭐ Индивидуальное: заявка → изучу профиль → созвонимся → договор → старт<br><br><button class="faq-cta" onclick="go('s-formats');setNav('nav-formats')">Выбрать формат →</button></div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Какие университеты в портфолио? <span class="arrow">▼</span></div>
@@ -611,7 +610,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Можно ли бесплатную консультацию? <span class="arrow">▼</span></div>
-      <div class="faq-a">При оставлении заявки на сопровождение мы созваниваемся на 15–30 минут — обсудить ваш запрос и формат работы. Это бесплатно.<br><br>⚠️ На вводном созвоне я не разбираю профиль и не составляю стратегию — для этого нужен разбор профиля.<br><br>Перед созвоном рекомендую посмотреть видео — оно отвечает на 90% вопросов.<br><br><button class="faq-cta" onclick="window.open('https://youtu.be/RmERKgA78mg','_blank')">📺 Смотреть видео →</button><br><button class="faq-cta" onclick="go('s-format-razbor')" style="margin-top:6px">🎯 Записаться на разбор →</button><br><button class="faq-cta" onclick="go('s-application');appFormat=''" style="margin-top:6px">✉️ Оставить заявку на сопровождение →</button></div>
+      <div class="faq-a">При оставлении заявки на сопровождение мы созваниваемся на 15–30 минут — обсудить ваш запрос и формат работы. Это бесплатно.<br><br>⚠️ На вводном созвоне я не разбираю профиль и не составляю стратегию — для этого нужна платная консультация.<br><br>Перед созвоном рекомендую посмотреть видео — оно отвечает на 90% вопросов.<br><br><button class="faq-cta" onclick="window.open('https://youtu.be/RmERKgA78mg','_blank')">📺 Смотреть видео →</button><br><button class="faq-cta" onclick="go('s-format-razbor')" style="margin-top:6px">🎯 Записаться на консультацию →</button><br><button class="faq-cta" onclick="go('s-application');appFormat=''" style="margin-top:6px">✉️ Оставить заявку на сопровождение →</button></div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Как связаться с Дианой? <span class="arrow">▼</span></div>
@@ -665,7 +664,6 @@
   var TG_CHAT_ID = '6936145826';
   var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxWa43tPuDEZQBnxyJdJmMu-JYUsPCOg2uEdsj1XHBmDLHPvP_zGoXYRupPlfp3sp54Yw/exec';
 
-  // Уведомление в Telegram — только при заявке
   function sendToTelegram(text) {
     fetch('https://api.telegram.org/bot' + _t + '/sendMessage', {
       method: 'POST',
@@ -674,7 +672,6 @@
     }).catch(function(){});
   }
 
-  // Запись всех действий в Google Sheets
   function track(action, detail) {
     fetch(SHEETS_URL, {
       method: 'POST',
@@ -728,7 +725,6 @@
       return;
     }
 
-    // Уведомление в Telegram
     var msg = '📬 <b>Новая заявка на сопровождение</b>\n\n' +
       '👤 Имя: ' + name + '\n' +
       '💬 Telegram: ' + tg + '\n' +
@@ -741,7 +737,6 @@
       (stipend ? '\n💰 Стипендии: ' + stipend : '');
     sendToTelegram(msg);
 
-    // Запись в Google Sheets
     fetch(SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -767,9 +762,8 @@
 
     var labels1 = {izuchayu:'Только изучаю тему', vybirayu:'Выбираю страну/программу', gotovlus:'Готовлюсь к подаче', podal:'Уже подал(а)'};
     var labels2 = {sam:'Самостоятельно', support:'С поддержкой эксперта', neznayu:'Пока не знаю'};
-    var labels3 = {do20:'До 20,000₽', '20-100':'20–100k', '100-300':'100–300k', '300plus':'300k+', all:'Все варианты'};
+    var labels3 = {do24:'До 24,000₽', 'do20':'До 24,000₽', '90-180':'90–180k', '180-360':'180–360k', '360plus':'360k+', all:'Все варианты'};
 
-    // Только в Sheets, без Telegram
     fetch(SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -778,12 +772,12 @@
     }).catch(function(){});
 
     if (a3==='all' || a2==='neznayu') { hero=mkHero('Все форматы — от бесплатного до VIP','Давайте посмотрим на все варианты вместе'); content=result7(); }
-    else if (a3==='300plus') { hero=mkHero('Индивидуальное сопровождение','Вы готовы инвестировать в максимальный результат — это правильный выбор.'); content=result6(); }
+    else if (a3==='360plus') { hero=mkHero('Индивидуальное сопровождение','Вы готовы инвестировать в максимальный результат — это правильный выбор.'); content=result6(); }
     else if (a1==='izuchayu' && a2==='sam') { hero=mkHero('Начните с бесплатных материалов — это идеальный старт','Вы только изучаете тему — и это отличная отправная точка. Никаких вложений пока не нужно.'); content=result1(); }
     else if (a1==='vybirayu' && a2==='sam') { hero=mkHero('Начните с бесплатного + следите за платформой','Вы выбираете страну и хотите разобраться самостоятельно — YouTube и Telegram дадут всё необходимое для старта.'); content=result2(); }
-    else if (a1==='gotovlus' && a2==='sam') { hero=mkHero('Разбор профиля — лучший следующий шаг','Вы готовитесь к подаче и хотите действовать сами — разбор поможет выстроить точную стратегию.'); content=result3(); }
-    else if (a2==='support' && (a3==='20-100'||a3==='do20')) { hero=mkHero('Менторское сопровождение','Вы хотите поддержку эксперта — менторский формат даст регулярную обратную связь без потери самостоятельности.'); content=result4(); }
-    else if (a2==='support' && a3==='100-300') { hero=mkHero('Менторское или Индивидуальное','Вы готовы инвестировать в качественную поддержку — у вас есть два сильных варианта.'); content=result5(); }
+    else if (a1==='gotovlus' && a2==='sam') { hero=mkHero('Консультация — лучший следующий шаг','Вы готовитесь к подаче и хотите действовать сами — консультация поможет выстроить точную стратегию.'); content=result3(); }
+    else if (a2==='support' && (a3==='90-180'||a3==='do24'||a3==='do20')) { hero=mkHero('Менторское сопровождение','Вы хотите поддержку эксперта — менторский формат даст регулярную обратную связь без потери самостоятельности.'); content=result4(); }
+    else if (a2==='support' && a3==='180-360') { hero=mkHero('Менторское или Индивидуальное','Вы готовы инвестировать в качественную поддержку — у вас есть два сильных варианта.'); content=result5(); }
     else { hero=mkHero('Все форматы работы','Давайте посмотрим на все варианты вместе'); content=result7(); }
 
     document.getElementById('result-hero-block').innerHTML = hero;
@@ -810,24 +804,24 @@
   }
 
   function result3() {
-    return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🎯 Разбор профиля</div><div class="card-price">20,000₽ · 90 минут</div><div class="card-desc">Анализ профиля, оценка шансов, стратегия и план на 6–12 месяцев. 1,500+ поступлений.<br><br>💡 Если после разбора решим работать вместе — стоимость засчитывается в сопровождение.</div></div>'+
+    return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🎯 Разбор профиля</div><div class="card-price">24,000₽ · 90 минут</div><div class="card-desc">Анализ профиля, оценка шансов, стратегия и план на 6–12 месяцев. 1,500+ поступлений.<br><br>💡 Если после разбора профиля решим работать вместе — 24,000₽ засчитываются в стоимость сопровождения.</div></div>'+
       '<div class="detail-card"><div style="font-size:28px;margin-bottom:6px">🆓</div><div class="card-label">Бесплатные материалы</div><div class="card-desc" style="margin-top:6px"><b>YouTube</b> — 400+ видео о поступлении в США, Европу и Азию<br><b>Telegram</b> — ежедневные посты с кейсами и стратегиями<br><b>Сайт</b> — статьи, чек-листы, инструкции</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-format-razbor\')">🎯 Подробнее о разборе</button>'+
+      '<button class="btn btn-primary" onclick="go(\'s-format-razbor\')">🎯 Подробнее о разборе профиля</button>'+
       '<button class="btn btn-ghost" onclick="go(\'s-format-free\')">🆓 Бесплатные материалы</button>'+
       '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос перед записью?</button></div>';
   }
 
   function result4() {
-    return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское сопровождение</div><div class="card-price">75,000₽/мес · от 2 мес</div><div class="card-desc">Еженедельные встречи · Проверка документов · Telegram-поддержка · Контроль дедлайнов</div></div>'+
-      '<div class="detail-card"><div class="card-label">Не уверены? Начните с разбора</div><div class="card-price" style="font-size:16px">20,000₽ · 90 минут</div><div class="card-desc">Поймёте, нужна ли дальнейшая помощь. Если решим работать вместе — 20,000₽ засчитываются в стоимость сопровождения.</div></div>'+
+    return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское сопровождение</div><div class="card-price">90,000₽/мес · от 2 мес</div><div class="card-desc">Еженедельные встречи · Проверка документов · Telegram-поддержка · Контроль дедлайнов</div></div>'+
+      '<div class="detail-card"><div class="card-label">Не уверены? Начните с разбора профиля</div><div class="card-price" style="font-size:16px">24,000₽ · 90 минут</div><div class="card-desc">Поймёте, нужна ли дальнейшая помощь. Если решим работать вместе — 24,000₽ засчитываются в стоимость сопровождения.</div></div>'+
       '<button class="btn btn-primary" onclick="go(\'s-application\');appFormat=\'Менторское\'">✉️ Оставить заявку на менторское</button>'+
-      '<a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-ghost">🎯 Сначала разбор (20,000₽)</a>'+
+      '<a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-ghost">🎯 Сначала консультация (24,000₽)</a>'+
       '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
   }
 
   function result5() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское ⭐</div><div class="card-price">75,000₽/мес</div><div class="card-desc">Вы делаете, Диана контролирует · Регулярная поддержка от 2 месяцев</div></div>'+
-      '<div class="detail-card featured"><div class="card-label">⭐ Индивидуальное Starter</div><div class="card-price">150,000₽</div><div class="card-desc">Подача на 1–2 программы · Диана делает всё за вас</div></div>'+
+    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское ⭐</div><div class="card-price">90,000₽/мес</div><div class="card-desc">Вы делаете, Диана контролирует · Регулярная поддержка от 2 месяцев</div></div>'+
+      '<div class="detail-card featured"><div class="card-label">⭐ Индивидуальное Starter</div><div class="card-price">180,000₽</div><div class="card-desc">Подача на 1–2 программы · Диана делает всё за вас</div></div>'+
       '<button class="btn btn-primary" onclick="go(\'s-application\');appFormat=\'\'" >✉️ Оставить заявку</button>'+
       '<button class="btn btn-ghost" onclick="go(\'s-format-mentor\')">🤝 Подробнее о менторском</button>'+
       '<button class="btn btn-ghost" onclick="go(\'s-format-individual\')">⭐ Подробнее об индивидуальном</button>'+
@@ -835,9 +829,9 @@
   }
 
   function result6() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">📦 STARTER</div><div class="card-price">150,000₽</div><div class="card-desc">1–2 программы</div></div>'+
-      '<div class="detail-card featured"><div class="card-label">📦 STANDARD ⭐</div><div class="card-price">300,000₽</div><div class="card-desc">3–5 программ + стипендии · Максимум шансов</div></div>'+
-      '<div class="detail-card gold"><div class="card-label gold">📦 PREMIUM</div><div class="card-price">500,000₽</div><div class="card-desc">Безлимит программ · VIP до офферов</div></div>'+
+    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">📦 STARTER</div><div class="card-price">180,000₽</div><div class="card-desc">1–2 программы</div></div>'+
+      '<div class="detail-card featured"><div class="card-label">📦 STANDARD ⭐</div><div class="card-price">360,000₽</div><div class="card-desc">3–5 программ + стипендии · Максимум шансов</div></div>'+
+      '<div class="detail-card gold"><div class="card-label gold">📦 PREMIUM</div><div class="card-price">600,000₽</div><div class="card-desc">5+ программ · VIP до офферов</div></div>'+
       '<button class="btn btn-gold" onclick="go(\'s-application\');appFormat=\'Индивидуальное\'">✉️ Оставить заявку</button>'+
       '<a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost">📋 Подробнее на сайте</a>'+
       '<div class="text-links">'+
@@ -848,9 +842,9 @@
   function result7() {
     return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none">'+
       '<div class="format-card" onclick="go(\'s-format-free\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🆓</span><div class="format-card-body"><div class="format-card-title">Бесплатно</div><div class="format-card-desc">YouTube, Telegram, Сайт</div></div><span class="format-card-arrow">›</span></div>'+
-      '<div class="format-card" onclick="go(\'s-format-razbor\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🎯</span><div class="format-card-body"><div class="format-card-title">Разбор профиля</div><div class="format-card-price" style="font-size:15px">20,000₽</div></div><span class="format-card-arrow">›</span></div>'+
-      '<div class="format-card" onclick="go(\'s-format-mentor\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🤝</span><div class="format-card-body"><div class="format-card-title">Менторское</div><div class="format-card-price" style="font-size:15px">75,000₽/мес</div></div><span class="format-card-arrow">›</span></div>'+
-      '<div class="format-card featured" onclick="go(\'s-format-individual\')" style="margin-bottom:0;border-radius:10px"><span style="font-size:22px">⭐</span><div class="format-card-body"><div class="format-card-title">Индивидуальное</div><div class="format-card-price" style="font-size:15px">150,000 – 500,000₽</div></div><span class="format-card-arrow" style="color:var(--burgundy)">›</span></div>'+
+      '<div class="format-card" onclick="go(\'s-format-razbor\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🎯</span><div class="format-card-body"><div class="format-card-title">Разбор профиля</div><div class="format-card-price" style="font-size:15px">24,000₽</div></div><span class="format-card-arrow">›</span></div>'+
+      '<div class="format-card" onclick="go(\'s-format-mentor\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🤝</span><div class="format-card-body"><div class="format-card-title">Менторское</div><div class="format-card-price" style="font-size:15px">90,000₽/мес</div></div><span class="format-card-arrow">›</span></div>'+
+      '<div class="format-card featured" onclick="go(\'s-format-individual\')" style="margin-bottom:0;border-radius:10px"><span style="font-size:22px">⭐</span><div class="format-card-body"><div class="format-card-title">Индивидуальное</div><div class="format-card-price" style="font-size:15px">180,000 – 600,000₽</div></div><span class="format-card-arrow" style="color:var(--burgundy)">›</span></div>'+
       '</div>'+
       '<div class="text-links">'+
       '<button class="text-link" onclick="startTest()">Пройти тест ещё раз</button>'+
