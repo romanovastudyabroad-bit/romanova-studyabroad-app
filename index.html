@@ -2,861 +2,689 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Romanova Study Abroad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FBF7EF">
+<title>Romanova StudyAbroad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F5F1E8; --bg2: #E8E3D8;
-    --navy: #1A3A52; --green: #2C5530;
-    --burgundy: #6B2737; --burgundy-dark: #4A1A25;
-    --green-dark: #1E3A21; --gold: #B8956A; --gold-dark: #9A7A56;
-    --text: #2C2C2C; --text2: #4A4A4A; --white: #FAFAFA;
+    /* «Светлый» — terracotta lead + emerald, on cream */
+    --bg: #FBF7EF; --bg2: #F0E7D5; --page-bg: #E6E1D6;
+    --navy: #33302A;
+    --green: #0F7A6B; --green-dark: #0A5A4F;
+    --burgundy: #D8743F; --burgundy-dark: #C25F2C;
+    --gold: #C9A86B; --gold-dark: #A98744;
+    --text: #33302A; --text2: #6B665C; --text3: #9A9384;
+    --white: #FFFFFF; --border: #EFE6D5;
+    --mint: #E8F0EC; --terra-tint: #FBEDE2; --gold-tint: #FBF3E3;
+    --sans: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --shadow: 0 12px 34px -18px rgba(74,46,20,.28);
+    --shadow-sm: 0 3px 12px rgba(74,46,20,.07);
   }
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; max-width:480px; margin:0 auto; overflow-x:hidden; }
-  .screen { display:none; min-height:100vh; padding-bottom:90px; animation:fadeIn 0.18s ease; }
+  html { background:var(--page-bg); }
+  body { font-family:"Newsreader",Georgia,'Times New Roman',serif; background:var(--bg); color:var(--text); min-height:100vh; max-width:480px; margin:0 auto; overflow-x:hidden; }
+  @media (min-width:520px){ body { box-shadow:0 0 80px rgba(74,46,20,.18); } }
+  .screen { display:none; min-height:100vh; padding-bottom:40px; animation:fadeIn .2s ease; }
   .screen.active { display:block; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
 
-  .header { background:var(--navy); padding:0 8px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; height:52px; }
-  .header-logo { font-size:14px; font-weight:700; color:var(--white); }
-  .back-btn { background:none; border:none; color:var(--white); font-size:26px; cursor:pointer; min-width:44px; min-height:44px; display:flex; align-items:center; justify-content:center; opacity:.9; }
-  .back-btn:active { opacity:.6; }
-  .header-spacer { width:44px; }
+  /* Header */
+  .header { background:rgba(251,247,239,.9); backdrop-filter:saturate(1.2) blur(8px); padding:8px 12px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; min-height:56px; border-bottom:1px solid var(--border); }
+  .header-logo { font-size:16px; font-weight:600; color:var(--navy); }
+  .back-btn { background:var(--white); border:1px solid var(--border); border-radius:50%; color:var(--burgundy); cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:all .15s; box-shadow:0 3px 9px rgba(74,46,20,.15); }
+  .back-btn svg { display:block; }
+  .back-btn:active { background:var(--bg2); transform:scale(.94); }
+  .header-spacer { width:40px; }
 
-  .hero { background:linear-gradient(160deg,var(--navy) 0%,#0f2538 100%); padding:28px 20px 24px; text-align:center; }
-  .hero-badge { display:inline-block; background:rgba(184,149,106,.2); border:1px solid var(--gold); color:var(--gold); font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:14px; }
-  .hero h1 { color:var(--white); font-size:22px; font-weight:800; line-height:1.3; margin-bottom:8px; }
-  .hero-desc { color:rgba(255,255,255,.7); font-size:13px; line-height:1.6; margin-bottom:20px; }
-  .hero-stats { display:flex; justify-content:center; gap:0; margin-bottom:24px; align-items:center; }
-  .stat-divider { color:rgba(255,255,255,.25); font-size:20px; padding:0 4px; }
-  .stat { text-align:center; flex:1; padding:0 8px; }
-  .stat+.stat { border-left:1px solid rgba(255,255,255,.15); }
-  .stat-num { color:var(--gold); font-size:20px; font-weight:800; display:block; }
-  .stat-label { color:rgba(255,255,255,.5); font-size:10px; margin-top:2px; display:block; }
-  .stat-context { color:rgba(255,255,255,.35); font-size:9px; display:block; margin-top:1px; }
+  /* Hero (home) */
+  .hero { background:radial-gradient(120% 80% at 100% 0,#FFF9EF 0,var(--bg) 60%); padding:18px 20px 8px; }
+  .brandbar { display:flex; align-items:center; gap:11px; margin-bottom:20px; }
+  .brand-dot { width:42px; height:42px; border-radius:13px; background:linear-gradient(140deg,var(--green),var(--green-dark)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; box-shadow:0 6px 16px -8px rgba(15,122,107,.6); }
+  .brand-words b { display:block; font-size:18px; font-weight:600; color:var(--navy); line-height:1.05; }
+  .brand-words small { display:block; font-family:var(--sans); font-size:8.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--text3); margin-top:3px; }
+  .hero h1 { color:var(--navy); font-size:32px; font-weight:500; line-height:1.08; letter-spacing:-.01em; margin-bottom:11px; text-wrap:balance; }
+  .hero h1 em { font-style:italic; color:var(--burgundy); }
+  .hero-desc { color:var(--text2); font-size:14.5px; line-height:1.55; margin-bottom:18px; }
+  .hero-stats { display:flex; align-items:stretch; background:var(--white); border:1px solid var(--border); border-radius:18px; padding:13px 4px; box-shadow:var(--shadow-sm); }
+  .stat { text-align:center; flex:1; padding:0 4px; }
+  .stat:not(:first-child) { border-left:1px solid var(--border); }
+  .stat-num { color:var(--burgundy); font-size:20px; font-weight:600; display:block; line-height:1.1; }
+  .stat:last-child .stat-num { color:var(--green); }
+  .stat-label { color:var(--text2); font-family:var(--sans); font-size:10px; margin-top:3px; display:block; }
 
-  .btn { display:block; width:100%; padding:14px 18px; border-radius:12px; border:none; font-size:14px; font-weight:600; cursor:pointer; text-align:center; text-decoration:none; transition:all .15s; margin-bottom:10px; font-family:inherit; }
+  /* Springboard grid */
+  .content { padding:20px 18px; }
+  .grid-label { font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text3); text-align:center; margin:4px 2px 14px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:24px 16px; margin:6px 0 24px; }
+  .tile { background:none; border:none; box-shadow:none; padding:2px; cursor:pointer; transition:transform .15s; display:flex; flex-direction:column; gap:13px; text-align:center; font-family:inherit; align-items:center; }
+  .tile:active { transform:scale(.95); }
+  .tile-ico { width:56px; height:56px; border-radius:17px; display:flex; align-items:center; justify-content:center; color:#fff; background:linear-gradient(140deg,#E68A50,var(--burgundy)); box-shadow:0 8px 18px -8px rgba(74,46,20,.4); transition:box-shadow .15s, transform .15s; }
+  .tile:active .tile-ico { box-shadow:var(--shadow); }
+  .tile-ico svg { width:27px; height:27px; display:block; }
+  .tile-ico.mint { background:linear-gradient(140deg,#1C9684,var(--green-dark)); }
+  .tile-ico.gold { background:linear-gradient(140deg,#D7BB83,var(--gold-dark)); }
+  .tile-body { display:block; }
+  .tile-title { display:block; font-size:17px; font-weight:600; color:var(--navy); line-height:1.15; }
+  .tile-sub { display:block; font-family:var(--sans); font-size:11.5px; color:var(--text2); margin-top:3px; }
+
+  /* Buttons */
+  .btn { display:flex; align-items:center; justify-content:center; gap:9px; width:100%; padding:15px 20px; border-radius:999px; border:none; font-size:15px; font-weight:500; cursor:pointer; text-align:center; text-decoration:none; transition:all .15s; margin-bottom:10px; font-family:inherit; }
+  .btn-i { width:18px; height:18px; flex-shrink:0; }
+  .r-emblem { width:46px; height:46px; border-radius:14px; background:rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .r-emblem svg { display:block; width:24px; height:24px; }
   .btn:active { transform:scale(.98); }
-  .btn-primary { background:var(--burgundy); color:var(--white); }
+  .btn-primary { background:var(--burgundy); color:#fff; box-shadow:0 10px 22px -10px rgba(216,116,63,.7); }
   .btn-primary:active { background:var(--burgundy-dark); }
-  .btn-secondary { background:var(--green); color:var(--white); }
+  .btn-secondary { background:var(--green); color:#fff; box-shadow:0 10px 22px -10px rgba(15,122,107,.6); }
   .btn-secondary:active { background:var(--green-dark); }
-  .btn-ghost { background:var(--white); color:var(--navy); border:1.5px solid var(--bg2); }
+  .btn-ghost { background:var(--white); color:var(--navy); border:1px solid var(--border); box-shadow:var(--shadow-sm); }
   .btn-ghost:active { background:var(--bg2); }
-  .btn-gold { background:var(--gold); color:var(--white); }
-  .btn-gold:active { background:var(--gold-dark); }
 
   .text-links { margin-top:6px; }
-  .text-link { display:block; text-align:center; color:var(--text2); font-size:13px; padding:10px 0; cursor:pointer; text-decoration:underline; text-decoration-color:var(--bg2); text-underline-offset:3px; transition:color .15s; border:none; background:none; width:100%; font-family:inherit; }
-  .text-link:active { color:var(--navy); }
+  .text-link { display:block; text-align:center; color:var(--text2); font-size:13.5px; padding:11px 0; cursor:pointer; text-decoration:underline; text-decoration-color:var(--bg2); text-underline-offset:3px; transition:color .15s; border:none; background:none; width:100%; font-family:inherit; }
+  .text-link:active { color:var(--burgundy); }
 
-  .content { padding:20px 18px; }
-  .section-title { color:var(--navy); font-size:19px; font-weight:800; margin-bottom:6px; line-height:1.3; }
-  .section-subtitle { color:var(--text2); font-size:13px; margin-bottom:20px; line-height:1.55; }
-  .section-accent { height:4px; border-radius:2px; margin-bottom:20px; background:linear-gradient(90deg,var(--burgundy),var(--gold)); }
-  .section-accent.green { background:linear-gradient(90deg,var(--green),var(--gold)); }
-  .section-accent.navy { background:linear-gradient(90deg,var(--navy),var(--green)); }
+  /* Sections */
+  .section-title { color:var(--navy); font-size:25px; font-weight:600; margin-bottom:7px; line-height:1.15; letter-spacing:-.01em; display:flex; align-items:center; gap:13px; }
+  .tile-i { flex-shrink:0; width:44px; height:44px; border-radius:13px; display:flex; align-items:center; justify-content:center; color:#fff; box-shadow:0 7px 16px -7px rgba(74,46,20,.42); }
+  .tile-i svg { display:block; width:22px; height:22px; }
+  .tile-i.terra { background:linear-gradient(140deg,#E68A50,#D8743F); }
+  .tile-i.emer { background:linear-gradient(140deg,#1C9684,#0A5A4F); }
+  .tile-i.gold { background:linear-gradient(140deg,#D7BB83,#A98744); }
+  .tile-i.lg { width:54px; height:54px; border-radius:16px; }
+  .tile-i.lg svg { width:27px; height:27px; }
+  .xtitle .tile-i { width:38px; height:38px; border-radius:11px; }
+  .xtitle .tile-i svg { width:19px; height:19px; }
+  .section-subtitle { color:var(--text2); font-size:14px; margin-bottom:22px; line-height:1.55; }
+  .section-accent { width:46px; height:4px; border-radius:999px; margin-bottom:18px; background:var(--burgundy); }
+  .section-accent.green { background:var(--green); }
+  .section-accent.gold { background:var(--gold); }
 
-  .quick-links { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
-  .quick-card { background:var(--white); border:1.5px solid var(--bg2); border-radius:14px; padding:16px 18px; cursor:pointer; display:flex; align-items:center; gap:14px; transition:all .15s; }
-  .quick-card:active { border-color:var(--navy); background:var(--bg2); }
-  .quick-card-icon { font-size:26px; flex-shrink:0; }
-  .quick-card-body { flex:1; }
-  .quick-card-title { font-size:14px; font-weight:700; color:var(--navy); }
-  .quick-card-sub { font-size:12px; color:var(--text2); margin-top:2px; }
-  .quick-card-arrow { color:var(--bg2); font-size:18px; flex-shrink:0; }
+  /* Cards */
+  .detail-card { background:var(--white); border:1px solid var(--border); border-radius:18px; padding:17px 18px; margin-bottom:12px; box-shadow:var(--shadow-sm); }
+  .detail-card.featured { border-color:rgba(216,116,63,.45); box-shadow:0 12px 30px -18px rgba(216,116,63,.45); }
+  .detail-card.gold { border-color:rgba(201,168,107,.55); }
+  .card-label { font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--green); margin-bottom:7px; }
+  .card-label.terra { color:var(--burgundy); }
+  .card-label.gold { color:var(--gold-dark); }
+  .card-price { font-size:23px; font-weight:600; color:var(--navy); margin-bottom:4px; line-height:1.1; }
+  .card-price .per { font-size:14px; color:var(--text2); font-weight:400; }
+  .card-desc { font-size:13.5px; color:var(--text2); line-height:1.55; }
+  .card-desc b { color:var(--text); font-weight:600; }
 
-  .format-card { background:var(--white); border:1.5px solid var(--bg2); border-radius:14px; padding:16px 18px; margin-bottom:10px; cursor:pointer; display:flex; align-items:center; gap:12px; transition:all .15s; text-decoration:none; color:inherit; }
-  .format-card:active { border-color:var(--navy); background:var(--bg2); }
-  .format-card.featured { border-color:var(--burgundy); }
-  .format-card.gold { border-color:var(--gold); }
-  .format-card.no-click { cursor:default; }
-  .format-card.no-click:active { border-color:var(--bg2); background:var(--white); }
-  .format-card-body { flex:1; }
-  .format-card-title { font-size:13px; font-weight:700; color:var(--green); margin-bottom:2px; }
-  .format-card-title.gold { color:var(--gold); }
-  .format-card-price { font-size:17px; font-weight:800; color:var(--navy); }
-  .format-card-desc { font-size:12px; color:var(--text2); margin-top:3px; line-height:1.4; }
-  .format-card-arrow { color:var(--bg2); font-size:18px; flex-shrink:0; }
-  .format-card.featured .format-card-arrow { color:var(--burgundy); }
-  .format-card.gold .format-card-arrow { color:var(--gold); }
+  /* Feature list (platform) */
+  .feat { display:flex; gap:12px; padding:11px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+  .feat:last-child { border-bottom:none; padding-bottom:2px; }
+  .feat:first-child { padding-top:2px; }
+  .feat .fe { font-size:20px; flex-shrink:0; line-height:1.3; }
+  .feat-b { font-size:14.5px; font-weight:600; color:var(--navy); line-height:1.25; }
+  .feat-s { font-family:var(--sans); font-size:12px; color:var(--text2); margin-top:2px; line-height:1.4; }
+  .fe-ico, .yt-ico { flex-shrink:0; width:36px; height:36px; border-radius:11px; display:flex; align-items:center; justify-content:center; }
+  .fe-ico svg { display:block; width:19px; height:19px; }
+  .fe-ico.emer { background:var(--mint); color:var(--green); }
+  .fe-ico.terra { background:var(--terra-tint); color:var(--burgundy); }
+  .fe-ico.gold { background:var(--gold-tint); color:var(--gold-dark); }
 
-  .detail-card { background:var(--white); border:1.5px solid var(--bg2); border-radius:12px; padding:16px 18px; margin-bottom:12px; }
-  .detail-card.featured { border-color:var(--burgundy); }
-  .detail-card.gold { border-color:var(--gold); }
-  .card-label { font-size:11px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; color:var(--green); margin-bottom:6px; }
-  .card-label.gold { color:var(--gold); }
-  .card-price { font-size:20px; font-weight:800; color:var(--navy); margin-bottom:4px; }
-  .card-desc { font-size:13px; color:var(--text2); line-height:1.55; }
+  /* Plan / price rows */
+  .plan-rows { margin-top:12px; border-top:1px solid var(--border); }
+  .plan-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--border); font-size:14px; color:var(--text); }
+  .plan-row:last-child { border-bottom:none; }
+  .plan-row .save { font-family:var(--sans); font-size:12px; font-weight:700; color:var(--green); }
+  .free-always { margin-top:12px; background:var(--mint); color:var(--green-dark); font-size:12.5px; font-family:var(--sans); font-weight:600; padding:9px 13px; border-radius:12px; }
 
-  .features { list-style:none; margin:10px 0; }
-  .features li { font-size:13px; color:var(--text); padding:5px 0; display:flex; gap:8px; line-height:1.4; border-bottom:1px solid var(--bg2); }
-  .features li:last-child { border-bottom:none; }
-  .features li::before { content:"✓"; color:var(--green); font-weight:800; flex-shrink:0; }
+  /* Big counter */
+  .count-card { background:linear-gradient(150deg,#fff,#FFF6EC); border:1px solid var(--border); border-radius:18px; padding:22px 18px; text-align:center; margin-bottom:14px; box-shadow:var(--shadow-sm); }
+  .big-num { display:block; font-size:42px; font-weight:600; color:var(--burgundy); line-height:1; letter-spacing:-.02em; }
+  .count-sub { display:block; font-family:var(--sans); font-size:12.5px; color:var(--text2); margin-top:8px; }
 
-  .divider { height:1px; background:var(--bg2); margin:18px 0; }
-  .highlight { background:var(--bg2); border-left:3px solid var(--burgundy); border-radius:0 10px 10px 0; padding:12px 14px; margin-bottom:16px; }
-  .highlight p { font-size:13px; color:var(--text); line-height:1.55; }
-  .highlight.green { border-color:var(--green); }
-  .highlight.gold { border-color:var(--gold); }
+  /* Tiers (individual) */
+  .tier { display:flex; justify-content:space-between; align-items:baseline; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); }
+  .tier:last-child { border-bottom:none; padding-bottom:0; }
+  .tier:first-child { padding-top:2px; }
+  .tier-name { font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--text2); }
+  .tier-name b { color:var(--navy); }
+  .tier-price { font-size:16px; font-weight:600; color:var(--navy); white-space:nowrap; }
+  .tier-desc { font-family:var(--sans); font-size:11.5px; color:var(--text3); margin-top:1px; }
 
-  .test-progress-wrap { margin-bottom:24px; }
-  .test-step-label { font-size:12px; color:var(--text2); text-transform:uppercase; letter-spacing:.8px; margin-bottom:8px; font-weight:600; }
-  .test-progress { display:flex; gap:6px; }
-  .progress-bar { flex:1; height:8px; background:var(--bg2); border-radius:4px; transition:background .3s; }
+  .divider { height:1px; background:var(--border); margin:18px 0; }
+  .highlight { background:var(--terra-tint); border-left:3px solid var(--burgundy); border-radius:0 14px 14px 0; padding:13px 15px; margin-bottom:14px; }
+  .highlight p { font-size:13.5px; color:var(--text); line-height:1.58; }
+  .highlight.green { background:var(--mint); border-color:var(--green); }
+  .highlight.gold { background:var(--gold-tint); border-color:var(--gold-dark); }
+
+  /* Test */
+  .test-step-label { font-family:var(--sans); font-size:11px; color:var(--text2); text-transform:uppercase; letter-spacing:.1em; margin-bottom:9px; font-weight:600; }
+  .test-progress { display:flex; gap:6px; margin-bottom:24px; }
+  .progress-bar { flex:1; height:7px; background:var(--bg2); border-radius:999px; transition:background .3s; }
   .progress-bar.active { background:var(--burgundy); }
   .progress-bar.done { background:var(--green); }
-  .test-question { color:var(--navy); font-size:19px; font-weight:800; margin-bottom:22px; line-height:1.4; }
-  .option-btn { display:block; width:100%; background:var(--white); border:1.5px solid var(--bg2); border-radius:12px; padding:14px 16px; margin-bottom:10px; font-size:14px; color:var(--text); text-align:left; cursor:pointer; transition:all .15s; font-family:inherit; font-weight:500; }
-  .option-btn:active { border-color:var(--burgundy); background:#fdf7f7; color:var(--burgundy); }
+  .test-question { color:var(--navy); font-size:24px; font-weight:600; margin-bottom:22px; line-height:1.25; letter-spacing:-.01em; }
+  .option-btn { display:flex; align-items:center; gap:12px; width:100%; background:var(--white); border:1px solid var(--border); border-radius:16px; padding:13px 15px; margin-bottom:11px; font-size:15px; color:var(--text); text-align:left; cursor:pointer; transition:all .15s; font-family:inherit; box-shadow:var(--shadow-sm); }
+  .option-btn:active { border-color:var(--burgundy); background:var(--terra-tint); color:var(--burgundy); }
 
-  .result-hero { background:linear-gradient(160deg,var(--green) 0%,var(--navy) 100%); padding:24px 20px; }
-  .result-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.15); color:var(--white); font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; }
-  .result-title { color:var(--white); font-size:20px; font-weight:800; line-height:1.3; margin-bottom:8px; }
-  .result-context { color:rgba(255,255,255,.75); font-size:13px; line-height:1.6; }
+  /* Result */
+  .result-hero { background:linear-gradient(155deg,var(--green) 0%,#0A4A42 100%); padding:26px 20px; }
+  .result-hero.terra { background:linear-gradient(155deg,var(--burgundy) 0%,#A84E22 100%); }
+  .result-badge { display:inline-flex; align-items:center; gap:6px; font-family:var(--sans); background:rgba(255,255,255,.18); color:#fff; font-size:10.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:13px; }
+  .result-title { color:#fff; font-size:26px; font-weight:600; line-height:1.16; margin-bottom:10px; letter-spacing:-.01em; }
+  .result-context { color:rgba(255,255,255,.85); font-size:14.5px; line-height:1.6; }
 
-  .faq-item { border-bottom:1px solid var(--bg2); }
-  .faq-q { padding:15px 4px; font-size:14px; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px; }
-  .faq-q .arrow { transition:transform .25s; font-size:12px; color:var(--text2); flex-shrink:0; }
+  /* FAQ */
+  .faq-item { border-bottom:1px solid var(--border); }
+  .faq-q { padding:16px 4px; font-size:16px; font-weight:500; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .faq-q .arrow { transition:transform .25s; font-size:11px; color:var(--burgundy); flex-shrink:0; }
   .faq-q.open .arrow { transform:rotate(180deg); }
-  .faq-a { display:none; padding:0 0 16px; font-size:13px; color:var(--text2); line-height:1.65; }
+  .faq-a { display:none; padding:0 0 16px; font-size:14px; color:var(--text2); line-height:1.7; }
   .faq-a.show { display:block; }
-  .faq-cta { display:inline-block; margin-top:10px; color:var(--burgundy); font-size:12px; font-weight:700; cursor:pointer; text-decoration:underline; border:none; background:none; font-family:inherit; padding:0; }
+  .faq-a .legal { font-size:12px; color:var(--text3); font-style:italic; }
+  .faq-cta { display:inline-block; margin-top:10px; color:var(--burgundy); font-size:13px; font-weight:600; cursor:pointer; text-decoration:underline; text-underline-offset:2px; border:none; background:none; font-family:inherit; padding:0; }
+  .ic-in { width:15px; height:15px; vertical-align:-2px; margin-right:5px; }
 
-  .path-card { background:var(--white); border:1.5px solid var(--bg2); border-radius:12px; padding:16px; margin-bottom:10px; }
-  .path-num { display:inline-block; background:var(--navy); color:var(--white); font-size:11px; font-weight:700; width:24px; height:24px; border-radius:50%; text-align:center; line-height:24px; margin-bottom:8px; }
-  .path-title { color:var(--navy); font-size:15px; font-weight:700; margin-bottom:3px; }
-  .path-sub { color:var(--text2); font-size:12px; line-height:1.4; }
-  .path-criteria { color:var(--text2); font-size:11px; margin-top:6px; padding-top:6px; border-top:1px solid var(--bg2); font-style:italic; }
+  /* About */
+  .stats-row { display:flex; gap:10px; margin-bottom:14px; }
+  .stat-card { flex:1; background:var(--white); border:1px solid var(--border); border-radius:16px; padding:15px 8px; text-align:center; box-shadow:var(--shadow-sm); }
+  .stat-card-num { font-size:21px; font-weight:600; color:var(--burgundy); display:block; }
+  .stat-card-label { font-family:var(--sans); font-size:10.5px; color:var(--text2); margin-top:3px; }
 
-  .deadline { background:var(--burgundy); color:var(--white); font-size:13px; font-weight:700; padding:10px 16px; border-radius:10px; text-align:center; margin-bottom:18px; }
-
-  .form-field { margin-bottom:16px; }
-  .form-label { font-size:12px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; display:block; }
-  .form-label span { color:var(--burgundy); }
-  .form-input { width:100%; padding:12px 14px; border:1.5px solid var(--bg2); border-radius:10px; font-size:14px; font-family:inherit; color:var(--text); background:var(--white); outline:none; transition:border-color .15s; }
-  .form-input:focus { border-color:var(--burgundy); }
-  .form-select { width:100%; padding:12px 14px; border:1.5px solid var(--bg2); border-radius:10px; font-size:14px; font-family:inherit; color:var(--text); background:var(--white); outline:none; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234A4A4A' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; }
-  .form-select:focus { border-color:var(--burgundy); }
-  .form-optional { font-size:10px; color:var(--text2); font-weight:400; text-transform:none; letter-spacing:0; margin-left:4px; }
-  .form-success { text-align:center; padding:30px 20px; }
-  .form-success-icon { font-size:48px; margin-bottom:16px; }
-  .form-success-title { color:var(--navy); font-size:20px; font-weight:800; margin-bottom:10px; }
-  .form-success-text { color:var(--text2); font-size:13px; line-height:1.6; }
-
-  .stats-row { display:flex; gap:8px; margin-bottom:14px; }
-  .stat-card { flex:1; background:var(--white); border:1.5px solid var(--bg2); border-radius:12px; padding:14px 10px; text-align:center; }
-  .stat-card-num { font-size:20px; font-weight:800; color:var(--navy); display:block; }
-  .stat-card-label { font-size:11px; color:var(--text2); margin-top:2px; }
-
-  .bottom-nav { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; background:var(--white); border-top:1px solid var(--bg2); display:flex; z-index:200; box-shadow:0 -2px 16px rgba(0,0,0,.07); }
-  .nav-item { flex:1; padding:10px 4px 8px; text-align:center; cursor:pointer; border:none; background:none; font-family:inherit; }
-  .nav-icon { font-size:21px; display:block; }
-  .nav-label { font-size:9px; color:var(--text2); display:block; margin-top:2px; font-weight:500; }
-  .nav-item.active .nav-label { color:var(--burgundy); font-weight:700; }
-
-  a.btn, a.format-card { display:block; }
-  .compact-links { display:flex; flex-direction:column; gap:0; border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-bottom:14px; }
-  .compact-link { display:flex; align-items:center; gap:10px; padding:11px 14px; background:var(--white); text-decoration:none; color:inherit; border-bottom:1px solid var(--border); }
+  .list-head { font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text3); margin:18px 2px 10px; }
+  .compact-links { display:flex; flex-direction:column; border-radius:18px; overflow:hidden; border:1px solid var(--border); margin-bottom:6px; box-shadow:var(--shadow-sm); }
+  .compact-link { display:flex; align-items:center; gap:12px; padding:14px 16px; background:var(--white); text-decoration:none; color:inherit; border-bottom:1px solid var(--border); transition:background .15s; cursor:pointer; }
   .compact-link:last-child { border-bottom:none; }
-  .compact-link.gold-row { background:rgba(184,149,106,.07); }
-  .compact-icon { font-size:20px; flex-shrink:0; width:28px; text-align:center; }
-  .compact-body { flex:1; }
-  .compact-title { font-size:13px; font-weight:600; color:var(--navy); }
-  .compact-desc { font-size:11px; color:var(--text2); margin-top:1px; }
-  .compact-arrow { color:var(--text2); font-size:16px; }
+  .compact-link:active { background:var(--bg); }
+  .compact-icon { font-size:19px; flex-shrink:0; width:28px; text-align:center; }
+  .compact-title { font-size:15px; font-weight:600; color:var(--navy); }
+  .compact-desc { font-family:var(--sans); font-size:12px; color:var(--text2); margin-top:1px; }
+  .compact-arrow { color:var(--burgundy); font-size:18px; margin-left:auto; }
+
+  /* Актуальное */
+  .annual { background:linear-gradient(160deg,#FFFDF8,#FBF3E3); border:1px solid rgba(201,168,107,.5); border-radius:20px; padding:22px 20px 20px; box-shadow:0 14px 34px -22px rgba(168,135,68,.55); text-align:center; }
+  .annual-badge { width:58px; height:58px; margin:0 auto 14px; border-radius:18px; background:linear-gradient(140deg,#D7BB83,var(--gold-dark)); display:flex; align-items:center; justify-content:center; font-size:30px; box-shadow:0 9px 20px -9px rgba(168,135,68,.7); }
+  .annual-label { font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:8px; }
+  .annual-title { font-size:21px; font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:13px; text-wrap:balance; }
+  .annual-text { font-family:var(--sans); font-size:13.5px; color:var(--text2); line-height:1.6; margin-bottom:18px; text-align:left; }
+  .actual-card { display:block; background:var(--white); border:1px solid var(--border); border-radius:18px; padding:16px 17px; margin-bottom:12px; box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; transition:all .15s; }
+  .actual-card:active { transform:scale(.99); box-shadow:var(--shadow); }
+  .actual-due { display:inline-block; white-space:nowrap; font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--burgundy); background:var(--terra-tint); padding:4px 11px; border-radius:999px; margin-bottom:10px; }
+  .actual-title { font-size:18px; font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:4px; }
+  .actual-desc { font-family:var(--sans); font-size:13px; color:var(--text2); line-height:1.5; }
+  .actual-go { display:inline-flex; align-items:center; gap:6px; margin-top:11px; font-family:var(--sans); font-size:13px; font-weight:600; color:var(--burgundy); }
+  /* Expandable format cards (Сопровождение) */
+  .xcard { background:var(--white); border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow-sm); margin-bottom:12px; overflow:hidden; }
+  .xcard.featured { border-color:rgba(216,116,63,.45); box-shadow:0 12px 30px -18px rgba(216,116,63,.4); }
+  .xcard.goldc { border-color:rgba(201,168,107,.55); }
+  .xhead { display:flex; align-items:flex-start; gap:12px; padding:16px 17px; cursor:pointer; }
+  .xhead-main { flex:1; min-width:0; }
+  .xtitle { font-size:18px; font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:6px; display:flex; align-items:center; gap:11px; }
+  .xmeta { font-size:15px; font-weight:500; color:var(--navy); }
+  .xmeta .per { color:var(--text2); font-weight:400; font-size:13px; }
+  .xnote { font-family:var(--sans); font-size:12.5px; color:var(--text2); margin-top:5px; line-height:1.45; }
+  .xchev { flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--bg2); color:var(--burgundy); display:flex; align-items:center; justify-content:center; font-size:10px; transition:transform .25s; margin-top:3px; }
+  .xcard.open .xchev { transform:rotate(180deg); }
+  .xbody { display:none; padding:0 17px 18px; }
+  .xcard.open .xbody { display:block; }
+  .xbody .xsub { font-family:var(--sans); font-size:13.5px; color:var(--text2); line-height:1.6; margin-bottom:16px; }
+  .xbody .lbl { font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); margin:6px 0 11px; }
+  .xpersonal { background:var(--terra-tint); border-radius:14px; padding:13px 15px; margin:14px 0; }
+  .xpersonal p { font-size:13px; color:var(--text); line-height:1.6; }
+  .xpersonal p + p { margin-top:9px; }
+  .xpersonal .who { font-style:italic; color:var(--burgundy); font-weight:500; }
+  .xnote-line { font-family:var(--sans); font-size:12.5px; color:var(--text2); line-height:1.5; margin:13px 0 14px; }
+  .xlist { list-style:none; display:flex; flex-direction:column; gap:11px; margin:0 0 6px; padding:0; }
+  .xlist li { display:flex; gap:11px; align-items:flex-start; font-family:var(--sans); font-size:13.5px; color:var(--text); line-height:1.45; }
+  .xlist li::before { content:"✓"; flex:0 0 auto; width:20px; height:20px; border-radius:7px; background:var(--mint); color:var(--green); font-size:11px; font-weight:700; display:flex; align-items:center; justify-content:center; margin-top:1px; }
 </style>
 </head>
 <body>
 
-<!-- HOME -->
+<!-- ═══════════ HOME · SPRINGBOARD ═══════════ -->
 <div class="screen active" id="s-home">
   <div class="hero">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 70" style="max-width:320px;width:90%;margin-bottom:16px;display:block;margin-left:auto;margin-right:auto;">
-  <!-- Circle emblem -->
-  <circle cx="35" cy="35" r="30" fill="none" stroke="#B8956A" stroke-width="1.2"/>
-  <circle cx="35" cy="35" r="24" fill="none" stroke="#B8956A" stroke-width="0.6" stroke-dasharray="2,3"/>
-  <!-- Key icon -->
-  <circle cx="35" cy="27" r="7" fill="none" stroke="#B8956A" stroke-width="1.4"/>
-  <line x1="35" y1="34" x2="35" y2="46" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="35" y1="40" x2="39" y2="40" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="35" y1="44" x2="38" y2="44" stroke="#B8956A" stroke-width="1.4" stroke-linecap="round"/>
-  <!-- Vertical divider -->
-  <line x1="76" y1="12" x2="76" y2="58" stroke="#B8956A" stroke-width="1" opacity="0.6"/>
-  <!-- Main title -->
-  <text x="92" y="33" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" fill="#B8956A" letter-spacing="0.5">Romanova StudyAbroad</text>
-  <!-- Subtitle -->
-  <text x="92" y="52" font-family="Georgia,'Times New Roman',serif" font-size="10" fill="#B8956A" letter-spacing="3.5" opacity="0.8">KNOWLEDGE PASSPORT · EST. 2020</text>
-</svg>
-    <h1>Поступление за рубеж<br>с Дианой Романовой</h1>
-    <p class="hero-desc">С 2020 года помогаю поступить в университеты США, Европы и Азии.</p>
+    <div class="brandbar">
+      <span class="brand-dot">RS</span>
+      <div class="brand-words"><b>Romanova StudyAbroad</b><small>Knowledge Passport · Est. 2020</small></div>
+    </div>
+    <h1>Поступление за рубеж <em>с Дианой Романовой</em></h1>
+    <p class="hero-desc">С 2020 года помогаю поступить в университеты США, Европы и Азии — лично, без агентских комиссий.</p>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num">1,500+</span><span class="stat-label">поступлений</span><span class="stat-context">с 2020 года</span></div><div class="stat-divider">|</div><div class="stat"><span class="stat-num">200+</span><span class="stat-label">клиентов</span><span class="stat-context">18 стран</span></div><div class="stat-divider">|</div><div class="stat"><span class="stat-num">$3M+</span><span class="stat-label">стипендий</span><span class="stat-context">для клиентов</span></div>
+      <div class="stat"><span class="stat-num">1 500+</span><span class="stat-label">поступлений</span></div>
+      <div class="stat"><span class="stat-num">200+</span><span class="stat-label">клиентов</span></div>
+      <div class="stat"><span class="stat-num">$3M+</span><span class="stat-label">стипендий</span></div>
     </div>
-    <button class="btn btn-primary" onclick="go('s-test-start');setNav('nav-test')">🎯 Найти свой формат — тест 3 вопроса</button>
   </div>
   <div class="content">
-    <div class="section-subtitle" style="margin-bottom:14px">Актуальное прямо сейчас:</div>
-    <div class="quick-links">
-      <div class="quick-card" onclick="go('s-competition');track('click','competition')">
-        <span class="quick-card-icon">🔥</span>
-        <div class="quick-card-body"><div class="quick-card-title">Конкурс «18 путей за рубеж»</div><div class="quick-card-sub">Бесплатное сопровождение · Дедлайн 15 мая</div></div>
-        <span class="quick-card-arrow">›</span>
-      </div>
-      <div class="quick-card" onclick="go('s-korea');track('click','korea')">
-        <span class="quick-card-icon">✈️</span>
-        <div class="quick-card-body"><div class="quick-card-title">Языковой лагерь в Корее</div><div class="quick-card-sub">Лето 2026 · Школьники 14–18 лет</div></div>
-        <span class="quick-card-arrow">›</span>
-      </div>
+    <div class="grid-label">Навигация</div>
+    <div class="grid">
+      <button class="tile" onclick="go('s-test')">
+        <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M14.9 9.1 L10.6 10.7 L9.1 14.9 L13.4 13.3 Z"/></svg></span>
+        <span class="tile-body"><span class="tile-title">Подобрать путь</span><span class="tile-sub">тест за 3 вопроса</span></span>
+      </button>
+      <button class="tile" onclick="go('s-platform')">
+        <span class="tile-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg></span>
+        <span class="tile-body"><span class="tile-title">Платформа</span><span class="tile-sub">база бесплатно</span></span>
+      </button>
+      <button class="tile" onclick="go('s-support')">
+        <span class="tile-ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg></span>
+        <span class="tile-body"><span class="tile-title">Сопровождение</span><span class="tile-sub">личная работа</span></span>
+      </button>
+      <button class="tile" onclick="go('s-actual')">
+        <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.8 L5.5 13 H11 L10.2 21.2 L18.5 10.4 H12.4 Z"/></svg></span>
+        <span class="tile-body"><span class="tile-title">Актуальное</span><span class="tile-sub">наборы и дедлайны</span></span>
+      </button>
+      <button class="tile" onclick="go('s-faq')">
+        <span class="tile-ico mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.2 C4.5 5.2 5.3 4.6 6.3 4.6 H17.7 C18.7 4.6 19.5 5.2 19.5 6.2 V13.8 C19.5 14.8 18.7 15.4 17.7 15.4 H10.2 L6.3 18.8 V15.4 C5.3 15.4 4.5 14.8 4.5 13.8 Z"/><path d="M10.2 8.6 C10.5 7.1 13.7 7.3 13.2 9.3 C12.85 10.65 11.9 10.45 11.9 11.8"/><circle cx="11.9" cy="13.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>
+        <span class="tile-body"><span class="tile-title">Вопросы</span><span class="tile-sub">частые ответы</span></span>
+      </button>
+      <button class="tile" onclick="go('s-about')">
+        <span class="tile-ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.4" r="3"/><path d="M5.6 19 C5.6 15.1 8.6 13.2 12 13.2 C15.4 13.2 18.4 15.1 18.4 19"/></svg></span>
+        <span class="tile-body"><span class="tile-title">О Диане</span><span class="tile-sub">о проекте</span></span>
+      </button>
     </div>
-    <div class="quick-card gold no-click" style="margin-top:10px;background:rgba(184,149,106,.1);border:1px solid rgba(184,149,106,.3);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px">
-      <span class="quick-card-icon">🚀</span>
-      <div class="quick-card-body">
-        <div class="quick-card-title" style="color:var(--gold)">Образовательная платформа</div>
-        <div class="quick-card-sub">Запуск 1 июня 2026 · Следите за анонсом в Telegram</div>
-      </div>
-    </div>
-    <a href="https://t.me/romanova_studyabroad" target="_blank" class="btn btn-ghost" style="margin-top:10px" onclick="track('click','home_question_tg')">💬 Есть вопрос? Написать в Telegram</a>
+    <button class="btn btn-primary" onclick="go('s-test')"><svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg>С чего начать? Пройдите тест за 3 вопроса</button>
   </div>
 </div>
 
-<!-- FREE -->
-<div class="screen" id="s-free">
-  <div class="header"><button class="back-btn" onclick="go('s-formats')">‹</button><div class="header-logo">Бесплатные материалы</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent green"></div>
-    <div class="section-title">🆓 Бесплатные материалы</div>
-    <div class="section-subtitle">Начните изучать тему прямо сейчас</div>
-    <div class="compact-links">
-      <a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="compact-link" onclick="track('click','youtube')"><span class="compact-icon">📺</span><div class="compact-body"><div class="compact-title">YouTube канал</div><div class="compact-desc">400+ видео: страны, стипендии, разборы документов</div></div><span class="compact-arrow">›</span></a>
-      <a href="https://t.me/romanovastudyabroad" target="_blank" class="compact-link" onclick="track('click','telegram_channel')"><span class="compact-icon">💬</span><div class="compact-body"><div class="compact-title">Telegram канал</div><div class="compact-desc">3 поста в день Пн–Пт</div></div><span class="compact-arrow">›</span></a>
-      <a href="https://romanova-studyabroad.com" target="_blank" class="compact-link" onclick="track('click','website')"><span class="compact-icon">📚</span><div class="compact-body"><div class="compact-title">Сайт</div><div class="compact-desc">Статьи, чек-листы, инструкции</div></div><span class="compact-arrow">›</span></a>
-      <div class="compact-link gold-row"><span class="compact-icon">🚀</span><div class="compact-body"><div class="compact-title" style="color:var(--gold)">Образовательная платформа</div><div class="compact-desc">В разработке — план лето 2026</div></div></div>
-    </div>
-    <div class="divider"></div>
-    <button class="btn btn-primary" onclick="go('s-test-start');setNav('nav-test')">🎯 Подобрать формат работы</button>
-  </div>
-</div>
-
-<!-- TEST START -->
-<div class="screen" id="s-test-start">
-  <div class="header"><button class="back-btn" onclick="go('s-home');setNav('nav-home')">‹</button><div class="header-logo">Тест</div><div class="header-spacer"></div></div>
+<!-- ═══════════ TEST · START ═══════════ -->
+<div class="screen" id="s-test">
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Подобрать путь</div><div class="header-spacer"></div></div>
   <div class="content">
     <div class="section-accent"></div>
-    <div style="font-size:44px;margin-bottom:16px">🎯</div>
+    <div style="margin-bottom:16px"><span class="tile-i terra lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg></span></div>
     <div class="section-title">Найдём ваш формат</div>
-    <div class="section-subtitle">Всего 3 вопроса. Ответьте честно — получите точную рекомендацию.</div>
+    <div class="section-subtitle">Три вопроса — и я подскажу, с чего начать именно вам: с бесплатной платформы или с личной работы.</div>
     <button class="btn btn-primary" onclick="startTest()">Начать →</button>
-    <div class="text-links"><button class="text-link" onclick="go('s-formats');setNav('nav-formats')">Посмотреть все форматы самостоятельно</button></div>
   </div>
 </div>
 
 <!-- Q1 -->
 <div class="screen" id="s-test-q1">
-  <div class="header"><button class="back-btn" onclick="go('s-test-start')">‹</button><div class="header-logo">Тест</div><div class="header-spacer"></div></div>
+  <div class="header"><button class="back-btn" onclick="go('s-test')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Вопрос 1 из 3</div><div class="header-spacer"></div></div>
   <div class="content">
-    <div class="test-progress-wrap"><div class="test-step-label">Вопрос 1 из 3</div><div class="test-progress"><div class="progress-bar active"></div><div class="progress-bar"></div><div class="progress-bar"></div></div></div>
-    <div class="test-question">На каком этапе вы сейчас?</div>
-    <button class="option-btn" onclick="answer(1,'izuchayu')">🔍 Только изучаю тему</button>
-    <button class="option-btn" onclick="answer(1,'vybirayu')">📚 Выбираю страну или программу</button>
-    <button class="option-btn" onclick="answer(1,'gotovlus')">📝 Готовлюсь к подаче</button>
-    <button class="option-btn" onclick="answer(1,'podal')">✅ Уже подал(а), жду результатов</button>
+    <div class="test-step-label">Этап</div>
+    <div class="test-progress"><div class="progress-bar active"></div><div class="progress-bar"></div><div class="progress-bar"></div></div>
+    <div class="test-question">На каком вы этапе?</div>
+    <button class="option-btn" onclick="answer(1,'izuchayu')"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.3"/><path d="M15.6 15.6 L20 20"/></svg></span>Только изучаю тему</button>
+    <button class="option-btn" onclick="answer(1,'vybirayu')"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21 C12 21 18 14.5 18 9.8 C18 6.3 15.3 3.8 12 3.8 C8.7 3.8 6 6.3 6 9.8 C6 14.5 12 21 12 21 Z"/><circle cx="12" cy="9.7" r="2.3"/></svg></span>Выбираю страну и программу</button>
+    <button class="option-btn" onclick="answer(1,'gotovlus')"><span class="fe-ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5 L19.5 9.5 L9 20 L4 20 L4 15 Z"/><path d="M13 6 L18 11"/></svg></span>Готовлюсь к подаче</button>
+    <button class="option-btn" onclick="answer(1,'podal')"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.2 L11 14.9 L16 9.3"/></svg></span>Уже подал(а), жду результат</button>
   </div>
 </div>
 
 <!-- Q2 -->
 <div class="screen" id="s-test-q2">
-  <div class="header"><button class="back-btn" onclick="go('s-test-q1')">‹</button><div class="header-logo">Тест</div><div class="header-spacer"></div></div>
+  <div class="header"><button class="back-btn" onclick="go('s-test-q1')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Вопрос 2 из 3</div><div class="header-spacer"></div></div>
   <div class="content">
-    <div class="test-progress-wrap"><div class="test-step-label">Вопрос 2 из 3</div><div class="test-progress"><div class="progress-bar done"></div><div class="progress-bar active"></div><div class="progress-bar"></div></div></div>
+    <div class="test-step-label">Формат</div>
+    <div class="test-progress"><div class="progress-bar done"></div><div class="progress-bar active"></div><div class="progress-bar"></div></div>
     <div class="test-question">Как планируете поступать?</div>
-    <button class="option-btn" onclick="answer(2,'sam')">💪 Самостоятельно, с инструкциями</button>
-    <button class="option-btn" onclick="answer(2,'support')">🤝 С поддержкой эксперта</button>
-    <button class="option-btn" onclick="answer(2,'neznayu')">🤷 Пока не знаю</button>
+    <button class="option-btn" onclick="answer(2,'sam')"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.4" r="3"/><path d="M5.6 19 C5.6 15.1 8.6 13.2 12 13.2 C15.4 13.2 18.4 15.1 18.4 19"/></svg></span>Самостоятельно</button>
+    <button class="option-btn" onclick="answer(2,'support')"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg></span>С поддержкой эксперта</button>
+    <button class="option-btn" onclick="answer(2,'nereshil')"><span class="fe-ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.7 9.4 C9.7 6.6 14.3 6.6 14.3 9.5 C14.3 11.4 12 11.2 12 13.2"/><circle cx="12" cy="15.6" r="0.55" fill="currentColor" stroke="none"/></svg></span>Пока не решил(а)</button>
   </div>
 </div>
 
 <!-- Q3 -->
 <div class="screen" id="s-test-q3">
-  <div class="header"><button class="back-btn" onclick="go('s-test-q2')">‹</button><div class="header-logo">Тест</div><div class="header-spacer"></div></div>
+  <div class="header"><button class="back-btn" onclick="go('s-test-q2')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Вопрос 3 из 3</div><div class="header-spacer"></div></div>
   <div class="content">
-    <div class="test-progress-wrap"><div class="test-step-label">Вопрос 3 из 3</div><div class="test-progress"><div class="progress-bar done"></div><div class="progress-bar done"></div><div class="progress-bar active"></div></div></div>
-    <div class="test-question">Ваш бюджет на помощь с поступлением?</div>
-    <button class="option-btn" onclick="answer(3,'do24')">💎 До 24,000₽ (разбор профиля)</button>
-    <button class="option-btn" onclick="answer(3,'90-180')">🎯 90,000 – 180,000₽</button>
-    <button class="option-btn" onclick="answer(3,'180-360')">🤝 180,000 – 360,000₽</button>
-    <button class="option-btn" onclick="answer(3,'360plus')">⭐ 360,000₽+</button>
-    <button class="option-btn" onclick="answer(3,'all')">💰 Хочу узнать все варианты</button>
+    <div class="test-step-label">Бюджет</div>
+    <div class="test-progress"><div class="progress-bar done"></div><div class="progress-bar done"></div><div class="progress-bar active"></div></div>
+    <div class="test-question">Бюджет на помощь с поступлением?</div>
+    <button class="option-btn" onclick="answer(3,'do24')"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg></span>До 24 000 ₽ (разбор профиля)</button>
+    <button class="option-btn" onclick="answer(3,'90-180')"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.6"/><path d="M9.8 16 V8.2 H12.8 a2.2 2.2 0 0 1 0 4.4 H9.8 M8.6 11.6 H13.6"/></svg></span>90 000 – 180 000 ₽</button>
+    <button class="option-btn" onclick="answer(3,'180-360')"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.6"/></svg></span>180 000 – 360 000 ₽</button>
+    <button class="option-btn" onclick="answer(3,'360plus')"><span class="fe-ico gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 L14.3 8.9 L20 9.4 L15.7 13.2 L17 18.9 L12 15.8 L7 18.9 L8.3 13.2 L4 9.4 L9.7 8.9 Z"/></svg></span>360 000 ₽+</button>
+    <button class="option-btn" onclick="answer(3,'all')"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></span>Показать все варианты</button>
   </div>
 </div>
 
 <!-- RESULT -->
 <div class="screen" id="s-result">
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Рекомендация</div><div class="header-spacer"></div></div>
   <div id="result-hero-block"></div>
   <div class="content" id="result-content"></div>
 </div>
 
-<!-- FORMATS -->
-<div class="screen" id="s-formats">
-  <div class="header"><button class="back-btn" onclick="go('s-home');setNav('nav-home')">‹</button><div class="header-logo">Форматы работы</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent navy"></div>
-    <div class="section-title">📋 Форматы работы</div>
-    <div class="section-subtitle">Нажмите на формат — узнайте подробнее</div>
-    <div class="format-card" onclick="go('s-format-free');track('click','format_free')">
-      <span style="font-size:28px">🆓</span><div class="format-card-body"><div class="format-card-title">Бесплатные материалы</div><div class="format-card-price" style="font-size:14px;color:var(--green)">YouTube · Telegram · Платформа</div><div class="format-card-desc">Для тех, кто только начинает изучать тему</div></div><span class="format-card-arrow">›</span>
-    </div>
-    <div class="format-card" onclick="go('s-format-razbor');track('click','format_razbor')">
-      <span style="font-size:28px">🎯</span><div class="format-card-body"><div class="format-card-title">Разбор профиля</div><div class="format-card-price">24,000₽</div><div class="format-card-desc">Разбор профиля 90 минут · Стратегия и план</div></div><span class="format-card-arrow">›</span>
-    </div>
-    <div class="format-card featured" onclick="go('s-format-mentor');track('click','format_mentor')">
-      <span style="font-size:28px">🤝</span><div class="format-card-body"><div class="format-card-title">Менторское сопровождение</div><div class="format-card-price">90,000₽/мес</div><div class="format-card-desc">Вы делаете, я контролирую · От 2 месяцев</div></div><span class="format-card-arrow" style="color:var(--burgundy)">›</span>
-    </div>
-    <div class="format-card gold" onclick="go('s-format-individual');track('click','format_individual')">
-      <span style="font-size:28px">⭐</span><div class="format-card-body"><div class="format-card-title gold">Индивидуальное сопровождение</div><div class="format-card-price">180,000 – 600,000₽</div><div class="format-card-desc">Я делаю всё за вас · От подбора до оффера</div></div><span class="format-card-arrow" style="color:var(--gold)">›</span>
-    </div>
-    <div class="text-links"><button class="text-link" onclick="go('s-about');setNav('nav-more')">ℹ️ О проекте и Диане Романовой</button></div>
-  </div>
-</div>
-
-<!-- FORMAT FREE -->
-<div class="screen" id="s-format-free">
-  <div class="header"><button class="back-btn" onclick="go('s-formats')">‹</button><div class="header-logo">Бесплатные материалы</div><div class="header-spacer"></div></div>
+<!-- ═══════════ PLATFORM ═══════════ -->
+<div class="screen" id="s-platform">
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Платформа</div><div class="header-spacer"></div></div>
   <div class="content">
     <div class="section-accent green"></div>
-    <div class="section-title">🆓 Бесплатные материалы</div>
-    <div class="section-subtitle">Начните изучать тему прямо сейчас — бесплатно</div>
-    <div class="compact-links">
-      <a href="https://youtube.com/@RomanovaStudyAbroad" target="_blank" class="compact-link" onclick="track('click','youtube')"><span class="compact-icon">📺</span><div class="compact-body"><div class="compact-title">YouTube канал</div><div class="compact-desc">400+ видео: страны, стипендии, разборы</div></div><span class="compact-arrow">›</span></a>
-      <a href="https://t.me/romanovastudyabroad" target="_blank" class="compact-link" onclick="track('click','telegram_channel')"><span class="compact-icon">💬</span><div class="compact-body"><div class="compact-title">Telegram канал</div><div class="compact-desc">3 поста в день Пн–Пт</div></div><span class="compact-arrow">›</span></a>
-      <a href="https://romanova-studyabroad.com" target="_blank" class="compact-link" onclick="track('click','website')"><span class="compact-icon">📚</span><div class="compact-body"><div class="compact-title">Сайт</div><div class="compact-desc">Статьи, чек-листы, инструкции</div></div><span class="compact-arrow">›</span></a>
-      <div class="compact-link gold-row"><span class="compact-icon">🚀</span><div class="compact-body"><div class="compact-title" style="color:var(--gold)">Образовательная платформа</div><div class="compact-desc">В разработке — план лето 2026</div></div></div>
+    <div class="section-title"><span class="tile-i emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg></span>Образовательная платформа</div>
+    <div class="section-subtitle">Самостоятельный путь со всей базой программ и стипендий.</div>
+    <div class="count-card">
+      <span class="big-num" id="prog-count">330 000+</span>
+      <span class="count-sub">программ по десяткам стран</span>
     </div>
-    <div class="text-links"><button class="text-link" onclick="go('s-test-start');setNav('nav-test')">Не знаете, что выбрать? Пройдите тест →</button></div>
-  </div>
-</div>
-
-<!-- FORMAT RAZBOR -->
-<div class="screen" id="s-format-razbor">
-  <div class="header"><button class="back-btn" onclick="go('s-formats')">‹</button><div class="header-logo">Разбор профиля</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent"></div>
-    <div class="section-title">🎯 Разбор профиля</div>
-    <div class="section-subtitle">Разбор профиля — понять ситуацию, получить стратегию и план</div>
-    <div class="detail-card featured">
-      <div class="card-label">Формат и стоимость</div>
-      <div class="card-price">24,000₽ · 90 минут</div>
-      <div class="card-desc">Яндекс Телемост · Разово</div>
-    </div>
-    <div class="card-label" style="margin-bottom:10px">Что получите:</div>
-    <ul class="features">
-      <li>Анализ вашего профиля</li>
-      <li>Оценка шансов на топ-программы</li>
-      <li>Список 10–15 подходящих программ</li>
-      <li>Рекомендации по стипендиям</li>
-      <li>Стратегия подготовки</li>
-      <li>План действий на 6–12 месяцев</li>
-      <li>Запись встречи</li>
-    </ul>
-    <div class="highlight green"><p>💡 Если после разбора профиля мы решим работать вместе — стоимость разбора засчитывается в стоимость сопровождения.</p></div>
-    <div class="divider"></div>
-    <a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-primary" onclick="track('click','razbor_book')">Выбрать время и записаться</a>
-    <div class="text-links"><button class="text-link" onclick="go('s-question')">Есть вопрос перед записью?</button></div>
-  </div>
-</div>
-
-<!-- FORMAT MENTOR -->
-<div class="screen" id="s-format-mentor">
-  <div class="header"><button class="back-btn" onclick="go('s-formats')">‹</button><div class="header-logo">Менторское</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent"></div>
-    <div class="section-title">🤝 Менторское сопровождение</div>
-    <div class="section-subtitle">Вы делаете сами, но с регулярной обратной связью и контролем эксперта</div>
-    <div class="detail-card featured">
-      <div class="card-label">Стоимость</div>
-      <div class="card-price">90,000₽/месяц</div>
-      <div class="card-desc">Минимум 2 месяца · В среднем 3–4 месяца</div>
-    </div>
-    <div class="card-label" style="margin-bottom:10px">Что входит:</div>
-    <ul class="features">
-      <li>Еженедельные встречи онлайн</li>
-      <li>Неограниченное количество программ</li>
-      <li>Проверка всех документов с фидбеком</li>
-      <li>Поддержка в Telegram между встречами</li>
-      <li>Контроль дедлайнов</li>
-      <li>Помощь в сложных ситуациях</li>
-      <li>Подготовка к интервью</li>
-    </ul>
-    <div class="divider"></div>
-    <button class="btn btn-primary" onclick="go('s-application');appFormat='Менторское сопровождение (90,000₽/мес)';track('click','mentor_apply')">✉️ Оставить заявку</button>
-    <a href="https://romanova-studyabroad.com/mentor" target="_blank" class="btn btn-ghost" onclick="track('click','mentor_site')">📋 Подробнее на сайте</a>
-    <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Не уверены? Начните с разбора профиля</button></div>
-  </div>
-</div>
-
-<!-- FORMAT INDIVIDUAL -->
-<div class="screen" id="s-format-individual">
-  <div class="header"><button class="back-btn" onclick="go('s-formats')">‹</button><div class="header-logo">Индивидуальное</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent" style="background:linear-gradient(90deg,var(--gold),var(--burgundy))"></div>
-    <div class="section-title">⭐ Индивидуальное сопровождение</div>
-    <div class="section-subtitle">Я делаю всё за вас: от подбора программ до получения офферов</div>
     <div class="detail-card">
-      <div class="card-label">📦 STARTER</div>
-      <div class="card-price">180,000₽</div>
-      <div class="card-desc">Подача на 1–2 программы · Для тех, у кого чёткая цель</div>
+      <div class="card-label green">Бесплатно после регистрации</div>
+      <div class="feat"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></span><div><div class="feat-b">База программ</div><div class="feat-s">Десятки стран · фильтры по уровню, рейтингу, стипендиям и доступности для граждан РФ</div></div></div>
+      <div class="feat"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.6"/></svg></span><div><div class="feat-b">Все стипендии и гранты</div><div class="feat-s">С дедлайнами и фильтром по гражданству</div></div></div>
     </div>
-    <div class="detail-card featured">
-      <div class="card-label">📦 STANDARD ⭐ популярный</div>
-      <div class="card-price">360,000₽</div>
-      <div class="card-desc">Подача на 3–5 программ + стипендии · Максимум шансов</div>
-    </div>
-    <div class="detail-card gold">
-      <div class="card-label gold">📦 PREMIUM</div>
-      <div class="card-price">600,000₽</div>
-      <div class="card-desc">5+ программ · VIP-сопровождение до получения офферов</div>
-    </div>
-    <ul class="features" style="margin-bottom:20px">
-      <li>Подбор программ под ваш профиль</li>
-      <li>Подготовка всех документов</li>
-      <li>Подача всех заявок</li>
-      <li>Сопровождение до получения офферов</li>
-      <li>Работаю лично — без команды и конвейера</li>
-    </ul>
-    <button class="btn btn-gold" onclick="go('s-application');appFormat='Индивидуальное сопровождение';track('click','individual_apply')">✉️ Оставить заявку</button>
-    <a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost" onclick="track('click','individual_site')">📋 Подробнее на сайте</a>
-    <div class="text-links"><button class="text-link" onclick="go('s-format-razbor')">Не уверены? Начните с разбора профиля</button></div>
-  </div>
-</div>
-
-<!-- APPLICATION FORM -->
-<div class="screen" id="s-application">
-  <div class="header"><button class="back-btn" onclick="go(prevScreen)">‹</button><div class="header-logo">Заявка на сопровождение</div><div class="header-spacer"></div></div>
-  <div class="content" id="application-content">
-    <div class="section-accent"></div>
-    <div class="section-title">✉️ Заявка на сопровождение</div>
-    <div class="section-subtitle">Заполните форму — я свяжусь с вами в Telegram в течение 24–48 часов.</div>
-    <div class="form-field">
-      <label class="form-label">Имя и фамилия <span>*</span></label>
-      <input class="form-input" id="f-name" type="text" placeholder="Например: Анна Иванова">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Telegram-ник <span>*</span></label>
-      <input class="form-input" id="f-tg" type="text" placeholder="@username">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Страна проживания <span>*</span></label>
-      <input class="form-input" id="f-country" type="text" placeholder="Например: Россия">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Текущее образование <span>*</span></label>
-      <select class="form-select" id="f-edu">
-        <option value="">— Выберите —</option>
-        <option>Учусь в школе (9–11 класс)</option>
-        <option>Окончил(а) школу</option>
-        <option>Учусь в бакалавриате</option>
-        <option>Окончил(а) бакалавриат</option>
-        <option>Учусь в магистратуре</option>
-        <option>Окончил(а) магистратуру</option>
-        <option>Работаю (высшее образование есть)</option>
-      </select>
-    </div>
-    <div class="form-field">
-      <label class="form-label">Формат работы <span>*</span></label>
-      <select class="form-select" id="f-format">
-        <option value="">— Выберите —</option>
-        <option>Менторское (90,000₽/мес)</option>
-        <option>Индивидуальное Starter (180,000₽)</option>
-        <option>Индивидуальное Standard (360,000₽)</option>
-        <option>Индивидуальное Premium (600,000₽)</option>
-        <option>Не уверен(а), хочу обсудить</option>
-      </select>
-    </div>
-    <div class="form-field">
-      <label class="form-label">Когда планируете поступление <span>*</span></label>
-      <select class="form-select" id="f-when">
-        <option value="">— Выберите —</option>
-        <option>Сентябрь 2026</option>
-        <option>Январь 2027</option>
-        <option>Сентябрь 2027</option>
-        <option>Январь 2028 или позже</option>
-        <option>Ещё не определился(ась)</option>
-      </select>
-    </div>
-    <div class="form-field">
-      <label class="form-label">Какие страны рассматриваете <span class="form-optional">(необязательно)</span></label>
-      <input class="form-input" id="f-countries" type="text" placeholder="Например: Южная Корея, США">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Направление обучения <span class="form-optional">(необязательно)</span></label>
-      <input class="form-input" id="f-direction" type="text" placeholder="Например: Экономика, IT, Медицина">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Планируете подавать на стипендии? <span class="form-optional">(необязательно)</span></label>
-      <select class="form-select" id="f-stipend">
-        <option value="">— Выберите —</option>
-        <option>Да, обязательно (без стипендии не смогу)</option>
-        <option>Да, хочу попробовать</option>
-        <option>Нет, готов(а) оплачивать полностью</option>
-        <option>Не знаю, хочу обсудить</option>
-      </select>
-    </div>
-    <div class="divider"></div>
-    <button class="btn btn-primary" onclick="submitForm()">Отправить заявку →</button>
-    <div class="text-links"><button class="text-link" onclick="go('s-question')">Есть вопрос перед отправкой?</button></div>
-  </div>
-</div>
-
-<!-- COMPETITION -->
-<div class="screen" id="s-competition">
-  <div class="header"><button class="back-btn" onclick="go('s-home');setNav('nav-home')">‹</button><div class="header-logo">Конкурс</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent" style="background:linear-gradient(90deg,var(--burgundy),var(--navy))"></div>
-    <div class="section-title">🔥 «18 путей за рубеж»</div>
-    <div class="section-subtitle">18 мест на бесплатное сопровождение на поступление 2027–2028</div>
-    <div class="deadline">⏰ Дедлайн: 15 мая 2026</div>
-    <div class="path-card">
-      <div class="path-num">1</div>
-      <div class="path-title">VIP-сопровождение</div>
-      <div class="path-sub">Для сильных кандидатов · Полное сопровождение бесплатно</div>
-      <div class="path-criteria">Подходит если: сильный академический профиль, чёткая цель, высокая мотивация</div>
-    </div>
-    <div class="path-card">
-      <div class="path-num">2</div>
-      <div class="path-title">Менторское</div>
-      <div class="path-sub">Для самостоятельных · Еженедельные встречи бесплатно</div>
-      <div class="path-criteria">Подходит если: готовы работать самостоятельно, нужна обратная связь и контроль</div>
-    </div>
-    <div class="path-card">
-      <div class="path-num">3</div>
-      <div class="path-title">Risk-Sharing</div>
-      <div class="path-sub">Для нестандартных профилей · Оплата только при поступлении</div>
-      <div class="path-criteria">Подходит если: нестандартный профиль или нет возможности платить заранее</div>
-    </div>
-    <div class="divider"></div>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3F6qAOjNjro37Vk9Bmmmq3eQEJpyUcL9qR58mHaObS9ORwQ/viewform" target="_blank" class="btn btn-primary" onclick="track('click','competition_apply')">✉️ Подать заявку</a>
-    <div class="text-links"><button class="text-link" onclick="window.open('https://romanova-studyabroad.com/competition','_blank');track('click','competition_site')">Подробнее о трёх путях и критериях на сайте</button></div>
-  </div>
-</div>
-
-<!-- KOREA -->
-<div class="screen" id="s-korea">
-  <div class="header"><button class="back-btn" onclick="go('s-home');setNav('nav-home')">‹</button><div class="header-logo">Лагерь в Корее</div><div class="header-spacer"></div></div>
-  <div class="content">
-    <div class="section-accent green"></div>
-    <div class="section-title">✈️ Языковой лагерь в Южной Корее</div>
-    <div class="section-subtitle">Лето 2026 · Для школьников 14–18 лет</div>
     <div class="detail-card">
-      <div class="card-label">Программа</div>
-      <ul class="features" style="margin-top:8px">
-        <li>Интенсивный корейский и английский</li>
-        <li>Погружение в культуру</li>
-        <li>Экскурсии по университетам</li>
-        <li>Подготовка к TOPIK / TOEIC</li>
-      </ul>
+      <div class="card-label terra">По подписке</div>
+      <div class="feat"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.4 C10 5 7 5 4.7 5.4 V17.2 C7 16.8 10 16.8 12 18.2 C14 16.8 17 16.8 19.3 17.2 V5.4 C17 5 14 5 12 6.4 Z"/><path d="M12 6.4 V18.2"/></svg></span><div><div class="feat-b">Гайды по странам и экзаменам</div><div class="feat-s">Поступление и жизнь — по официальным источникам</div></div></div>
+      <div class="feat"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16 L9.5 10.5 L13 14 L20 7"/><path d="M15.5 7 H20 V11.5"/></svg></span><div><div class="feat-b">Повышение шансов</div><div class="feat-s">Конкретные шаги, как усилить профиль</div></div></div>
+      <div class="feat"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.8" width="14" height="15.4" rx="2.5"/><path d="M9 4.8 V4 a1 1 0 0 1 1-1 h4 a1 1 0 0 1 1 1 v0.8"/><path d="M8.7 11 l1.6 1.6 L13.4 9.4"/><path d="M8.7 15.5 h6.6"/></svg></span><div><div class="feat-b">Поступление</div><div class="feat-s">Пошаговый трекер вашего пути</div></div></div>
     </div>
-    <div class="divider"></div>
-    <a href="https://romanova-studyabroad.com/korea-language-camp" target="_blank" class="btn btn-primary" onclick="track('click','korea_site')">📋 Подробнее на сайте</a>
-    <div class="text-links"><button class="text-link" onclick="window.open('https://t.me/romanova_studyabroad','_blank');track('click','korea_tg')">Оставить заявку в Telegram</button></div>
+    <div class="detail-card">
+      <div class="card-label green">Подписка</div>
+      <div class="card-price">₽2 900 <span class="per">/мес</span></div>
+      <div class="card-desc">до 31 августа 2026 · далее ₽3 900/мес</div>
+      <div class="plan-rows">
+        <div class="plan-row"><span>6 месяцев</span><b class="save">выгоднее на 17%</b></div>
+        <div class="plan-row"><span>12 месяцев</span><b class="save">выгоднее на 25%</b></div>
+      </div>
+      <div class="free-always"><svg class="ic-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="9.5" rx="1.5"/><rect x="3" y="6.8" width="18" height="3.4" rx="1"/><path d="M12 6.8 V19.5"/><path d="M12 6.8 C12 6.8 10.7 3 8.3 4 C6.4 4.8 8 6.8 12 6.8 Z"/><path d="M12 6.8 C12 6.8 13.3 3 15.7 4 C17.6 4.8 16 6.8 12 6.8 Z"/></svg>Программы и стипендии — бесплатны всегда</div>
+    </div>
+    <div class="highlight green"><p>Регистрируетесь на платформе бесплатно и сразу получаете полный доступ к программам и стипендиям. Гайды, программы повышения шансов, все этапы поступления — по подписке.</p></div>
+    <a href="https://platform.romanova-studyabroad.com/" target="_blank" rel="noopener" class="btn btn-secondary"><svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Открыть платформу</a>
+    <div class="text-links"><button class="text-link" onclick="go('s-test')">Не уверены, что подойдёт? Пройдите тест →</button></div>
   </div>
 </div>
 
-<!-- QUESTION -->
-<div class="screen" id="s-question">
-  <div class="header"><button class="back-btn" onclick="go('s-home');setNav('nav-home')">‹</button><div class="header-logo">Вопрос</div><div class="header-spacer"></div></div>
+<!-- ═══════════ SUPPORT ═══════════ -->
+<div class="screen" id="s-support">
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Сопровождение</div><div class="header-spacer"></div></div>
   <div class="content">
-    <div class="section-accent navy"></div>
-    <div class="section-title">💬 Есть вопрос?</div>
-    <div class="section-subtitle">Напишите — Диана ответит в течение 24 часов.</div>
-    <div class="highlight green"><p>Здесь можно спросить про форматы, цены и процесс работы.<br><br>Если вопрос про стратегию поступления — лучше начать с теста или разбора профиля: так получите развёрнутый ответ именно под вашу ситуацию.</p></div>
-    <a href="https://t.me/romanova_studyabroad" target="_blank" class="btn btn-primary" onclick="track('click','question_tg')">💬 Написать в Telegram</a>
-    <div class="text-links">
-      <button class="text-link" onclick="go('s-test-start');setNav('nav-test')">Пройти тест и получить рекомендацию</button>
-      <button class="text-link" onclick="go('s-format-razbor')">Записаться на консультацию</button>
+    <div class="section-accent"></div>
+    <div class="section-title"><span class="tile-i terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg></span>Форматы работы со мной</div>
+    <div class="section-subtitle">Работаю лично — без команды менеджеров и конвейера. Помогаю поступить на программы по всему миру: от подбора вузов до офферов и визы. С чего бы вы ни начали, первый шаг один — разбор профиля: за 90 минут смотрю вашу ситуацию вживую и честно говорю, что реально, а что нет.</div>
+
+    <div class="xcard featured open">
+      <div class="xhead" onclick="toggleX(this)">
+        <div class="xhead-main">
+          <div class="xtitle"><span class="tile-i terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg></span>Разбор профиля</div>
+          <div class="xmeta">24 000 ₽ <span class="per">· 90 минут · Яндекс Телемост, разово</span></div>
+          <div class="xnote">С него начинается работа: понять ситуацию, получить стратегию и план</div>
+        </div>
+        <span class="xchev">▼</span>
+      </div>
+      <div class="xbody">
+        <div class="lbl">Что вы получите за встречу</div>
+        <ul class="xlist">
+          <li>Анализ вашего профиля — сильные и слабые места</li>
+          <li>Честная оценка шансов на топ-программы</li>
+          <li>Список 10–15 подходящих программ под вас</li>
+          <li>Рекомендации по стипендиям</li>
+          <li>Стратегия подготовки</li>
+          <li>План действий на 6–12 месяцев вперёд</li>
+          <li>Запись встречи, чтобы ничего не потерять</li>
+        </ul>
+        <a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:0"><svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Выбрать время и записаться</a>
+      </div>
+    </div>
+
+    <div class="xcard">
+      <div class="xhead" onclick="toggleX(this)">
+        <div class="xhead-main">
+          <div class="xtitle"><span class="tile-i emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg></span>Менторское сопровождение</div>
+          <div class="xmeta">90 000 ₽<span class="per">/мес · минимум 2 месяца, в среднем 3–4</span></div>
+          <div class="xnote">Вы делаете сами, но с регулярной обратной связью и контролем эксперта</div>
+        </div>
+        <span class="xchev">▼</span>
+      </div>
+      <div class="xbody">
+        <div class="xsub">Подходит тем, кто готов работать сам, но хочет, чтобы рядом был человек, который вовремя поправит и не даст ошибиться.</div>
+        <div class="lbl">Что входит</div>
+        <ul class="xlist">
+          <li>Еженедельные встречи онлайн</li>
+          <li>Неограниченное количество программ</li>
+          <li>Проверка всех документов с моим фидбеком</li>
+          <li>Поддержка в Telegram между встречами</li>
+          <li>Контроль дедлайнов</li>
+          <li>Помощь в сложных и спорных ситуациях</li>
+          <li>Подготовка к интервью</li>
+        </ul>
+        <div class="xnote-line">Начинаем с разбора профиля — на нём я понимаю вашу ситуацию и мы решаем, подходит ли формат. Стоимость разбора засчитывается.</div>
+        <a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:0"><svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Записаться на разбор</a>
+      </div>
+    </div>
+
+    <div class="xcard goldc">
+      <div class="xhead" onclick="toggleX(this)">
+        <div class="xhead-main">
+          <div class="xtitle"><span class="tile-i gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 L14.3 8.9 L20 9.4 L15.7 13.2 L17 18.9 L12 15.8 L7 18.9 L8.3 13.2 L4 9.4 L9.7 8.9 Z"/></svg></span>Индивидуальное сопровождение</div>
+          <div class="xmeta">от 180 000 ₽ <span class="per">· три пакета</span></div>
+          <div class="xnote">Основную работу беру на себя — от подбора программ до офферов</div>
+        </div>
+        <span class="xchev">▼</span>
+      </div>
+      <div class="xbody">
+        <div class="xsub">Для тех, у кого нет времени вникать в процесс самому. Я веду заявки от начала до конца.</div>
+        <div class="lbl">Пакеты</div>
+        <div class="tier"><div><div class="tier-name"><b>Starter</b></div><div class="tier-desc">Подача на 1–2 программы · для тех, у кого уже есть чёткая цель</div></div><div class="tier-price">180 000 ₽</div></div>
+        <div class="tier"><div><div class="tier-name"><b>Standard</b> <svg class="ic-in" style="margin-right:0;vertical-align:-2px" viewBox="0 0 24 24" fill="#A98744" stroke="none"><path d="M12 3.6 L14.3 8.9 L20 9.4 L15.7 13.2 L17 18.9 L12 15.8 L7 18.9 L8.3 13.2 L4 9.4 L9.7 8.9 Z"/></svg></div><div class="tier-desc">3–5 программ + работа со стипендиями · максимум шансов</div></div><div class="tier-price">360 000 ₽</div></div>
+        <div class="tier"><div><div class="tier-name"><b>Premium</b></div><div class="tier-desc">Безлимит программ + стипендии, ведение до визы, приоритет 24/7</div></div><div class="tier-price">600 000 ₽</div></div>
+        <div class="lbl" style="margin-top:15px">Что входит во все пакеты</div>
+        <ul class="xlist">
+          <li>Подбор программ под ваш профиль</li>
+          <li>Подготовка всех документов (мотивационные письма, CV, рекомендации)</li>
+          <li>Подача всех заявок</li>
+          <li>Подготовка к интервью</li>
+          <li>Сопровождение до получения офферов</li>
+          <li>Работаю лично — без команды и конвейера</li>
+        </ul>
+        <div class="xnote-line">Начинаем с разбора профиля — он засчитывается в стоимость пакета.</div>
+        <a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:0"><svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Записаться на разбор</a>
+      </div>
+    </div>
+
+    <div class="highlight gold"><p>Не гарантирую конкретный вуз — гарантирую поступление при подаче на 3 вуза и больше.</p></div>
+
+    <div class="xpersonal">
+      <p><span class="who">💬 От меня лично:</span> Раньше я созванивалась бесплатно на 15–20 минут. Но честно — за это время можно дать только общие советы, те же, что есть в моём канале и на YouTube. Настоящую стратегию так не собрать.</p>
+      <p>На 90% общих вопросов по поступлению отвечает моё бесплатное видео — посмотрите его в первую очередь, это правда экономит время. А разбор нужен, когда доходит до вашей личной стратегии: чтобы он был полезным, я заранее изучаю ваш профиль и готовлюсь к встрече — поэтому он платный. Зато вы уходите с конкретным планом под себя. А если идём дальше в сопровождение — стоимость разбора засчитываю, то есть для вас он получается бесплатным.</p>
+    </div>
+    <a href="https://youtu.be/RmERKgA78mg" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-bottom:0"><svg viewBox="0 0 28 20" width="23" height="16" style="vertical-align:-3px;margin-right:8px"><rect width="28" height="20" rx="6" fill="#FF0000"/><path d="M11.3 5.8 L19.3 10 L11.3 14.2 Z" fill="#fff"/></svg>Сначала посмотреть видео — отвечает на 90% вопросов</a>
+  </div>
+</div>
+
+<!-- ═══════════ АКТУАЛЬНОЕ ═══════════ -->
+<div class="screen" id="s-actual">
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Актуальное</div><div class="header-spacer"></div></div>
+  <div class="content">
+    <div class="section-accent gold"></div>
+    <div class="section-title"><span class="tile-i gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.8 L5.5 13 H11 L10.2 21.2 L18.5 10.4 H12.4 Z"/></svg></span>Актуальное прямо сейчас</div>
+    <div class="section-subtitle">Конкурсы, дедлайны и наборы</div>
+    <div id="actual-list"></div>
+    <div class="annual">
+      <div class="annual-badge">🏆</div>
+      <div class="annual-label">Ежегодный конкурс</div>
+      <div class="annual-title">Бесплатное сопровождение по поступлению за рубеж</div>
+      <p class="annual-text">Раз в год я разыгрываю своё бесплатное сопровождение по поступлению — это шанс попасть ко мне в работу без оплаты. Анонс и условия публикую в январе–феврале. Чтобы не пропустить старт — следите за каналом: там я объявляю набор и открываю запись.</p>
+      <a href="https://t.me/romanovastudyabroad" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:0"><svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4 L3.5 11 L9.5 13 L11.5 19.5 L14.5 14 L20.5 4 Z"/><path d="M9.5 13 L20.5 4"/></svg>Следить за анонсом в канале</a>
     </div>
   </div>
 </div>
 
-<!-- FAQ -->
+<!-- ═══════════ FAQ ═══════════ -->
 <div class="screen" id="s-faq">
-  <div class="header"><button class="back-btn" onclick="go('s-home');setNav('nav-home')">‹</button><div class="header-logo">FAQ</div><div class="header-spacer"></div></div>
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">Вопросы</div><div class="header-spacer"></div></div>
   <div class="content">
-    <div class="section-accent navy"></div>
-    <div class="section-title">❓ Частые вопросы</div>
+    <div class="section-accent gold"></div>
+    <div class="section-title"><span class="tile-i gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.2 C4.5 5.2 5.3 4.6 6.3 4.6 H17.7 C18.7 4.6 19.5 5.2 19.5 6.2 V13.8 C19.5 14.8 18.7 15.4 17.7 15.4 H10.2 L6.3 18.8 V15.4 C5.3 15.4 4.5 14.8 4.5 13.8 Z"/><path d="M10.2 8.6 C10.5 7.1 13.7 7.3 13.2 9.3 C12.85 10.65 11.9 10.45 11.9 11.8"/><circle cx="11.9" cy="13.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>Частые вопросы</div>
+    <div class="section-subtitle" style="margin-bottom:8px">Коротко о главном — нажмите на вопрос.</div>
+
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Сколько стоят услуги? <span class="arrow">▼</span></div>
-      <div class="faq-a">🆓 Бесплатно: YouTube, Telegram, Сайт<br><br>🎯 Разбор профиля: 24,000₽ (разово)<br>🤝 Менторское: 90,000₽/мес (от 2 мес)<br>⭐ Индивидуальное: 180,000 – 600,000₽<br><br><button class="faq-cta" onclick="go('s-formats');setNav('nav-formats')">Посмотреть все форматы →</button></div>
+      <div class="faq-q" onclick="toggleFaq(this)">С чего начать поступление за рубеж? <span class="arrow">▼</span></div>
+      <div class="faq-a">С двух вещей: понять, куда реально можете поступить, и собрать сильный профиль. Бесплатно начните с платформы — там база программ и стипендий. Нужна помощь со стратегией — приходите на разбор профиля.<br><button class="faq-cta" onclick="go('s-platform')"><svg class="ic-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Открыть платформу →</button></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">В чём разница между форматами? <span class="arrow">▼</span></div>
-      <div class="faq-a">🆓 Бесплатные — YouTube и Telegram для самостоятельного изучения<br><br>🎯 Консультация — я даю стратегию, вы действуете сами<br><br>🤝 Менторское — вы делаете, я контролирую<br><br>⭐ Индивидуальное — я делаю всё за вас<br><br><button class="faq-cta" onclick="startTest()">Не знаете, что выбрать? Пройдите тест →</button></div>
+      <div class="faq-q" onclick="toggleFaq(this)">Что на платформе бесплатно? <span class="arrow">▼</span></div>
+      <div class="faq-a">Вся база программ (сотни тысяч вариантов) и все стипендии — бесплатно после регистрации. По подписке открываются гайды по странам и экзаменам, раздел «Повышение шансов» и трекер поступления.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Сколько длится процесс? <span class="arrow">▼</span></div>
-      <div class="faq-a">🎯 Консультация: 90 минут (разово)<br><br>🤝 Менторское: от 2 месяцев, в среднем 3–4<br><br>⭐ Индивидуальное: 6–12 месяцев в зависимости от дедлайнов<br><br>💡 Начинайте минимум за 12 месяцев до поступления!</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Чем платформа отличается от сопровождения? <span class="arrow">▼</span></div>
+      <div class="faq-a">Платформа — вы делаете сами, с материалами и базой. Сопровождение — я работаю с вами лично: проверяю документы, веду стратегию, довожу до результата. Платформа дешевле и доступна сразу; сопровождение — для тех, кому нужен человек рядом.<br><button class="faq-cta" onclick="go('s-support')"><svg class="ic-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg>Форматы сопровождения →</button></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Как начать работу? <span class="arrow">▼</span></div>
-      <div class="faq-a">🎯 Консультация: нажмите «Записаться» → оплатите → выберите время → встретимся онлайн<br><br>🤝 Менторское: оставьте заявку → изучу ситуацию → созвонимся → начнём<br><br>⭐ Индивидуальное: заявка → изучу профиль → созвонимся → договор → старт<br><br><button class="faq-cta" onclick="go('s-formats');setNav('nav-formats')">Выбрать формат →</button></div>
+      <div class="faq-q" onclick="toggleFaq(this)">Реально ли поступить со стипендией? <span class="arrow">▼</span></div>
+      <div class="faq-a">Реально — мои студенты получили $3M+ финансирования. Но это работа, а не лотерея: нужны сильный профиль, документы и часто высокие баллы за экзамены. Кто говорит, что «легко» — продаёт вам сказку.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Какие университеты в портфолио? <span class="arrow">▼</span></div>
-      <div class="faq-a">Клиенты поступили в 200+ университетов в 18 странах: 🇺🇸 США и Канада, 🇬🇧 Великобритания, 🇩🇪🇫🇷 Европа, 🇰🇷🇯🇵🇨🇳 Азия.<br><br>$3M+ стипендий · 1,500+ поступлений с 2020 года<br><br><button class="faq-cta" onclick="window.open('https://romanova-studyabroad.com/offers_and_feedbacks','_blank')">Отзывы и результаты на сайте →</button></div>
+      <div class="faq-q" onclick="toggleFaq(this)">Какой экзамен по английскому сдавать? <span class="arrow">▼</span></div>
+      <div class="faq-a">Зависит от требований конкретного вуза. Для граждан РФ есть важный нюанс: оператор IELTS (British Council) признан в России нежелательной организацией*, и оплата экзамена создаёт юридические риски. Поэтому чаще ведём на TOEFL, Cambridge или Duolingo (DET). Точные требования всегда смотрите на сайте программы.<br><span class="legal">*признана нежелательной организацией на территории РФ. Ситуация меняется — проверяйте перед оплатой.</span></div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Что если не поступлю? <span class="arrow">▼</span></div>
-      <div class="faq-a">⭐ Standard и Premium — гарантия поступления прописана в договоре.<br><br>Если не поступите — помогу подать на другие программы бесплатно в рамках того же цикла поступления.<br><br><button class="faq-cta" onclick="go('s-question')">Остались вопросы? Напишите →</button></div>
+      <div class="faq-q" onclick="toggleFaq(this)">Санкции и оплата из РФ — как с этим? <span class="arrow">▼</span></div>
+      <div class="faq-a">Часть программ и стипендий недоступна гражданам РФ, оплата российскими картами за рубежом не проходит. В базе есть фильтр «доступно гражданам РФ», а способы оплаты взносов и экзаменов разбираем в гайдах. Всё проверяйте перед подачей — ситуация меняется.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Можно ли бесплатную консультацию? <span class="arrow">▼</span></div>
-      <div class="faq-a">При оставлении заявки на сопровождение мы созваниваемся на 15–30 минут — обсудить ваш запрос и формат работы. Это бесплатно.<br><br>⚠️ На вводном созвоне я не разбираю профиль и не составляю стратегию — для этого нужна платная консультация.<br><br>Перед созвоном рекомендую посмотреть видео — оно отвечает на 90% вопросов.<br><br><button class="faq-cta" onclick="window.open('https://youtu.be/RmERKgA78mg','_blank')">📺 Смотреть видео →</button><br><button class="faq-cta" onclick="go('s-format-razbor')" style="margin-top:6px">🎯 Записаться на консультацию →</button><br><button class="faq-cta" onclick="go('s-application');appFormat=''" style="margin-top:6px">✉️ Оставить заявку на сопровождение →</button></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Как связаться с Дианой? <span class="arrow">▼</span></div>
-      <div class="faq-a">💬 Telegram: <a href="https://t.me/romanova_studyabroad" target="_blank" style="color:var(--burgundy)">@romanova_studyabroad</a><br>📺 YouTube: <a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" style="color:var(--burgundy)">@Romanova_StudyAbroad</a><br>🌐 Сайт: <a href="https://romanova-studyabroad.com" target="_blank" style="color:var(--burgundy)">romanova-studyabroad.com</a><br>📧 romanova.studyabroad@gmail.com<br><br>⚠️ В личных сообщениях — только организационные вопросы. По стратегии поступления — через платные форматы.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">Как записаться на личную работу? <span class="arrow">▼</span></div>
+      <div class="faq-a">Вход один — разбор профиля (90 минут). После него решаем, в каком формате работать дальше. Записаться — на экране «Сопровождение».<br><button class="faq-cta" onclick="go('s-support')"><svg class="ic-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg>Перейти к сопровождению →</button></div>
     </div>
   </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ═══════════ О ДИАНЕ ═══════════ -->
 <div class="screen" id="s-about">
-  <div class="header"><button class="back-btn" onclick="go('s-formats');setNav('nav-formats')">‹</button><div class="header-logo">О проекте</div><div class="header-spacer"></div></div>
+  <div class="header"><button class="back-btn" onclick="go('s-home')"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 L8 12 L15 19"/></svg></button><div class="header-logo">О проекте</div><div class="header-spacer"></div></div>
   <div class="content">
-    <div class="section-accent navy"></div>
-    <div class="section-title">ℹ️ О проекте</div>
-    <div class="section-subtitle">Romanova Study Abroad — образовательный проект о поступлении за рубеж</div>
+    <div class="section-accent green"></div>
+    <div class="section-title"><span class="tile-i emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.4" r="3"/><path d="M5.6 19 C5.6 15.1 8.6 13.2 12 13.2 C15.4 13.2 18.4 15.1 18.4 19"/></svg></span>О проекте</div>
     <div class="detail-card">
-      <div class="card-label">Основатель</div>
-      <div class="card-price" style="font-size:17px">Диана Романова</div>
-      <div class="card-desc" style="margin-top:8px">Сама прошла этот путь:<br>• Бакалавриат в Южной Корее — 4 года со стипендией<br>• Магистратура в США — со стипендией<br><br>С 2020 года помогаю другим. Работаю лично — без команды и конвейера.</div>
+      <div class="card-label green">Основатель</div>
+      <div class="card-price" style="font-size:19px">Диана Романова</div>
+      <div class="card-desc" style="margin-top:8px">Сама прошла этот путь: бакалавриат в Южной Корее (Solbridge) со стипендией, языковые курсы в King's College в Лос-Анджелесе, поступила в магистратуру в США (MSc in Entrepreneurship, UCSF) — но не поехала учиться: случился переезд в Москву, карьера в P&G и старт личного менторства по поступлению за рубеж. С 2020 года помогаю другим. Работаю лично — без команды и конвейера.</div>
     </div>
     <div class="stats-row">
+      <div class="stat-card"><span class="stat-card-num">1 500+</span><div class="stat-card-label">поступлений</div></div>
+      <div class="stat-card"><span class="stat-card-num">200+</span><div class="stat-card-label">клиентов</div></div>
       <div class="stat-card"><span class="stat-card-num">$3M+</span><div class="stat-card-label">стипендий</div></div>
-      <div class="stat-card"><span class="stat-card-num">200+</span><div class="stat-card-label">университетов</div></div>
-      <div class="stat-card"><span class="stat-card-num">1,500+</span><div class="stat-card-label">поступлений</div></div>
     </div>
-    <div class="highlight green"><p>Я не делаю за вас (если вы не хотите). Я показываю КАК делать самостоятельно. А если нужна помощь — я рядом.</p></div>
+    <div class="highlight green"><p>Я не делаю всё за вас, если вы этого не хотите. Я показываю, как делать самому. А нужна помощь — я рядом.</p></div>
+
+    <div class="list-head">Связаться</div>
     <div class="compact-links">
-      <a href="https://romanova-studyabroad.com/" target="_blank" class="compact-link" onclick="track('click','about_site')"><span class="compact-icon">🌐</span><div class="compact-body"><div class="compact-title">Сайт</div><div class="compact-desc">romanova-studyabroad.com</div></div><span class="compact-arrow">›</span></a>
-      <a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" class="compact-link" onclick="track('click','about_youtube')"><span class="compact-icon">📺</span><div class="compact-body"><div class="compact-title">YouTube</div><div class="compact-desc">@Romanova_StudyAbroad</div></div><span class="compact-arrow">›</span></a>
-      <a href="https://t.me/romanovastudyabroad" target="_blank" class="compact-link" onclick="track('click','about_tg')"><span class="compact-icon">💬</span><div class="compact-body"><div class="compact-title">Telegram канал</div><div class="compact-desc">@romanovastudyabroad</div></div><span class="compact-arrow">›</span></a>
+      <a href="/cdn-cgi/l/email-protection#43312c2e222d2c35226d303736273a2221312c222703242e222a2f6d202c2e" class="compact-link"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="M4.3 7 L12 12.4 L19.7 7"/></svg></span><div><div class="compact-title">Почта</div><div class="compact-desc"><span class="__cf_email__" data-cfemail="4b3924262a25243d2a65383f3e2f322a2939242a2f0b2c262a222765282426">[email&#160;protected]</span></div></div><span class="compact-arrow">›</span></a>
+      <a href="https://platform.romanova-studyabroad.com/" target="_blank" rel="noopener" class="compact-link"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.7 9.4 C9.7 6.6 14.3 6.6 14.3 9.5 C14.3 11.4 12 11.2 12 13.2"/><circle cx="12" cy="15.6" r="0.55" fill="currentColor" stroke="none"/></svg></span><div><div class="compact-title">Поддержка на платформе</div><div class="compact-desc">Для зарегистрированных · раздел обращений</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://t.me/romanovastudyabroad" target="_blank" rel="noopener" class="compact-link"><span class="fe-ico terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4 L3.5 11 L9.5 13 L11.5 19.5 L14.5 14 L20.5 4 Z"/><path d="M9.5 13 L20.5 4"/></svg></span><div><div class="compact-title">Telegram-канал</div><div class="compact-desc">@romanovastudyabroad · написать лично</div></div><span class="compact-arrow">›</span></a>
+    </div>
+
+    <div class="list-head">Соцсети</div>
+    <div class="compact-links">
+      <a href="https://www.youtube.com/@Romanova_StudyAbroad" target="_blank" rel="noopener" class="compact-link"><span class="yt-ico"><svg viewBox="0 0 28 20" width="26" height="19"><rect width="28" height="20" rx="6" fill="#FF0000"/><path d="M11.3 5.8 L19.3 10 L11.3 14.2 Z" fill="#fff"/></svg></span><div><div class="compact-title">YouTube</div><div class="compact-desc">@Romanova_StudyAbroad</div></div><span class="compact-arrow">›</span></a>
+      <a href="https://vk.com/romanova_studyabroad" target="_blank" rel="noopener" class="compact-link"><span class="fe-ico emer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg></span><div><div class="compact-title">ВКонтакте</div><div class="compact-desc">vk.com/romanova_studyabroad</div></div><span class="compact-arrow">›</span></a>
     </div>
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
-<nav class="bottom-nav">
-  <button class="nav-item active" id="nav-home" onclick="go('s-home');setNav('nav-home')"><span class="nav-icon">🏠</span><span class="nav-label">Главная</span></button>
-  <button class="nav-item" id="nav-test" onclick="go('s-test-start');setNav('nav-test')"><span class="nav-icon">🎯</span><span class="nav-label">Тест</span></button>
-  <button class="nav-item" id="nav-formats" onclick="go('s-formats');setNav('nav-formats')"><span class="nav-icon">📋</span><span class="nav-label">Форматы</span></button>
-  <button class="nav-item" id="nav-faq" onclick="go('s-faq');setNav('nav-faq')"><span class="nav-icon">❓</span><span class="nav-label">FAQ</span></button>
-  <button class="nav-item" id="nav-more" onclick="go('s-about');setNav('nav-more')"><span class="nav-icon">ℹ️</span><span class="nav-label">О проекте</span></button>
-</nav>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Реестр ссылок (единый источник) ── */
+  var L = {
+    platform: 'https://platform.romanova-studyabroad.com/',
+    razbor:   'https://planerka.app/diana-romanova-iwjlix/90min',
+    tg:       'https://t.me/romanovastudyabroad'
+  };
 
-<script>
-  var answers = {};
-  var appFormat = '';
-  var prevScreen = 's-home';
-
-  // ====== ИНТЕГРАЦИИ ======
-  var _t = ['8230063541', 'AAEgjGiTsOGOQjkHKXuQIkc9A0RFdk2ROkg'].join(':');
-  var TG_CHAT_ID = '6936145826';
-  var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxWa43tPuDEZQBnxyJdJmMu-JYUsPCOg2uEdsj1XHBmDLHPvP_zGoXYRupPlfp3sp54Yw/exec';
-
-  function sendToTelegram(text) {
-    fetch('https://api.telegram.org/bot' + _t + '/sendMessage', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({chat_id: TG_CHAT_ID, text: text, parse_mode: 'HTML'})
-    }).catch(function(){});
-  }
-
-  function track(action, detail) {
-    fetch(SHEETS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({type:'event', action: action, details: detail || ''})
-    }).catch(function(){});
-  }
-  // ========================
-
+  /* ── Навигация ── */
   function go(id) {
-    prevScreen = (document.querySelector('.screen.active') || {id: 's-home'}).id;
     document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0,0);
-    track('screen', id);
-  }
-
-  function setNav(id) {
-    document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active'); });
     var el = document.getElementById(id);
     if (el) el.classList.add('active');
+    window.scrollTo(0,0);
   }
 
-  function startTest() {
-    answers = {};
-    go('s-test-q1');
-    setNav('nav-test');
-  }
-
-  function answer(q, val) {
-    answers[q] = val;
-    if (q===1) go('s-test-q2');
-    else if (q===2) go('s-test-q3');
+  /* ── Тест-диспетчер ── */
+  var ans = {};
+  function startTest(){ ans = {}; go('s-test-q1'); }
+  function answer(q, v){
+    ans[q] = v;
+    if (q === 1) go('s-test-q2');
+    else if (q === 2) go('s-test-q3');
     else showResult();
   }
 
-  function submitForm() {
-    var name = document.getElementById('f-name').value.trim();
-    var tg = document.getElementById('f-tg').value.trim();
-    var country = document.getElementById('f-country').value.trim();
-    var edu = document.getElementById('f-edu').value;
-    var format = document.getElementById('f-format').value;
-    var when = document.getElementById('f-when').value;
-    var countries = document.getElementById('f-countries').value.trim();
-    var direction = document.getElementById('f-direction').value.trim();
-    var stipend = document.getElementById('f-stipend').value;
+  var RG = { globe:"<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M3.5 12 H20.5\"/><path d=\"M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z\"/>", target:"<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"3.8\"/><circle cx=\"12\" cy=\"12\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/>", people:"<circle cx=\"9\" cy=\"9\" r=\"2.7\"/><path d=\"M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2\"/><circle cx=\"16.4\" cy=\"8\" r=\"2.1\"/><path d=\"M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8\"/>", star:"<path d=\"M12 3.6 L14.3 8.9 L20 9.4 L15.7 13.2 L17 18.9 L12 15.8 L7 18.9 L8.3 13.2 L4 9.4 L9.7 8.9 Z\"/>", grid:"<rect x=\"4\" y=\"4\" width=\"7\" height=\"7\" rx=\"1.6\"/><rect x=\"13\" y=\"4\" width=\"7\" height=\"7\" rx=\"1.6\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"7\" rx=\"1.6\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"7\" rx=\"1.6\"/>" };
+  function rsvg(n){ return '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+(RG[n]||'')+'</svg>'; }
+  function mkHero(tone, icon, title, ctx){
+    return '<div class="result-hero ' + tone + '"><span class="r-emblem">' + rsvg(icon) + '</span><div class="result-badge">✓ Ваша рекомендация</div>' +
+           '<div class="result-title">' + title + '</div><div class="result-context">' + ctx + '</div></div>';
+  }
+  function aBtn(cls, href, label){ return '<a class="btn ' + cls + '" href="' + href + '" target="_blank" rel="noopener">' + label + '</a>'; }
+  function goBtn(cls, screen, label){ return '<button class="btn ' + cls + '" onclick="go(\'' + screen + '\')">' + label + '</button>'; }
 
-    if (!name || !tg || !country || !edu || !format || !when) {
-      alert('Пожалуйста, заполните все обязательные поля.');
-      return;
+  function showResult(){
+    var a1 = ans[1], a2 = ans[2], a3 = ans[3];
+    var hero, body;
+
+    if (a3 === 'all' || a2 === 'nereshil') {
+      hero = mkHero('', 'grid', 'Два пути на выбор',
+        'Платформа — если готовы действовать сами: вся база бесплатно, материалы по подписке. Сопровождение — если хотите, чтобы я вела вас лично. Вход в личную работу — через разбор профиля.');
+      body = aBtn('btn-secondary', L.platform, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Платформа') + goBtn('btn-ghost', 's-support', '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg>Сопровождение');
+    }
+    else if (a2 === 'sam' || a1 === 'izuchayu') {
+      hero = mkHero('', 'globe', 'Ваш путь — платформа',
+        'Вам подойдёт платформа — там бесплатно вся база программ и стипендий, а гайды и трекер открываются по подписке. Начните с неё, а если позже понадобится личная работа — я рядом.');
+      body = aBtn('btn-secondary', L.platform, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Открыть платформу') + aBtn('btn-ghost', L.razbor, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Записаться на разбор');
+    }
+    else if (a2 === 'support' && a3 === 'do24') {
+      hero = mkHero('', 'target', 'Начните с разбора профиля',
+        'Лучшая точка входа для вас — разбор профиля. За 90 минут разберём вашу ситуацию, и вы поймёте, нужна ли дальше моя помощь. Стоимость засчитывается, если перейдёте на сопровождение.');
+      body = aBtn('btn-primary', L.razbor, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Записаться на разбор') + aBtn('btn-ghost', L.platform, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Открыть платформу');
+    }
+    else if (a2 === 'support' && a3 === '90-180') {
+      hero = mkHero('', 'people', 'Вам подойдёт менторское',
+        'По вашему запросу подойдёт менторское сопровождение. Но начинаем все одинаково — с разбора профиля: я смотрю вашу ситуацию вживую и только потом беру в работу. Разбор засчитывается при переходе.');
+      body = aBtn('btn-primary', L.razbor, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Начать с разбора') + aBtn('btn-ghost', L.platform, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Открыть платформу');
+    }
+    else if (a2 === 'support' && a3 === '180-360') {
+      hero = mkHero('', 'star', 'Вам подойдёт индивидуальное',
+        'По вашему запросу подойдёт индивидуальное сопровождение (Standard). Но начинаем все одинаково — с разбора профиля: я смотрю вашу ситуацию вживую и только потом беру в работу. Разбор засчитывается при переходе.');
+      body = aBtn('btn-primary', L.razbor, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Начать с разбора') + goBtn('btn-ghost', 's-support', '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg>Сравнить форматы');
+    }
+    else if (a2 === 'support' && a3 === '360plus') {
+      hero = mkHero('', 'star', 'Вам подойдёт Premium',
+        'По вашему запросу подойдёт индивидуальное сопровождение (Premium). Но начинаем все одинаково — с разбора профиля: я смотрю вашу ситуацию вживую и только потом беру в работу. Разбор засчитывается при переходе.');
+      body = aBtn('btn-primary', L.razbor, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Начать с разбора');
+    }
+    else {
+      hero = mkHero('', 'grid', 'Два пути на выбор',
+        'Платформа — если готовы действовать сами: вся база бесплатно, материалы по подписке. Сопровождение — если хотите, чтобы я вела вас лично. Вход в личную работу — через разбор профиля.');
+      body = aBtn('btn-secondary', L.platform, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Платформа') + goBtn('btn-ghost', 's-support', '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="2.7"/><path d="M4.4 18.2 C4.4 14.6 6.6 13.2 9 13.2 C11.4 13.2 13.6 14.6 13.6 18.2"/><circle cx="16.4" cy="8" r="2.1"/><path d="M15.5 13.3 C17.8 13.2 19.7 14.6 19.7 17.8"/></svg>Сопровождение');
     }
 
-    var msg = '📬 <b>Новая заявка на сопровождение</b>\n\n' +
-      '👤 Имя: ' + name + '\n' +
-      '💬 Telegram: ' + tg + '\n' +
-      '🌍 Страна: ' + country + '\n' +
-      '🎓 Образование: ' + edu + '\n' +
-      '📋 Формат: ' + format + '\n' +
-      '📅 Поступление: ' + when +
-      (countries ? '\n🗺 Страны: ' + countries : '') +
-      (direction ? '\n📚 Направление: ' + direction : '') +
-      (stipend ? '\n💰 Стипендии: ' + stipend : '');
-    sendToTelegram(msg);
-
-    fetch(SHEETS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({type:'application', name:name, telegram:tg, country:country, level:edu, format:format, timing:when, countries:countries, direction:direction, stipend:stipend})
-    }).catch(function(){});
-
-    track('application_submitted', format);
-
-    document.getElementById('application-content').innerHTML =
-      '<div class="form-success">' +
-      '<div class="form-success-icon">✅</div>' +
-      '<div class="form-success-title">Заявка отправлена!</div>' +
-      '<div class="form-success-text">Диана изучит вашу информацию и свяжется с вами в Telegram в течение 24–48 часов.<br><br>Пока ждёте — посмотрите видео, которое отвечает на 90% вопросов.</div>' +
-      '</div>' +
-      '<a href="https://youtu.be/RmERKgA78mg" target="_blank" class="btn btn-primary">📺 Смотреть видео</a>' +
-      '<div class="text-links"><button class="text-link" onclick="go(\'s-home\');setNav(\'nav-home\')">Вернуться на главную</button></div>';
-  }
-
-  function showResult() {
-    var a1=answers[1], a2=answers[2], a3=answers[3];
-    var hero='', content='';
-
-    var labels1 = {izuchayu:'Только изучаю тему', vybirayu:'Выбираю страну/программу', gotovlus:'Готовлюсь к подаче', podal:'Уже подал(а)'};
-    var labels2 = {sam:'Самостоятельно', support:'С поддержкой эксперта', neznayu:'Пока не знаю'};
-    var labels3 = {do24:'До 24,000₽', 'do20':'До 24,000₽', '90-180':'90–180k', '180-360':'180–360k', '360plus':'360k+', all:'Все варианты'};
-
-    fetch(SHEETS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({type:'event', action:'test_complete', details: (labels1[a1]||a1) + ' / ' + (labels2[a2]||a2) + ' / ' + (labels3[a3]||a3)})
-    }).catch(function(){});
-
-    if (a3==='all' || a2==='neznayu') { hero=mkHero('Все форматы — от бесплатного до VIP','Давайте посмотрим на все варианты вместе'); content=result7(); }
-    else if (a3==='360plus') { hero=mkHero('Индивидуальное сопровождение','Вы готовы инвестировать в максимальный результат — это правильный выбор.'); content=result6(); }
-    else if (a1==='izuchayu' && a2==='sam') { hero=mkHero('Начните с бесплатных материалов — это идеальный старт','Вы только изучаете тему — и это отличная отправная точка. Никаких вложений пока не нужно.'); content=result1(); }
-    else if (a1==='vybirayu' && a2==='sam') { hero=mkHero('Начните с бесплатного + следите за платформой','Вы выбираете страну и хотите разобраться самостоятельно — YouTube и Telegram дадут всё необходимое для старта.'); content=result2(); }
-    else if (a1==='gotovlus' && a2==='sam') { hero=mkHero('Консультация — лучший следующий шаг','Вы готовитесь к подаче и хотите действовать сами — консультация поможет выстроить точную стратегию.'); content=result3(); }
-    else if (a2==='support' && (a3==='90-180'||a3==='do24'||a3==='do20')) { hero=mkHero('Менторское сопровождение','Вы хотите поддержку эксперта — менторский формат даст регулярную обратную связь без потери самостоятельности.'); content=result4(); }
-    else if (a2==='support' && a3==='180-360') { hero=mkHero('Менторское или Индивидуальное','Вы готовы инвестировать в качественную поддержку — у вас есть два сильных варианта.'); content=result5(); }
-    else { hero=mkHero('Все форматы работы','Давайте посмотрим на все варианты вместе'); content=result7(); }
-
+    body = aBtn('btn-primary', L.razbor, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 9.5 H20"/><path d="M8 3.5 V6.5"/><path d="M16 3.5 V6.5"/></svg>Записаться на разбор') + aBtn('btn-secondary', L.platform, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12 H20.5"/><path d="M12 3.5 C14.8 6 16 9 16 12 C16 15 14.8 18 12 20.5 C9.2 18 8 15 8 12 C8 9 9.2 6 12 3.5 Z"/></svg>Открыть платформу') + aBtn('btn-ghost', L.tg, '<svg class="btn-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 4 L3.5 11 L9.5 13 L11.5 19.5 L14.5 14 L20.5 4 Z"/><path d="M9.5 13 L20.5 4"/></svg>Перейти в Telegram-канал') + '<div class="text-links"><button class="text-link" onclick="startTest()">Пройти тест ещё раз</button></div>';
     document.getElementById('result-hero-block').innerHTML = hero;
-    document.getElementById('result-content').innerHTML = content;
+    document.getElementById('result-content').innerHTML = body;
     go('s-result');
   }
 
-  function mkHero(title, context) {
-    return '<div class="result-hero"><div class="result-badge">✅ Ваша рекомендация</div><div class="result-title">'+title+'</div><div class="result-context">'+context+'</div></div>';
-  }
-
-  function result1() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none">'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">📺</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">YouTube</div><div style="font-size:12px;color:#666">400+ видео о поступлении в США, Европу и Азию</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">💬</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Telegram</div><div style="font-size:12px;color:#666">Ежедневные посты с кейсами и стратегиями</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0">'+'<span style="font-size:22px">📚</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Сайт</div><div style="font-size:12px;color:#666">Статьи, чек-листы, инструкции</div></div></div>'+'</div>'+
-      '<div class="detail-card gold"><div class="card-label gold">🚀 Платформа в разработке</div><div class="card-desc">Подпишитесь на Telegram, чтобы первыми узнать о запуске (план лето 2026)</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-format-free\')">🆓 Перейти к бесплатным материалам</button>'+
-      '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
-  }
-
-  function result2() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none">'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">📺</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">YouTube</div><div style="font-size:12px;color:#666">400+ видео о поступлении в США, Европу и Азию</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e8e3d8">'+'<span style="font-size:22px">💬</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Telegram</div><div style="font-size:12px;color:#666">Ежедневные посты с кейсами и стратегиями</div></div></div>'+'<div style="display:flex;align-items:center;gap:10px;padding:10px 0">'+'<span style="font-size:22px">📚</span><div><div style="font-size:13px;font-weight:700;color:#1A3A52">Сайт</div><div style="font-size:12px;color:#666">Статьи, чек-листы, инструкции</div></div></div>'+'</div>'+
-      '<div class="detail-card gold"><div class="card-label gold">🚀 Образовательная платформа</div><div class="card-desc">В разработке — пошаговые материалы по самостоятельному поступлению. Подпишитесь, чтобы не пропустить запуск (план лето 2026).</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-format-free\')">🆓 Перейти к бесплатным материалам</button>'+
-      '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
-  }
-
-  function result3() {
-    return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🎯 Разбор профиля</div><div class="card-price">24,000₽ · 90 минут</div><div class="card-desc">Анализ профиля, оценка шансов, стратегия и план на 6–12 месяцев. 1,500+ поступлений.<br><br>💡 Если после разбора профиля решим работать вместе — 24,000₽ засчитываются в стоимость сопровождения.</div></div>'+
-      '<div class="detail-card"><div style="font-size:28px;margin-bottom:6px">🆓</div><div class="card-label">Бесплатные материалы</div><div class="card-desc" style="margin-top:6px"><b>YouTube</b> — 400+ видео о поступлении в США, Европу и Азию<br><b>Telegram</b> — ежедневные посты с кейсами и стратегиями<br><b>Сайт</b> — статьи, чек-листы, инструкции</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-format-razbor\')">🎯 Подробнее о разборе профиля</button>'+
-      '<button class="btn btn-ghost" onclick="go(\'s-format-free\')">🆓 Бесплатные материалы</button>'+
-      '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос перед записью?</button></div>';
-  }
-
-  function result4() {
-    return '<div class="detail-card featured" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское сопровождение</div><div class="card-price">90,000₽/мес · от 2 мес</div><div class="card-desc">Еженедельные встречи · Проверка документов · Telegram-поддержка · Контроль дедлайнов</div></div>'+
-      '<div class="detail-card"><div class="card-label">Не уверены? Начните с разбора профиля</div><div class="card-price" style="font-size:16px">24,000₽ · 90 минут</div><div class="card-desc">Поймёте, нужна ли дальнейшая помощь. Если решим работать вместе — 24,000₽ засчитываются в стоимость сопровождения.</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-application\');appFormat=\'Менторское\'">✉️ Оставить заявку на менторское</button>'+
-      '<a href="https://planerka.app/diana-romanova-iwjlix/90min" target="_blank" class="btn btn-ghost">🎯 Сначала консультация (24,000₽)</a>'+
-      '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
-  }
-
-  function result5() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">🤝 Менторское ⭐</div><div class="card-price">90,000₽/мес</div><div class="card-desc">Вы делаете, Диана контролирует · Регулярная поддержка от 2 месяцев</div></div>'+
-      '<div class="detail-card featured"><div class="card-label">⭐ Индивидуальное Starter</div><div class="card-price">180,000₽</div><div class="card-desc">Подача на 1–2 программы · Диана делает всё за вас</div></div>'+
-      '<button class="btn btn-primary" onclick="go(\'s-application\');appFormat=\'\'" >✉️ Оставить заявку</button>'+
-      '<button class="btn btn-ghost" onclick="go(\'s-format-mentor\')">🤝 Подробнее о менторском</button>'+
-      '<button class="btn btn-ghost" onclick="go(\'s-format-individual\')">⭐ Подробнее об индивидуальном</button>'+
-      '<div class="text-links"><button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
-  }
-
-  function result6() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none"><div class="card-label">📦 STARTER</div><div class="card-price">180,000₽</div><div class="card-desc">1–2 программы</div></div>'+
-      '<div class="detail-card featured"><div class="card-label">📦 STANDARD ⭐</div><div class="card-price">360,000₽</div><div class="card-desc">3–5 программ + стипендии · Максимум шансов</div></div>'+
-      '<div class="detail-card gold"><div class="card-label gold">📦 PREMIUM</div><div class="card-price">600,000₽</div><div class="card-desc">5+ программ · VIP до офферов</div></div>'+
-      '<button class="btn btn-gold" onclick="go(\'s-application\');appFormat=\'Индивидуальное\'">✉️ Оставить заявку</button>'+
-      '<a href="https://romanova-studyabroad.com/individual" target="_blank" class="btn btn-ghost">📋 Подробнее на сайте</a>'+
-      '<div class="text-links">'+
-      '<button class="text-link" onclick="go(\'s-format-razbor\')">Не уверены? Начните с разбора профиля</button>'+
-      '<button class="text-link" onclick="go(\'s-question\')">Есть вопрос? Написать Диане</button></div>';
-  }
-
-  function result7() {
-    return '<div class="detail-card" style="margin-top:0;border-radius:0 0 12px 12px;border-top:none">'+
-      '<div class="format-card" onclick="go(\'s-format-free\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🆓</span><div class="format-card-body"><div class="format-card-title">Бесплатно</div><div class="format-card-desc">YouTube, Telegram, Сайт</div></div><span class="format-card-arrow">›</span></div>'+
-      '<div class="format-card" onclick="go(\'s-format-razbor\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🎯</span><div class="format-card-body"><div class="format-card-title">Разбор профиля</div><div class="format-card-price" style="font-size:15px">24,000₽</div></div><span class="format-card-arrow">›</span></div>'+
-      '<div class="format-card" onclick="go(\'s-format-mentor\')" style="margin-bottom:8px;border-radius:10px"><span style="font-size:22px">🤝</span><div class="format-card-body"><div class="format-card-title">Менторское</div><div class="format-card-price" style="font-size:15px">90,000₽/мес</div></div><span class="format-card-arrow">›</span></div>'+
-      '<div class="format-card featured" onclick="go(\'s-format-individual\')" style="margin-bottom:0;border-radius:10px"><span style="font-size:22px">⭐</span><div class="format-card-body"><div class="format-card-title">Индивидуальное</div><div class="format-card-price" style="font-size:15px">180,000 – 600,000₽</div></div><span class="format-card-arrow" style="color:var(--burgundy)">›</span></div>'+
-      '</div>'+
-      '<div class="text-links">'+
-      '<button class="text-link" onclick="startTest()">Пройти тест ещё раз</button>'+
-      '<button class="text-link" onclick="go(\'s-question\')">Написать Диане с вопросом</button></div>';
-  }
-
-  function toggleFaq(el) {
-    var ans = el.nextElementSibling;
-    var isOpen = el.classList.contains('open');
+  /* ── FAQ ── */
+  function toggleFaq(el){
+    var ansEl = el.nextElementSibling;
+    var open = el.classList.contains('open');
     document.querySelectorAll('.faq-q').forEach(function(q){ q.classList.remove('open'); q.nextElementSibling.classList.remove('show'); });
-    if (!isOpen) { el.classList.add('open'); ans.classList.add('show'); }
+    if (!open) { el.classList.add('open'); ansEl.classList.add('show'); }
   }
+
+  /* Раскрывающиеся карточки форматов */
+  function toggleX(el){ el.closest('.xcard').classList.toggle('open'); }
+
+  /* ── «Актуальное» ──
+     Живой фид (Apps Script JSON) подключает Claude Code — техслой.
+     Здесь пусто → показываем пустое состояние. Формат элемента:
+     { title, desc, due, url }  (due — текст дедлайна, напр. «до 15 авг»). */
+  var ACTUAL = [];
+  function renderActual(){
+    var list = document.getElementById('actual-list');
+    if (!ACTUAL || !ACTUAL.length) { list.innerHTML = ''; return; }
+    list.innerHTML = ACTUAL.map(function(it){
+      return '<a class="actual-card" href="' + it.url + '" target="_blank" rel="noopener">' +
+        (it.due ? '<span class="actual-due">⏰ ' + it.due + '</span>' : '') +
+        '<div class="actual-title">' + it.title + '</div>' +
+        '<div class="actual-desc">' + (it.desc || '') + '</div>' +
+        '<span class="actual-go">Подробнее →</span></a>';
+    }).join('');
+  }
+  renderActual();
+
+  /* ── Живой счётчик программ ──
+     Подключает Claude Code (REST к базе, округление до десятков тысяч).
+     Здесь — статичный fallback «330 000+» (см. техслой спецификации). */
 </script>
 </body>
 </html>
