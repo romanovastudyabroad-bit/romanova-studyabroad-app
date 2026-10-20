@@ -138,31 +138,9 @@
     return config.links.personalTelegram + "?text=" + encodeURIComponent(message);
   }
 
-  function openPersonalTelegram(message, event) {
-    const url = personalTelegramUrl(message);
-    const isMiniApp = tg && (tg.initData || (tg.platform && tg.platform !== "unknown"));
+  function openPersonalTelegram(message) {
     haptic("tap");
-
-    if (isMiniApp && typeof tg.openTelegramLink === "function") {
-      try {
-        tg.openTelegramLink(url);
-      } catch (_) {
-        if (!event) window.location.assign(url);
-        return;
-      }
-      if (event) event.preventDefault();
-      // Telegram 7.0+ keeps the Mini App above the destination chat.
-      if (typeof tg.close === "function") {
-        try {
-          tg.close();
-        } catch (_) {
-          // The chat link has already been handed to Telegram.
-        }
-      }
-      return;
-    }
-
-    if (!event) window.location.assign(url);
+    window.open(personalTelegramUrl(message), "_blank", "noopener,noreferrer");
   }
 
   function scrollToActualItem(itemId) {
@@ -397,6 +375,8 @@
       const link = document.createElement("a");
       link.className = "promotion-product";
       link.href = personalTelegramUrl(product.message);
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
       link.setAttribute("aria-label", "Получить скидку на " + product.name);
 
       const copy = document.createElement("span");
@@ -415,7 +395,6 @@
       prices.append(regular, discounted);
 
       link.append(copy, prices);
-      link.addEventListener("click", (event) => openPersonalTelegram(product.message, event));
       products.append(link);
     });
 
@@ -425,7 +404,14 @@
       ? "Предложение начнёт действовать 20 октября и завершится 20 ноября 2026 года."
       : "Предложение действует до 20 ноября 2026 года включительно.";
 
-    article.append(callout, products, note);
+    const contact = document.createElement("a");
+    contact.className = "promotion-contact";
+    contact.href = config.links.personalTelegram;
+    contact.target = "_blank";
+    contact.rel = "noopener noreferrer";
+    contact.textContent = "Написать Диане в Telegram · @romanova_studyabroad";
+
+    article.append(callout, products, contact, note);
   }
 
   function renderFaq() {
