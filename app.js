@@ -138,8 +138,31 @@
     return config.links.personalTelegram + "?text=" + encodeURIComponent(message);
   }
 
-  function openPersonalTelegram(message) {
-    openExternal(personalTelegramUrl(message));
+  function openPersonalTelegram(message, event) {
+    const url = personalTelegramUrl(message);
+    const isMiniApp = tg && (tg.initData || (tg.platform && tg.platform !== "unknown"));
+    haptic("tap");
+
+    if (isMiniApp && typeof tg.openTelegramLink === "function") {
+      try {
+        tg.openTelegramLink(url);
+      } catch (_) {
+        if (!event) window.location.assign(url);
+        return;
+      }
+      if (event) event.preventDefault();
+      // Telegram 7.0+ keeps the Mini App above the destination chat.
+      if (typeof tg.close === "function") {
+        try {
+          tg.close();
+        } catch (_) {
+          // The chat link has already been handed to Telegram.
+        }
+      }
+      return;
+    }
+
+    if (!event) window.location.assign(url);
   }
 
   function scrollToActualItem(itemId) {
@@ -371,10 +394,10 @@
     const products = document.createElement("div");
     products.className = "promotion-products";
     config.promotion.products.forEach((product) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "promotion-product";
-      button.setAttribute("aria-label", "Получить скидку на " + product.name);
+      const link = document.createElement("a");
+      link.className = "promotion-product";
+      link.href = personalTelegramUrl(product.message);
+      link.setAttribute("aria-label", "Получить скидку на " + product.name);
 
       const copy = document.createElement("span");
       const name = document.createElement("strong");
@@ -391,9 +414,9 @@
       discounted.textContent = product.discountPrice;
       prices.append(regular, discounted);
 
-      button.append(copy, prices);
-      button.addEventListener("click", () => openPersonalTelegram(product.message));
-      products.append(button);
+      link.append(copy, prices);
+      link.addEventListener("click", (event) => openPersonalTelegram(product.message, event));
+      products.append(link);
     });
 
     const note = document.createElement("p");

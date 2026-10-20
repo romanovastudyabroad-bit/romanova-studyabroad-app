@@ -1649,12 +1649,15 @@ details.service-details {
   border: 1px solid #e7dccb;
   border-radius: 13px;
   color: var(--text);
+  cursor: pointer;
   display: grid;
+  font: inherit;
   gap: 10px;
   grid-template-columns: minmax(0, 1fr) auto;
   min-height: 58px;
   padding: 10px 12px;
   text-align: left;
+  text-decoration: none;
   width: 100%;
 }
 
